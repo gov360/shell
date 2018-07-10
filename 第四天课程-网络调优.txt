@@ -1,0 +1,175 @@
+网络调优
+
+web应用从接收用户请求 到 处理请求 ， 返回数据给用户【返回一包url给用户】。
+
+PV	page view 一个用户访问一次页面记为一个pv。
+
+网站统计一个重要参数：统计pv量
+
+比如有一个200wPV/天的网站。
+计算带宽： Mbit/s
+
+峰值pv：2000000/ 86400 * 峰值倍数[5-8倍]= 184 PV/s
+
+页面大小：2Mbyte
+
+带宽= 2 * 184 * 8 = 2944Mbit/s
+
+
+1 cdn加速，cdn公司提供。
+2 手机端 浏览页面的大小远远小于电脑的web页面。
+3 用户客户端缓存。
+
+
+    web    mysqlAB
+    nagios[web 备机]
+
+云服务： LB负载均衡   web自己搭建   数据库-rds
+
+使用路由协议分发：
+ospf 最短路径优先协议， ospf协议会根据路由消耗最短的路径寻址。如果多条路径消耗相同，会对这些路径进行轮询访问。
+
+首页分发：拆分业务。不同的业务使用不同的集群。
+
+=======================================================================
+
+LVS：4层协议。 keepalive 单播、组播==多播、广播
+   DR  直连。
+   NAT 
+   TUN  
+   * full-nat
+
+nginx：7层协议。
+   分发更灵活
+   缺点：相对于lvs会变慢，消耗更多资源。
+   
+
+=======================================================================
+
+公司 ： 挣钱 ， 盈利 = 赚的 - 花的
+部门： 财务  行政  销售 。。。。  技术部【产品、研发、运维、测试、数据库管理】
+部门开销： 做预算， 领导审批
+运维预算： 服务器成本、带宽成本、cdn成本。。。
+30w
+
+领导说： 给你4台服务器，给我设计一个架构。
+
+3个月试用期。给公司降低风险。
+
+======================================================================================
+
+tcp连接：三次握手 、 四次断开
+
+/etc/sysctl.conf     
+/proc/
+
+ulimit -n   用户能够同时打开的最大文件数量。
+102400
+临时修改：
+ulimit -HSn 10240
+
+cat /etc/security/limits.conf
+apache          hard    nofile  102400
+apache          soft    nofile  102400
+或
+*               hard    nofile  102400
+*               soft    nofile  102400
+
+
+内核调优
+
+/proc/sys/net/core/somaxconn   某一个端口能有多少个listen状态的服务。一个端口能够接受的请求队列长度。主要用于监听。默认128 ，调高，1000-2000
+  
+# prefork MPM
+# StartServers: number of server processes to start
+# MinSpareServers: minimum number of server processes which are kept spare
+# MaxSpareServers: maximum number of server processes which are kept spare
+# ServerLimit: maximum value for MaxClients for the lifetime of the server
+# MaxClients: maximum number of server processes allowed to start
+# MaxRequestsPerChild: maximum number of requests a server process serves
+<IfModule prefork.c>
+StartServers       8
+MinSpareServers    5
+MaxSpareServers   20
+ServerLimit      256
+MaxClients       256
+MaxRequestsPerChild  4000
+</IfModule>
+
+
+<IfModule prefork.c>
+StartServers       50
+MinSpareServers    45
+MaxSpareServers   70
+ServerLimit      1500
+MaxClients       1500
+MaxRequestsPerChild  10000
+</IfModule>
+
+服务器并发量 = somaxconn  +  MaxClients
+
+cd /proc/sys/net/ipv4/
+tcp_syn_retries 默认5，发送syn信号重试次数。建议改为2.
+tcp_max_syn_backlog 默认1024，服务器同时能够接收多少个syn信号。适当调高。
+tcp_synack_retries 默认5，发送syn+ack信号重试次数。建议改成2.
+tcp_syncookies 默认1，表示开启。 防止tcp半连接攻击。
+	DOS攻击一种。  肉机。
+	天猫 京东 ----女人
+
+tcp_retries1 tcp连接重试1，默认3次，放弃一个tcp连接【没有建立过连接状态】前重试的次数。
+tcp_retries2 tcp连接重试2，默认15次，放弃一个已经建立好的tcp连接，重试次数。建议调整为5次。
+
+
+tcp接受缓冲区和发送缓冲区：
+[root@localhost ipv4]# cat tcp_rmem    接收缓冲区大小【单位字节】 最小   最大   默认
+4096    87380   4194304
+[root@localhost ipv4]# cat tcp_wmem    发送缓冲区大小
+4096    16384   4194304   
+[root@localhost ipv4]# cat tcp_mem   当前所有缓冲区中使用内存的总量【单位分页，4kb】。
+176928  235904  353856    低    压力【当达到压力值，新的tcp请求将分配最小的缓冲区大小】  上限，
+
+窗口：接收窗口和发送窗口
+[root@localhost core]# cat rmem_default  接收窗口默认
+124928 * 2
+[root@localhost core]# cat wmem_default  发送窗口默认
+124928 * 2
+[root@localhost core]# cat rmem_max 接收窗口最大值
+124928 * 4
+[root@localhost core]# cat wmem_max 发送窗口最大值
+124928
+
+
+tcp长连接：
+[root@localhost ipv4]# cat tcp_keepalive_intvl  探测间隔，建议修改为30秒
+75
+[root@localhost ipv4]# cat tcp_keepalive_probes 探针，探测连接是否保持。修改为2或3次
+9
+[root@localhost ipv4]# cat tcp_keepalive_time 默认长连接时间保持7200秒，2个小时。建议1800秒
+
+
+
+四次断开：timewait状态的回收
+[root@localhost ipv4]# cat tcp_tw_recycle   time-wait快速回收。一般不建议开启。 
+0
+[root@localhost ipv4]# cat tcp_tw_reuse     time-wait复用，处于tw状态的连接，可以作为新的tcp连接来使用。一般不建议开启。
+0
+cat tcp_fin_timeout   time-wait默认回收时间。可以修改为30秒。
+60
+
+
+发现问题   解决问题：
+establish  用户连接状态。
+accesslog 抓取
+网卡 监控流量：
+message 
+
+zabbix监控系统----拥有很丰富的监控模板。
+
+云厂商：
+按流量
+按带宽：大客户，不限带宽。
+
+
+
+
+
