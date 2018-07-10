@@ -1,42 +1,42 @@
-# http://www.gnu.org/software/automake
+＃http://www.gnu.org/software/automake
 
 Makefile.in
-/ar-lib
-/mdate-sh
-/py-compile
-/test-driver
-/ylwrap
+/ AR-LIB
+/ mdate-SH
+/ PY-编译
+/试车手
+/ ylwrap
 
-# http://www.gnu.org/software/autoconf
+＃http://www.gnu.org/software/autoconf
 
 /autom4te.cache
 /autoscan.log
 /autoscan-*.log
 /aclocal.m4
-/compile
+/编译
 /config.guess
 /config.h.in
 /config.sub
-/configure
+/配置
 /configure.scan
-/depcomp
-/install-sh
-/missing
-/stamp-h1
+/ depcomp
+/安装-SH
+/失踪
+/邮票-H1
 
-# https://www.gnu.org/software/libtool/
+＃https://www.gnu.org/software/libtool/
 
 /ltmain.sh
 
-# http://www.gnu.org/software/texinfo
+＃http://www.gnu.org/software/texinfo
 
 /texinfo.tex
 
-# http://www.gnu.org/software/m4/
+＃http://www.gnu.org/software/m4/
 
-m4/libtool.m4
-m4/ltoptions.m4
-m4/ltsugar.m4
-m4/ltversion.m4
-m4/lt~obsolete.m4
+M4/ libtool.m4
+M4/ ltoptions.m4
+M4/ ltsugar.m4
+M4/ ltversion.m4
+M4 / LT〜obsolete.m4
 autom4te.cache
