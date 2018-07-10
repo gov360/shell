@@ -1,0 +1,21 @@
+
+
+以后这个脚本，我们可以通过crontab 零点的时候定时执行，以实现Nginx的日志切割功能！
+
+
+
+
+#!/bin/sh
+# set file path
+NGINX_ACCESS_LOG=/opt/logs/nginx/access/log.pipe
+NGINX_ERROR_LOG=/opt/logs/nginx/error/log
+NGINX_STATIS_LOG=/opt/logs/nginx/statis/log
+# rename log
+mv $NGINX_ACCESS_LOG $NGINX_ACCESS_LOG.`date -d yesterday +%Y%m%d`
+mv $NGINX_ERROR_LOG $NGINX_ERROR_LOG.`date -d yesterday +%Y%m%d`
+mv $NGINX_STATIS_LOG $NGINX_STATIS_LOG.`date -d yesterday +%Y%m%d`
+touch $NGINX_ACCESS_LOG
+touch $NGINX_STATIS_LOG
+touch  $NGINX_ERROR_LOG
+# restart nginx
+/etc/init.d/nginx  reload
