@@ -1,10 +1,3 @@
-
-
-以后这个脚本，我们可以通过crontab 零点的时候定时执行，以实现Nginx的日志切割功能！
-
-
-
-
 #!/bin/sh
 # set file path
 NGINX_ACCESS_LOG=/opt/logs/nginx/access/log.pipe
