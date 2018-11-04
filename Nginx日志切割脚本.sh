@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/env bash
+#Author: xiaoxiao
+#Created time: 2018/11/5 19:45
+#Script Description: Nginx日志切割脚本
 # set file path
 NGINX_ACCESS_LOG=/opt/logs/nginx/access/log.pipe
 NGINX_ERROR_LOG=/opt/logs/nginx/error/log
