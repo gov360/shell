@@ -4,6 +4,7 @@
 # Script Description: if root
 if [ $USER != 'root' ]
    then
-       echo "ERROR: need to be root so that"
-       exit 1
+       echo "hey admin"
+else
+       echo "hey guest"
 fi
