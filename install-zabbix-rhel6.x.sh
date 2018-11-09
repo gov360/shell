@@ -3,7 +3,7 @@
 # Author: xiaoxiao
 # Created Time: 2018/10/24 19:45
 # Script Discription: 此脚本只适用与RHEL6.x系列；Nginx版本为1.6稳定版；PHP为5.4版；Mysql为5.5稳定版；Zabbix暂时为2.4版。
-只要你能连上网络，只要你会运行脚本。那你就会完成zabbix的部署安装了,内嵌yum源及LNMP及zabbix的下载安装！！真正的实现一步到位！！
+# 只要你能连上网络，只要你会运行脚本。那你就会完成zabbix的部署安装了,内嵌yum源及LNMP及zabbix的下载安装！！真正的实现一步到位！！
 # install Nginx 1.6.2 + mysql5.5.x + PHP-FPM 5.4.x + Zabbix 2.4.4 automatically.
 # Tested on CentOS 6.5
 ##############################################
