@@ -1,5 +1,5 @@
 
-#!/bin/bash
+#!/bin/env bash
 # Author: xiaoxiao
 # Created Time: 2018/10/24 19:45
 # Script Discription: 此脚本只适用与RHEL6.x系列；Nginx版本为1.6稳定版；PHP为5.4版；Mysql为5.5稳定版；Zabbix暂时为2.4版。
@@ -69,9 +69,6 @@ gpgcheck=0
 [epel]
 name=Extra Packages for Enterprise Linux 6 - $basearch
 baseurl=http://mirrors.aliyun.com/epel/6/$basearch
- 
-http://mirrors.aliyuncs.com/epel/6/$basearch
- 
 #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch=$basearch
 failovermethod=priority
 enabled=1
