@@ -9,6 +9,8 @@ sudo yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo &&
     http://mirrors.aliyun.com/repo/Centos-7.repo
+    
+    sudo yum-config-manager --enable docker-ce-edge
 2 安装epel repo源：
 epel(RHEL 7)
 
