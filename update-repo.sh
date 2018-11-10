@@ -17,7 +17,7 @@ enabled=1
   
 [docker]
 name=docker Repository 
-baseurl=https://docs.docker.com/engine/installation/linux/centos/$basearch
+baseurl=http://yum.dockerproject.org/repo/main/centos/7/$basearch
 enabled=1
 gpgcheck=0
 EOF
