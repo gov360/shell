@@ -1,13 +1,15 @@
-centos7 ĞŞ¸ÄyumÔ´Îª°¢ÀïÔ´
-2017Äê02ÔÂ05ÈÕ 15:23:19 ÔÄ¶ÁÊı£º15164 centos7 ĞŞ¸ÄyumÔ´Îª°¢ÀïÔ´,Ä³ÏÂÍøÂçÏÂËÙ¶È±È½Ï¿ì Ê×ÏÈÊÇµ½yumÔ´ÉèÖÃÎÄ¼ş¼ĞÀï
+centos7 ä¿®æ”¹yumæºä¸ºé˜¿é‡Œæº
+2017å¹´02æœˆ05æ—¥ 15:23:19 é˜…è¯»æ•°ï¼š15164 centos7 ä¿®æ”¹yumæºä¸ºé˜¿é‡Œæº,æŸä¸‹ç½‘ç»œä¸‹é€Ÿåº¦æ¯”è¾ƒå¿« é¦–å…ˆæ˜¯åˆ°yumæºè®¾ç½®æ–‡ä»¶å¤¹é‡Œ
 
-1.°²×°base reopÔ´
-   cd /etc/yum.repos.d½Ó×Å±¸·İ¾ÉµÄÅäÖÃÎÄ¼ş
+1.å®‰è£…base reopæº
+   cd /etc/yum.repos.dæ¥ç€å¤‡ä»½æ—§çš„é…ç½®æ–‡ä»¶
 
-   sudo mv CentOS-Base.repo CentOS-Base.repo.bakÏÂÔØ°¢ÀïÔ´µÄÎÄ¼ş
-
-   sudo wget -O CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-2 °²×°epel repoÔ´£º
+   sudo mv CentOS-Base.repo CentOS-Base.repo.bakä¸‹è½½é˜¿é‡Œæºçš„æ–‡ä»¶
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo &&
+    http://mirrors.aliyun.com/repo/Centos-7.repo
+2 å®‰è£…epel repoæºï¼š
 epel(RHEL 7)
 
     wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repoepel(RHEL 6)
@@ -15,7 +17,7 @@ epel(RHEL 7)
     wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repoepel(RHEL 5)
 
     wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-5.repo
-3.ÇåÀí»º´æ
+3.æ¸…ç†ç¼“å­˜
 yum clean all
-4.ÖØĞÂÉú³É»º´æ
+4.é‡æ–°ç”Ÿæˆç¼“å­˜
 yum makecache
