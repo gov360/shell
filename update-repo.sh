@@ -8,7 +8,7 @@
 ##############################################
 info_echo "配置yum源......"
 if [ ! -f kubernetes+docker.repo ]; then
-cat> /etc/yum.repos.d/LNMP+zabbix.repo <<'EOF'
+cat> /etc/yum.repos.d/kubernetes+docker.repo <<'EOF'
 [kubernetes]
 name=kubernetes repo
 baseurl=https://mirrors.aliyun.com/centos/$basearch/
