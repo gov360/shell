@@ -14,3 +14,6 @@ https://www.kaspersky.com.cn/small-to-medium-business-security/endpoint-linux
 
 优秀软件的发源地
 https://hacpai.com/
+
+shell规范检查
+https://www.shellcheck.net/
