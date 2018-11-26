@@ -11,7 +11,7 @@ sudo yum remove docker \
                   docker-engine-selinux \
                   docker-engine
                   docker-ce-cli
-                  
+                                    
 #要安装特定版本的Docker CE，请列出repo中的可用版本，然后选择并安装：           
 yum list docker-ce --showduplicates | sort -r
 
