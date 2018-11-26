@@ -15,4 +15,5 @@ sudo yum remove docker \
 yum list docker-ce --showduplicates | sort -r
 
 #通过其完全限定的包名称安装特定版本，包名称（docker-ce）加上版本字符串（第2列）直到第一个连字符，用连字符（ - ）分隔，例如，docker-ce-18.03.0.ce.
+
 sudo yum install docker-ce-<VERSION STRING>
