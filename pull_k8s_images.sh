@@ -28,9 +28,9 @@ yum install docker-ce-18.06.1.ce -y
 systemctl daemon-reload
 systemctl enable docker
 systemctl start docker
-
-for V in 'kubeadm config images list |grep ^k8s|awk -F : '{ print $NF }'|sed "s/v//"'; do
-  if [ $imageName == ^ ]; then
+V="kubeadm config images list |grep ^k8s|awk -F : '{ print $NF }'|sed "s/v//""
+for V in 'kube_version'; do
+  if [ $V == "${kube_version[@]}" ]; then
 kube_version=$V
 done
 images=(kube-proxy kube-scheduler kube-controller-manager
