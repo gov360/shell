@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata: 
+  name: paral-1
+spec:
+  completions: 8
+  parallelism: 2
+  template:
+    spec:
+      containers:
+      - name: param
+        image: ubuntu
+        command: ['/bin/sh']
+        args: ['-c','sleep 30; date']
+      restartPolicy: OnFailure
+  backoffLimit: 4  
+
