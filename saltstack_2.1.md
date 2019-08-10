@@ -1,18 +1,18 @@
-jinja äÖÈ¾£º
+jinja æ¸²æŸ“ï¼š
 
 {%%}
-{%if Ìõ¼ş%}
-{%elif Ìõ¼ş%}
+{%if æ¡ä»¶%}
+{%elif æ¡ä»¶%}
 {%endif%}
 
 {%for%}
 {%endfor%}
 
-{%set ±äÁ¿Ãû = Öµ%}
-È¡±äÁ¿Öµ£º {{±äÁ¿Ãû}}
+{%set å˜é‡å = å€¼%}
+å–å˜é‡å€¼ï¼š {{å˜é‡å}}
 
-1 Èç¹ûÔÚslsÎÄ¼şÖĞ£¬¿ÉÒÔÖ±½ÓÊ¹ÓÃÉÏÃæ¸ñÊ½£¬
-2 Èç¹ûÔÚÅäÖÃÎÄ¼şÖĞ£¬Ê¹ÓÃjinja£¬ĞèÒªÔÚÏàÓ¦µÄslsÎÄ¼şÖĞ£º [template: jinja]
+1 å¦‚æœåœ¨slsæ–‡ä»¶ä¸­ï¼Œå¯ä»¥ç›´æ¥ä½¿ç”¨ä¸Šé¢æ ¼å¼ï¼Œ
+2 å¦‚æœåœ¨é…ç½®æ–‡ä»¶ä¸­ï¼Œä½¿ç”¨jinjaï¼Œéœ€è¦åœ¨ç›¸åº”çš„slsæ–‡ä»¶ä¸­ï¼š [template: jinja]
 
 apache_install:
   pkg.installed:
@@ -31,7 +31,7 @@ app_install:
     {%endif%}
 
 ------------------------------------------------------
-ÅúÁ¿´´½¨ÓÃ»§£º
+æ‰¹é‡åˆ›å»ºç”¨æˆ·ï¼š
 
 user.present
 
@@ -59,7 +59,7 @@ install_httpd:
     - source: salt://httpd.conf
     - require:
       - pkg: httpd
-    - template: jinja  # ¼ÓÔØjinjaÄ£°å
+    - template: jinja  # åŠ è½½jinjaæ¨¡æ¿
 
 httpd:
   service.running:
@@ -70,21 +70,21 @@ httpd:
 
 -------------------------------------------------------
 
-Á·Ï°£ºmysql AB¸´ÖÆ
+ç»ƒä¹ ï¼šmysql ABå¤åˆ¶
 
 -------------------------------------------------------
 
-include£º ¼ÓÔØslsÎÄ¼ş
+includeï¼š åŠ è½½slsæ–‡ä»¶
 
 init.sls
 include:
-  - web_install.apache  # ¼ÓÔØ¶ÔÓ¦salt¼ÒÄ¿Â¼ÏÂÃæweb_install/apache.slsÎÄ¼ş
+  - web_install.apache  # åŠ è½½å¯¹åº”saltå®¶ç›®å½•ä¸‹é¢web_install/apache.slsæ–‡ä»¶
   - web_install.mysql
   - web_install.php
 
 ---------------------------------------------------------
 
-extend£º
+extendï¼š
 
 vim init.sls                      
 
@@ -110,7 +110,7 @@ httpd:
 
 ------------------------------------------------------------
 
-top:  Èë¿ÚÎÄ¼ş /srv/salt/top.sls
+top:  å…¥å£æ–‡ä»¶ /srv/salt/top.sls
 
 vim top.sls
 base:
@@ -121,27 +121,27 @@ base:
     - php_install
 
 salt '*' state.highstate
-µÈ¼ÛÓÚ£º
+ç­‰ä»·äºï¼š
 salt 'minion_1.2' state.sls mysql_install
 salt 'minion_1.3' state.sls httpd_install
 salt 'minion_1.3' state.sls php_install
 
 
-1¡¢2 --- nginx/lvs
-3¡¢4 --- httpd
-5¡¢6 --- mysql
+1ã€2 --- nginx/lvs
+3ã€4 --- httpd
+5ã€6 --- mysql
 
 
-·Ö×é£ºnodegroup
+åˆ†ç»„ï¼šnodegroup
 nodegroups:
   webgroup: 'minion_1.2'
   dbgroup: 'minion_1.3'
 
-salt -N 'nodegrouop×éÃû' ÃüÁî
+salt -N 'nodegrouopç»„å' å‘½ä»¤
 
 
 top.sls
-Í¨¹ı·Ö×é½øĞĞÆ¥Åä£º
+é€šè¿‡åˆ†ç»„è¿›è¡ŒåŒ¹é…ï¼š
 base:
   webgroup:
     - match: nodegroup
@@ -152,7 +152,7 @@ base:
 
     - mysql_install
 
-Í¨¹ıgrainsĞÅÏ¢½øĞĞÆ¥Åä£º
+é€šè¿‡grainsä¿¡æ¯è¿›è¡ŒåŒ¹é…ï¼š
 base:
   'id:minion_1.2':
     - match: grain
@@ -163,30 +163,30 @@ base:
 
 --------------------------------------------------------------
 
-include  £º ¼ÓÔØÍâ²¿slsÎÄ¼ş
-extend   £º ¶ÔslsÎÄ¼ş½øĞĞÀ©Õ¹
-top Èë¿ÚÎÄ¼ş   state.highstate
+include  ï¼š åŠ è½½å¤–éƒ¨slsæ–‡ä»¶
+extend   ï¼š å¯¹slsæ–‡ä»¶è¿›è¡Œæ‰©å±•
+top å…¥å£æ–‡ä»¶   state.highstate
 
 ---------------------------------------------------------------
 
-python ÓëÊı¾İ¿â½øĞĞ½»»¥£ºmysql
-1 °²×°
+python ä¸æ•°æ®åº“è¿›è¡Œäº¤äº’ï¼šmysql
+1 å®‰è£…
 yum install -y MySQL-python
-2 µ¼ÈëÄ£¿é£ºimport MySQLdb
-3 ´´½¨¶ÔÊı¾İ¿âµÄÁ¬½Ó£º
-±äÁ¿Ãû = MySQLdb.connect('host','user','password','database')
-4 ¹¹½¨Ò»¸ö²Ù×÷½Ó¿Ú£º
-cursor = ±äÁ¿Ãû.cursor()
-5 ±àĞ´sqlÓï¾ä
+2 å¯¼å…¥æ¨¡å—ï¼šimport MySQLdb
+3 åˆ›å»ºå¯¹æ•°æ®åº“çš„è¿æ¥ï¼š
+å˜é‡å = MySQLdb.connect('host','user','password','database')
+4 æ„å»ºä¸€ä¸ªæ“ä½œæ¥å£ï¼š
+cursor = å˜é‡å.cursor()
+5 ç¼–å†™sqlè¯­å¥
 sql = 'show database'
-6 Ö´ĞĞsqlÓï¾ä
+6 æ‰§è¡Œsqlè¯­å¥
 cursor.execute(sql)
-7 cursor.fetchone »ò cursor.fetchall À´»ñÈ¡Ö´ĞĞµÄ·µ»Ø½á¹û¡£
-8 ±äÁ¿Ãû.close()
-9 * ×¢Òâ¶ÔÓÚinnodb±í£¬rollback ¡¢commit, »ùÓÚÊÂÎñ£¬Ô­×ÓĞÔ²Ù×÷
-    ĞŞ¸ÄÈç¹û²»Ê¹ÓÃcommit£¬Êı¾İ½«²»»áĞ´Èëµ½Êı¾İ¿â¡£
-    ¶¯×÷³É¹¦ conn.commit()
-    ¶¯×÷Ê§°Ü conn.rollback()
+7 cursor.fetchone æˆ– cursor.fetchall æ¥è·å–æ‰§è¡Œçš„è¿”å›ç»“æœã€‚
+8 å˜é‡å.close()
+9 * æ³¨æ„å¯¹äºinnodbè¡¨ï¼Œrollback ã€commit, åŸºäºäº‹åŠ¡ï¼ŒåŸå­æ€§æ“ä½œ
+    ä¿®æ”¹å¦‚æœä¸ä½¿ç”¨commitï¼Œæ•°æ®å°†ä¸ä¼šå†™å…¥åˆ°æ•°æ®åº“ã€‚
+    åŠ¨ä½œæˆåŠŸ conn.commit()
+    åŠ¨ä½œå¤±è´¥ conn.rollback()
 
 
 >>> conn = MySQLdb.connect('127.0.0.1','root','','db1')
@@ -209,10 +209,10 @@ cursor.execute(sql)
 
 --------------------------------------------------------------------
 
-minion ½«·µ»ØĞÅÏ¢·ÅÈë×Ô¼ºÊı¾İ¿âÖĞ£º
+minion å°†è¿”å›ä¿¡æ¯æ”¾å…¥è‡ªå·±æ•°æ®åº“ä¸­ï¼š
 1 grant all on *.* to 'salt'@'%' identified by '123';
 
-2 ĞŞ¸ÄminionÅäÖÃÎÄ¼ş
+2 ä¿®æ”¹minioné…ç½®æ–‡ä»¶
 mysql.host: '10.1.1.2'
 mysql.user: 'salt'
 mysql.pass: '123'
@@ -275,7 +275,7 @@ KEY `tag` (`tag`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-5 ²âÊÔ£º
+5 æµ‹è¯•ï¼š
 salt 'target' test.ping --return mysql
 
 -------------------------------------------------------------------------
@@ -300,26 +300,26 @@ install_apache:
 
 include  init.sls:
 include:
-  Ä¿Â¼Ãû.slsÎÄ¼şÃû
+  ç›®å½•å.slsæ–‡ä»¶å
 
 extend
-top.sls Èë¿ÚÎÄ¼ş
+top.sls å…¥å£æ–‡ä»¶
 base:
   'target':
   - install_lvs
 
 salt 'target' state.highstate
 
-3 jinjaÄ£°å
-4 grains ¼ÇÂ¼minionµÄ¾²Ì¬ĞÅÏ¢µÄÄ£¿é
+3 jinjaæ¨¡æ¿
+4 grains è®°å½•minionçš„é™æ€ä¿¡æ¯çš„æ¨¡å—
 salt -G ''
-Í¨¹ıgrainsĞÅÏ¢½øĞĞÆ¥Åä£º
+é€šè¿‡grainsä¿¡æ¯è¿›è¡ŒåŒ¹é…ï¼š
 base:
   'id:minion_1.2':
     - match: grain
     - apache_install
 
-5 ·Ö×é nodegroup
+5 åˆ†ç»„ nodegroup
 salt -N ''
 top.sls
 base:
@@ -328,7 +328,7 @@ base:
     - apache_install
 
 6 salt '' command --return mysql
-7 pam ÓÃ»§ÑéÖ¤
+7 pam ç”¨æˆ·éªŒè¯
 external_auth:
   pam:
     chenchen:
@@ -339,46 +339,46 @@ salt -a pam 'minion_1.2' cmd.run "date"
 
 -------------------------------------------------------------------------
 
-¶ş´Î¿ª·¢£º
+äºŒæ¬¡å¼€å‘ï¼š
 
-saltµÄÌåÏµ½á¹¹£º
+saltçš„ä½“ç³»ç»“æ„ï¼š
 #publish_port: 4505
 #ret_port: 4506
 
-1 ´´½¨Ò»¸ö²Ù×÷¶ÔÏó£ºĞèÒª²Ù×÷ÄÄ¸öminion
+1 åˆ›å»ºä¸€ä¸ªæ“ä½œå¯¹è±¡ï¼šéœ€è¦æ“ä½œå“ªä¸ªminion
 salt 'minion_1.2' test.ping
 
-2 ÓÃ»§µÄÇëÇóÍ¨¹ı4506·¢ËÍ¸øreqserver
+2 ç”¨æˆ·çš„è¯·æ±‚é€šè¿‡4506å‘é€ç»™reqserver
 
-3 reqserver ½«ÇëÇó½»¸ø mworker
+3 reqserver å°†è¯·æ±‚äº¤ç»™ mworker
 
-4 mworker È·¶¨ÄãÊÇ·ñÓĞÈ¨ÏŞ¸ÉÕâ¸ö»î
+4 mworker ç¡®å®šä½ æ˜¯å¦æœ‰æƒé™å¹²è¿™ä¸ªæ´»
 
-5 mworker Ğû¸æÈÎÎñ¿ªÊ¼£¬ Í¨¹ıeventpublisher ·¢²¼ÏûÏ¢
+5 mworker å®£å‘Šä»»åŠ¡å¼€å§‹ï¼Œ é€šè¿‡eventpublisher å‘å¸ƒæ¶ˆæ¯
 
-6 ÏûÏ¢Í¨¹ıpublisher ¼ÓÃÜ½øĞĞ´«Êä£¬·¢ËÍ¸øËùÓĞµÄminion
+6 æ¶ˆæ¯é€šè¿‡publisher åŠ å¯†è¿›è¡Œä¼ è¾“ï¼Œå‘é€ç»™æ‰€æœ‰çš„minion
 
-7 minionÓëmasterµÄ4505½øĞĞÁ¬½Ó¡£½ÓÊÕmasterÉÏµÄÃüÁî
+7 minionä¸masterçš„4505è¿›è¡Œè¿æ¥ã€‚æ¥æ”¶masterä¸Šçš„å‘½ä»¤
 
-8 minion·ÖÎö½ÓÊÕµ½µÄÃüÁî£¬½âÃÜ£¬²é¿´targetÊÇ²»ÊÇ×Ô¼º£¬Èç¹ûÊÇ£¬ÔÚ±¾µØÄ£¿éÖĞÕÒÃüÁî½øĞĞ²Ù×÷¡£
-						      Èç¹û²»ÊÇ£¬²»½øĞĞ´¦Àí¡£
+8 minionåˆ†ææ¥æ”¶åˆ°çš„å‘½ä»¤ï¼Œè§£å¯†ï¼ŒæŸ¥çœ‹targetæ˜¯ä¸æ˜¯è‡ªå·±ï¼Œå¦‚æœæ˜¯ï¼Œåœ¨æœ¬åœ°æ¨¡å—ä¸­æ‰¾å‘½ä»¤è¿›è¡Œæ“ä½œã€‚
+						      å¦‚æœä¸æ˜¯ï¼Œä¸è¿›è¡Œå¤„ç†ã€‚
 
-9 minion´¦ÀíÍê³É£¬½«Êı¾İ·µ»Ø¸ømasterµÄ4506
+9 minionå¤„ç†å®Œæˆï¼Œå°†æ•°æ®è¿”å›ç»™masterçš„4506
 
-10 reqserver½ÓÊÕµ½ minion ·µ»ØµÄĞÅÏ¢£¬ ½»¸ømworker£¬mworker½âÃÜ£¬Í¨¹ıeventpublisher·¢²¼ÏàÓ¦µÄminionÖ´ĞĞ×´Ì¬¡£
+10 reqserveræ¥æ”¶åˆ° minion è¿”å›çš„ä¿¡æ¯ï¼Œ äº¤ç»™mworkerï¼Œmworkerè§£å¯†ï¼Œé€šè¿‡eventpublisherå‘å¸ƒç›¸åº”çš„minionæ‰§è¡ŒçŠ¶æ€ã€‚
 
-11 ÓÃ»§½ÓÊÕmaster·µ»ØµÄĞÅÏ¢£¬³É¹¦¡¢Ê§°Ü »òÕß ³¬Ê±
+11 ç”¨æˆ·æ¥æ”¶masterè¿”å›çš„ä¿¡æ¯ï¼ŒæˆåŠŸã€å¤±è´¥ æˆ–è€… è¶…æ—¶
 
-12 µÈ´ıËùÓĞ²Ù×÷Íê³É£¬»òÕß³¬Ê±£¬¹Ø±ÕÈÎÎñ¡£
+12 ç­‰å¾…æ‰€æœ‰æ“ä½œå®Œæˆï¼Œæˆ–è€…è¶…æ—¶ï¼Œå…³é—­ä»»åŠ¡ã€‚
 
 
 ------------------------------------------------------------
 
-reactor £º
-/etc/salt/master£º
+reactor ï¼š
+/etc/salt/masterï¼š
 reactor:
   - 'tag_id':
-    - 'Òªµ÷ÓÃµÄslsÎÄ¼ş'
+    - 'è¦è°ƒç”¨çš„slsæ–‡ä»¶'
 
 
 /srv/reactor/aaa.sls
@@ -398,10 +398,10 @@ salt 'target' cmd.run "command"
 
 ======================================================================================
 
-×Ô¶¨Òåmodules£º
+è‡ªå®šä¹‰modulesï¼š
 
-1 ´´½¨Ä¿Â¼£º/srv/salt/_modules
-2 ±àĞ´Ä£¿é£º/srv/salt/_modules/m1.py
+1 åˆ›å»ºç›®å½•ï¼š/srv/salt/_modules
+2 ç¼–å†™æ¨¡å—ï¼š/srv/salt/_modules/m1.py
 #!/usr/bin/env python
 
 def func1():
@@ -411,10 +411,10 @@ def func1():
     print "this is function1."
     return True
 
-3 ½«Ä£¿éÍ¬²½µ½Ä¿±ê»úÆ÷ÉÏ£º
+3 å°†æ¨¡å—åŒæ­¥åˆ°ç›®æ ‡æœºå™¨ä¸Šï¼š
 salt 'target' saltutil.sync_modules
 
-4 Ö´ĞĞÄ£¿é£º
+4 æ‰§è¡Œæ¨¡å—ï¼š
 salt 'minion_1.2' m1.func1  
 
 # __salt__['cmd.run'](arg1)
@@ -436,8 +436,8 @@ def func2(arg1):
 
 salt 'target' cmd.run "date"
 
-µ÷ÓÃsaltÖĞÒÑÓĞÄ£¿é£º
-__salt__['Ä£¿éÃû.º¯ÊıÃû'](arg)
+è°ƒç”¨saltä¸­å·²æœ‰æ¨¡å—ï¼š
+__salt__['æ¨¡å—å.å‡½æ•°å'](arg)
 
 m3.py
 #!/usr/bin/env python
@@ -448,7 +448,7 @@ def func3(arg):
 
 ---------------------------------------------------
 
-×Ô¶¨ÒåeventĞÅÏ¢
+è‡ªå®šä¹‰eventä¿¡æ¯
 __salt__['event.send'](tag, data)
 
 vim /srv/salt/__modules/m4.py
@@ -460,14 +460,14 @@ def func4():
 
 ------------------------------------------------------------
 
-×Ô¶¨Òågrains£º setval
+è‡ªå®šä¹‰grainsï¼š setval
 
-·½·¨1£ºmaster
+æ–¹æ³•1ï¼šmaster
 salt 'target' grains.setval city bj
-·½·¨2£ºminion
+æ–¹æ³•2ï¼šminion
 /etc/salt/grains  or  /etc/salt/minion
 
-·½·¨Èı£º×Ô¶¨Òågrains
+æ–¹æ³•ä¸‰ï¼šè‡ªå®šä¹‰grains
 1 mkdir /srv/salt/_grains
 2 /srv/salt/_grains/g1.py
 #!/usr/bin/env python
@@ -478,22 +478,22 @@ def f1():
 3 salt 'target' saltutil.sync_grains
 4 salt '' grains.get city
 
-×÷ÓÃ£º
+ä½œç”¨ï¼š
 1 salt -G "os:RedHat"
 2 top.sls
 base:
   'os:RedHat'
     - match: grain
     - install_apache
-3 ÔÚ×Ô¶¨ÒåÄ£¿éµÄ½Å±¾ÖĞµ÷ÓÃgrainsĞÅÏ¢£º
+3 åœ¨è‡ªå®šä¹‰æ¨¡å—çš„è„šæœ¬ä¸­è°ƒç”¨grainsä¿¡æ¯ï¼š
 
-ÔÚ½Å±¾ÖĞ¿ÉÒÔµ÷ÓÃminionÖĞÒÑÓĞµÄgrains£º
+åœ¨è„šæœ¬ä¸­å¯ä»¥è°ƒç”¨minionä¸­å·²æœ‰çš„grainsï¼š
 __grains__['os']
 
 =====================================================================================
-×Ô¶¨Òåstate
+è‡ªå®šä¹‰state
 
-salt 'target' state.sls slsÎÄ¼şÃû
+salt 'target' state.sls slsæ–‡ä»¶å
 
 install_httpd:
   pkg.installed:
@@ -527,14 +527,14 @@ test:
 ======================================================================================
 
 
-Á·Ï°£º¸ù¾İÈçÏÂslsÎÄ¼ş£¬×Ô¶¨ÒåstateÄ£¿é¡£
+ç»ƒä¹ ï¼šæ ¹æ®å¦‚ä¸‹slsæ–‡ä»¶ï¼Œè‡ªå®šä¹‰stateæ¨¡å—ã€‚
 
-¡¾/srv/salt/cmd_run.sls¡¿
+ã€/srv/salt/cmd_run.slsã€‘
 cmd:
   systemcommand.execute:
     - cmd: 'whoami'
 
-¡¾/srv/salt/_states/systemcommand.py¡¿
+ã€/srv/salt/_states/systemcommand.pyã€‘
 #!/usr/bin/env python
 import commands
 def execute(name, cmd):
