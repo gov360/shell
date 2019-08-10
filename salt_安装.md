@@ -74,10 +74,13 @@ minion:
 	service salt-minion start
 ```
 防火墙：
+	
 	iptables -I INPUT -m state --state new -m tcp -p tcp --dport 4505 -j ACCEPT
+	
 	iptables -I INPUT -m state --state new -m tcp -p tcp --dport 4506 -j ACCEPT
 
 publish_port:	4505
+
 ret_port:	4506
 
 ####yum install salt-ssh
