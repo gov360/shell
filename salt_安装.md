@@ -17,30 +17,45 @@ futures - Backport of the concurrent.futures package from Python 3.2
 Depending on the chosen Salt transport, ZeroMQ or RAET, dependencies vary:
 
 ZeroMQ:
+
 ZeroMQ >= 3.2.0
+
 pyzmq >= 2.2.0 - ZeroMQ Python bindings
+
 PyCrypto - The Python cryptography toolkit
 
 Python版本大于2.6或版本小于3.0：对Python 版本要求
+
 ·msgpack-python：SalStack消息交换库
+
 ·YAML：SaltStack配置解析定义语法
+
 ·Jinja2：SaltStack states配置模板
+
 ·MarkupSafe：Python unicode转换库
+
 ·apache-libcloud：SaltStack对云架构编排库
+
 ·Requests：HTTP Python库
+
 ·ZeroMQ：SaltStack消息系统
+
 ·pyzmq：ZeroMQ Python库
+
 ·PyCrypto：Python密码库
+
 ·M2Crypto：Openssl Python包装库
 
 
 
 安装 salt ： RHEL / CENTOS / SCIENTIFIC LINUX / AMAZON LINUX / ORACLE LINUX
+
 https://docs.saltstack.com/en/latest/topics/installation/rhel.html
 
 
 yum方式安装：
 配置官方yum源：
+```
 [saltstack-repo]
 name=SaltStack repo for Red Hat Enterprise Linux $releasever
 baseurl=https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest
@@ -57,7 +72,7 @@ minion:
 	yum install salt-minion -y
 	chkconfig salt-minion on
 	service salt-minion start
-
+```
 防火墙：
 	iptables -I INPUT -m state --state new -m tcp -p tcp --dport 4505 -j ACCEPT
 	iptables -I INPUT -m state --state new -m tcp -p tcp --dport 4506 -j ACCEPT
@@ -85,11 +100,13 @@ cbbe530b537b8c7fd7aa23303cfc8f90  ./salt-2016.11.1-1.el6.noarch.rpm
 
 
 配置：
+
 1.master:
 	[/etc/salt/master]
 	interface: 10.1.1.1
 
 	service salt-master restart
+
 2.minion:
 	[/etc/salt/minion]
 	master: 10.1.1.1
@@ -100,10 +117,15 @@ cbbe530b537b8c7fd7aa23303cfc8f90  ./salt-2016.11.1-1.el6.noarch.rpm
 
 
 校验安装结果：
+	
 	salt-key -L	,显示已经或未认证的被控端id，Accepted Keys为已认证清单，Unaccepted Keys为未认证清单
-	salt 'minion-1' test.ping
+
+        salt 'minion-1' test.ping
 	
 	salt-key -D 	,删除所有认证主机id证书
+	
 	salt-key -d id	,删除单个id
+	
 	salt-key -A	,接受所有id证书请求
+	
 	salt-key -a id	,接受单个id证书请求
