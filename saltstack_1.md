@@ -1,15 +1,15 @@
-saltstack: ÅäÖÃ¹ÜÀí¹¤¾ß
+saltstack: é…ç½®ç®¡ç†å·¥å…·
 
-python ¿ª·¢£¬ÓÉpythonÄ£¿é×éºÏ³ÉµÄÒ»¸ö¹¤¾ß
-C/S¼Ü¹¹
+python å¼€å‘ï¼Œç”±pythonæ¨¡å—ç»„åˆæˆçš„ä¸€ä¸ªå·¥å…·
+C/Sæ¶æ„
 server:  master
 client:  minion
 
-ÌØµã£º
-1 Ê¹ÓÃÏûÏ¢¶ÓÁĞ£¬zeromq¡£ÄÜ¹»¿ìËÙµÄ¶ÔºÜ¶à»úÆ÷½øĞĞ²Ù×÷¡£
-2 ÏûÏ¢´«Êä¶¼ÊÇ¼ÓÃÜµÄ¡£RSAkey.
+ç‰¹ç‚¹ï¼š
+1 ä½¿ç”¨æ¶ˆæ¯é˜Ÿåˆ—ï¼Œzeromqã€‚èƒ½å¤Ÿå¿«é€Ÿçš„å¯¹å¾ˆå¤šæœºå™¨è¿›è¡Œæ“ä½œã€‚
+2 æ¶ˆæ¯ä¼ è¾“éƒ½æ˜¯åŠ å¯†çš„ã€‚RSAkey.
 
-saltµÄÅäÖÃÎÄ¼şµÄ¸ñÊ½£ºYAML
+saltçš„é…ç½®æ–‡ä»¶çš„æ ¼å¼ï¼šYAML
 
 master:
 vi /etc/salt/master
@@ -33,65 +33,65 @@ id: minion_1.2
 
 /etc/init.d/salt-minion restart
 
-Ğ£Ñé°²×°½á¹û£º
+æ ¡éªŒå®‰è£…ç»“æœï¼š
 salt-key
-salt-key -L 	²é¿´ËùÓĞkey×´Ì¬
-salt-key -a minion_1.2   ½ÓÊÜÄ³Ò»Ì¨minionµÄkey
-salt-key -A		 ½ÓÊÜËùÓĞkey
-salt-key -d minion_1.2   É¾³ıÒ»¸öminionµÄkey
-salt-key -D		 É¾³ıËùÓĞkey
-²âÊÔping minion£º
+salt-key -L 	æŸ¥çœ‹æ‰€æœ‰keyçŠ¶æ€
+salt-key -a minion_1.2   æ¥å—æŸä¸€å°minionçš„key
+salt-key -A		 æ¥å—æ‰€æœ‰key
+salt-key -d minion_1.2   åˆ é™¤ä¸€ä¸ªminionçš„key
+salt-key -D		 åˆ é™¤æ‰€æœ‰key
+æµ‹è¯•ping minionï¼š
 salt 'minion_1.2' test.ping
 
-# ´´½¨saltµÄ¼ÒÄ¿Â¼
+# åˆ›å»ºsaltçš„å®¶ç›®å½•
 mkdir /srv/salt 
 
 ----------------------------------------------------
 
-¼Æ»®ÈÎÎñcron£º
-salt 'minion_1.1' cron.set_job root '*' '*' '*' '*' '*' /tmp/date.sh # Ìí¼Ó¼Æ»®ÈÎÎñ
-salt 'minion_1.2' cron.rm_job root /tmp/date.sh	# É¾³ı¼Æ»®ÈÎÎñ
-salt 'minion_1.2' cron.raw_cron root    # ²é¿´minionµÄrootÓÃ»§µÄ¼Æ»®ÈÎÎñ
+è®¡åˆ’ä»»åŠ¡cronï¼š
+salt 'minion_1.1' cron.set_job root '*' '*' '*' '*' '*' /tmp/date.sh # æ·»åŠ è®¡åˆ’ä»»åŠ¡
+salt 'minion_1.2' cron.rm_job root /tmp/date.sh	# åˆ é™¤è®¡åˆ’ä»»åŠ¡
+salt 'minion_1.2' cron.raw_cron root    # æŸ¥çœ‹minionçš„rootç”¨æˆ·çš„è®¡åˆ’ä»»åŠ¡
 
-ÔËĞĞÃüÁîcmd.run£º
+è¿è¡Œå‘½ä»¤cmd.runï¼š
 salt 'minion_1.2' cmd.run 'df -Th'
 
-ÔËĞĞ½Å±¾cmd.script:
+è¿è¡Œè„šæœ¬cmd.script:
 salt 'minion_1.2' cmd.script salt://date.sh
 
-°ü¹ÜÀí£ºpkg
+åŒ…ç®¡ç†ï¼špkg
 pkg.install 
 salt 'minion_1.3' pkg.install httpd
 salt 'minion_1.3' pkg.file_list httpd
 
-·şÎñ¹ÜÀí£ºservice
+æœåŠ¡ç®¡ç†ï¼šservice
 salt 'minion_1.3' service.restart httpd 
 salt 'minion_1.3' service.start httpd 
 status\reload\stop...
 
 --------------------------------------------------------
 
-minion µÄ¹ıÂË·½·¨£º
-1 Í¨Åä·û£º* ? []
-2 -E Í¨¹ıÕıÔò±í´ïÊ½½øĞĞÆ¥Åä
-3 -L 'minion_1.2,minion_1.3'  Í¨¹ıÁĞ±í¶Ôid½øĞĞ¹ıÂË
-4 -S Í¨¹ıip»òÕßip×ÓÍø½øĞĞÆ¥Åä¹ıÂË
+minion çš„è¿‡æ»¤æ–¹æ³•ï¼š
+1 é€šé…ç¬¦ï¼š* ? []
+2 -E é€šè¿‡æ­£åˆ™è¡¨è¾¾å¼è¿›è¡ŒåŒ¹é…
+3 -L 'minion_1.2,minion_1.3'  é€šè¿‡åˆ—è¡¨å¯¹idè¿›è¡Œè¿‡æ»¤
+4 -S é€šè¿‡ipæˆ–è€…ipå­ç½‘è¿›è¡ŒåŒ¹é…è¿‡æ»¤
 [root@localhost salt_package-2016.11.1]# salt -S 10.1.1.3 test.ping
 [root@localhost salt_package-2016.11.1]# salt -S 10.1.1.0/24 test.ping
-5 -C »ìºÏÆ¥Åä ¿ÉÒÔÊ¹ÓÃ and or not
+5 -C æ··åˆåŒ¹é… å¯ä»¥ä½¿ç”¨ and or not
 salt -C 'E@^minion_1.3 or L@minion_1.2' test.ping 
-6 -G ¿ÉÒÔÍ¨¹ı±»¼à¿ØÖ÷»úµÄgrains½øĞĞ¹ıÂË
+6 -G å¯ä»¥é€šè¿‡è¢«ç›‘æ§ä¸»æœºçš„grainsè¿›è¡Œè¿‡æ»¤
 salt -G 'os:RedHat' test.ping
 
 ---------------------------------------------------------
 
-grains : ÊÇsaltstack¼ÇÂ¼minion¾²Ì¬ĞÅÏ¢µÄ×é¼ş¡£cpu¡¢ÄÚ´æ¡¢´ÅÅÌ¡¢Íø¿¨µÈµÈĞÅÏ¢¡£
-salt '*' grains.items 	²é¿´ËùÓĞµÄgrains¼°Öµ
-salt '*' grains.ls	²é¿´ËùÓĞgrains µÄÃû³Æ£¬·µ»ØÒ»¸ö×Öµä£¬×ÖµäµÄÖµÊÇÒ»¸ö´óÁĞ±í¡£
-salt 'minion_1.2' grains.item os_family	Ö¸¶¨²é¿´Ä³¸ögrainsµÄÖµ¡£
-salt 'minion_1.2' grains.get os_family  ÓëÉÏÃæÀàËÆ£¬½ö·µ»ØÖµ
+grains : æ˜¯saltstackè®°å½•minioné™æ€ä¿¡æ¯çš„ç»„ä»¶ã€‚cpuã€å†…å­˜ã€ç£ç›˜ã€ç½‘å¡ç­‰ç­‰ä¿¡æ¯ã€‚
+salt '*' grains.items 	æŸ¥çœ‹æ‰€æœ‰çš„grainsåŠå€¼
+salt '*' grains.ls	æŸ¥çœ‹æ‰€æœ‰grains çš„åç§°ï¼Œè¿”å›ä¸€ä¸ªå­—å…¸ï¼Œå­—å…¸çš„å€¼æ˜¯ä¸€ä¸ªå¤§åˆ—è¡¨ã€‚
+salt 'minion_1.2' grains.item os_family	æŒ‡å®šæŸ¥çœ‹æŸä¸ªgrainsçš„å€¼ã€‚
+salt 'minion_1.2' grains.get os_family  ä¸ä¸Šé¢ç±»ä¼¼ï¼Œä»…è¿”å›å€¼
 
-ÉèÖÃgrains£º×Ô¶¨Òå
+è®¾ç½®grainsï¼šè‡ªå®šä¹‰
 salt '*' grains.setval city bj [master]
 or
 vim /etc/salt/grains   [minion]
@@ -103,27 +103,27 @@ grains:
     - bj
 
 ---------------------------------------------------------
-saltÖĞÄ£¿éÎ»ÖÃ£º
+saltä¸­æ¨¡å—ä½ç½®ï¼š
 /usr/lib/python2.6/site-packages/salt/modules
 
-state : saltstack×îºËĞÄµÄ²¿·Ö¡£ĞèÒª±àĞ´sls¡¾salt state file¡¿ÎÄ¼ş£¬Í¨¹ıslsÎÄ¼ş¶Ô±»¿ØÖÆ»úÆ÷½øĞĞ¹ÜÀí
+state : saltstackæœ€æ ¸å¿ƒçš„éƒ¨åˆ†ã€‚éœ€è¦ç¼–å†™slsã€salt state fileã€‘æ–‡ä»¶ï¼Œé€šè¿‡slsæ–‡ä»¶å¯¹è¢«æ§åˆ¶æœºå™¨è¿›è¡Œç®¡ç†
 
-state µÄslsÎÄ¼şÊ¹ÓÃyaml¸ñÊ½¡£
+state çš„slsæ–‡ä»¶ä½¿ç”¨yamlæ ¼å¼ã€‚
 
 
 id:
-  module.function:    # ËùÔÚÎ»ÖÃ£º/usr/lib/python2.6/site-packages/salt/states
+  module.function:    # æ‰€åœ¨ä½ç½®ï¼š/usr/lib/python2.6/site-packages/salt/states
     - name: name
     - argument1: value
     - argument2:
       - value1
       - value2
 
-salt 'Ä¿±ê' state.sls [slsÎÄ¼şÃû]
+salt 'ç›®æ ‡' state.sls [slsæ–‡ä»¶å]
 
 -----------------------------------------------------------
 
-°²×°httpd£º
+å®‰è£…httpdï¼š
 
 cd /srv/salt
 vim apache.sls
@@ -144,7 +144,7 @@ salt 'minion_1.2' state.sls apache
 
 -------------------------------------------------------------
 
-´´½¨ÓÃ»§£º
+åˆ›å»ºç”¨æˆ·ï¼š
 vim user_add.sls
 tom:
   user.present:
@@ -156,19 +156,19 @@ salt '*' state.sls user.add
 
 ------------------------------------------------------------
 
-ÎÄ¼ş¹ÜÀí£ºfile.py
-1 ÎÄ¼şÍ¬²½µ½Ö¸¶¨minionµÄÖ¸¶¨Ä¿Â¼ÖĞ£º
+æ–‡ä»¶ç®¡ç†ï¼šfile.py
+1 æ–‡ä»¶åŒæ­¥åˆ°æŒ‡å®šminionçš„æŒ‡å®šç›®å½•ä¸­ï¼š
 /tmp/passwd:
   file.managed:
     - source: salt://passwd
 ------------------------------------------------------------
 
-¹ÜÀíapache:
-1 °²×°httpd
-2 ¿½±´ÅäÖÃÎÄ¼ş
-3 Æô¶¯httpd 
+ç®¡ç†apache:
+1 å®‰è£…httpd
+2 æ‹·è´é…ç½®æ–‡ä»¶
+3 å¯åŠ¨httpd 
 
-°¸ÀıÒ»£º
+æ¡ˆä¾‹ä¸€ï¼š
 install_httpd:
   pkg.installed:
     - name: httpd
@@ -181,7 +181,7 @@ httpd:
   service.running
 
 
-°¸Àı¶ş£ºÔÚ³É¹¦°²×°ÁËhttpdºóÔÙ½øĞĞ¿½±´ÅäÖÃÎÄ¼şºÍÆô¶¯httpd
+æ¡ˆä¾‹äºŒï¼šåœ¨æˆåŠŸå®‰è£…äº†httpdåå†è¿›è¡Œæ‹·è´é…ç½®æ–‡ä»¶å’Œå¯åŠ¨httpd
 install_httpd:
   pkg.installed:
     - name: httpd
@@ -197,9 +197,9 @@ httpd:
     - require:
       - pkg: httpd
 
-°¸ÀıÈı£º Ò»µ©ÅäÖÃÎÄ¼şÓĞ¸Ä±ä£¬ÖØÆôhttpd·şÎñ
+æ¡ˆä¾‹ä¸‰ï¼š ä¸€æ—¦é…ç½®æ–‡ä»¶æœ‰æ”¹å˜ï¼Œé‡å¯httpdæœåŠ¡
 
-vim apache.sls  »òÕß vim apache/init.sls
+vim apache.sls  æˆ–è€… vim apache/init.sls
 
 install_httpd:
   pkg.installed:
@@ -222,12 +222,12 @@ salt 'target' state.sls apache
 
 =============================================================
 
-Á·Ï°£º
-°²×°mysql£¬ ¿½±´masterÉÏµÄÄ£°åÅäÖÃÎÄ¼ş¡¾¿ªÆô¶ş½øÖÆÈÕÖ¾¡¿£¬²¢Æô¶¯mysqld·şÎñ¡£
+ç»ƒä¹ ï¼š
+å®‰è£…mysqlï¼Œ æ‹·è´masterä¸Šçš„æ¨¡æ¿é…ç½®æ–‡ä»¶ã€å¼€å¯äºŒè¿›åˆ¶æ—¥å¿—ã€‘ï¼Œå¹¶å¯åŠ¨mysqldæœåŠ¡ã€‚
 
 =============================================================
 
-jinja äÖÈ¾£º
+jinja æ¸²æŸ“ï¼š
 
 yum install httpdd
 yum install apache2
