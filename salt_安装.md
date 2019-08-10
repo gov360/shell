@@ -1,7 +1,7 @@
 
 
 
-saltstack °²×°£º
+saltstack å®‰è£…ï¼š
 DEPENDENCIES
 Salt should run on any Unix-like platform so long as the dependencies are met.
 
@@ -21,26 +21,26 @@ ZeroMQ >= 3.2.0
 pyzmq >= 2.2.0 - ZeroMQ Python bindings
 PyCrypto - The Python cryptography toolkit
 
-Python°æ±¾´óÓÚ2.6»ò°æ±¾Ğ¡ÓÚ3.0£º¶ÔPython °æ±¾ÒªÇó
-¡¤msgpack-python£ºSalStackÏûÏ¢½»»»¿â
-¡¤YAML£ºSaltStackÅäÖÃ½âÎö¶¨ÒåÓï·¨
-¡¤Jinja2£ºSaltStack statesÅäÖÃÄ£°å
-¡¤MarkupSafe£ºPython unicode×ª»»¿â
-¡¤apache-libcloud£ºSaltStack¶ÔÔÆ¼Ü¹¹±àÅÅ¿â
-¡¤Requests£ºHTTP Python¿â
-¡¤ZeroMQ£ºSaltStackÏûÏ¢ÏµÍ³
-¡¤pyzmq£ºZeroMQ Python¿â
-¡¤PyCrypto£ºPythonÃÜÂë¿â
-¡¤M2Crypto£ºOpenssl Python°ü×°¿â
+Pythonç‰ˆæœ¬å¤§äº2.6æˆ–ç‰ˆæœ¬å°äº3.0ï¼šå¯¹Python ç‰ˆæœ¬è¦æ±‚
+Â·msgpack-pythonï¼šSalStackæ¶ˆæ¯äº¤æ¢åº“
+Â·YAMLï¼šSaltStacké…ç½®è§£æå®šä¹‰è¯­æ³•
+Â·Jinja2ï¼šSaltStack statesé…ç½®æ¨¡æ¿
+Â·MarkupSafeï¼šPython unicodeè½¬æ¢åº“
+Â·apache-libcloudï¼šSaltStackå¯¹äº‘æ¶æ„ç¼–æ’åº“
+Â·Requestsï¼šHTTP Pythonåº“
+Â·ZeroMQï¼šSaltStackæ¶ˆæ¯ç³»ç»Ÿ
+Â·pyzmqï¼šZeroMQ Pythonåº“
+Â·PyCryptoï¼šPythonå¯†ç åº“
+Â·M2Cryptoï¼šOpenssl PythonåŒ…è£…åº“
 
 
 
-°²×° salt £º RHEL / CENTOS / SCIENTIFIC LINUX / AMAZON LINUX / ORACLE LINUX
+å®‰è£… salt ï¼š RHEL / CENTOS / SCIENTIFIC LINUX / AMAZON LINUX / ORACLE LINUX
 https://docs.saltstack.com/en/latest/topics/installation/rhel.html
 
 
-yum·½Ê½°²×°£º
-ÅäÖÃ¹Ù·½yumÔ´£º
+yumæ–¹å¼å®‰è£…ï¼š
+é…ç½®å®˜æ–¹yumæºï¼š
 [saltstack-repo]
 name=SaltStack repo for Red Hat Enterprise Linux $releasever
 baseurl=https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest
@@ -58,7 +58,7 @@ minion:
 	chkconfig salt-minion on
 	service salt-minion start
 
-·À»ğÇ½£º
+é˜²ç«å¢™ï¼š
 	iptables -I INPUT -m state --state new -m tcp -p tcp --dport 4505 -j ACCEPT
 	iptables -I INPUT -m state --state new -m tcp -p tcp --dport 4506 -j ACCEPT
 
@@ -69,7 +69,7 @@ ret_port:	4506
 ####yum install salt-syndic
 ####yum install salt-cloud
 
-salt-2016.11.1£º
+salt-2016.11.1ï¼š
 cb1b8d20bf7b41d323e7675e28cc9114  ./python-crypto-2.6.1-2.el6.x86_64.rpm
 6624515076c0a79c80929562e967d7e2  ./python-futures-3.0.3-1.el6.noarch.rpm
 6f11fc3bd8a8c382f0585bd41a249487  ./python-jinja2-2.7.3-1.el6.noarch.rpm
@@ -84,7 +84,7 @@ cbbe530b537b8c7fd7aa23303cfc8f90  ./salt-2016.11.1-1.el6.noarch.rpm
 32e413bd27a0ff06c9e36135078e3aab  ./zeromq-4.0.5-4.el6.x86_64.rpm
 
 
-ÅäÖÃ£º
+é…ç½®ï¼š
 1.master:
 	[/etc/salt/master]
 	interface: 10.1.1.1
@@ -99,11 +99,11 @@ cbbe530b537b8c7fd7aa23303cfc8f90  ./salt-2016.11.1-1.el6.noarch.rpm
 
 
 
-Ğ£Ñé°²×°½á¹û£º
-	salt-key -L	,ÏÔÊ¾ÒÑ¾­»òÎ´ÈÏÖ¤µÄ±»¿Ø¶Ëid£¬Accepted KeysÎªÒÑÈÏÖ¤Çåµ¥£¬Unaccepted KeysÎªÎ´ÈÏÖ¤Çåµ¥
+æ ¡éªŒå®‰è£…ç»“æœï¼š
+	salt-key -L	,æ˜¾ç¤ºå·²ç»æˆ–æœªè®¤è¯çš„è¢«æ§ç«¯idï¼ŒAccepted Keysä¸ºå·²è®¤è¯æ¸…å•ï¼ŒUnaccepted Keysä¸ºæœªè®¤è¯æ¸…å•
 	salt 'minion-1' test.ping
 	
-	salt-key -D 	,É¾³ıËùÓĞÈÏÖ¤Ö÷»úidÖ¤Êé
-	salt-key -d id	,É¾³ıµ¥¸öid
-	salt-key -A	,½ÓÊÜËùÓĞidÖ¤ÊéÇëÇó
-	salt-key -a id	,½ÓÊÜµ¥¸öidÖ¤ÊéÇëÇó
+	salt-key -D 	,åˆ é™¤æ‰€æœ‰è®¤è¯ä¸»æœºidè¯ä¹¦
+	salt-key -d id	,åˆ é™¤å•ä¸ªid
+	salt-key -A	,æ¥å—æ‰€æœ‰idè¯ä¹¦è¯·æ±‚
+	salt-key -a id	,æ¥å—å•ä¸ªidè¯ä¹¦è¯·æ±‚
