@@ -1,28 +1,28 @@
-nagios£º¼à¿Ø
+nagiosï¼šç›‘æ§
 
 
-¸ÅÄî¼à¿ØÏîÄ¿£º
-	¼à¿Ø·şÎñÆ÷µÄ´æ»î×´Ì¬
-	¼à¿Ø·şÎñµÄÔËĞĞ×´Ì¬
-	¼à¿Ø×ÊÔ´Ê¹ÓÃ×´¿ö
+æ¦‚å¿µç›‘æ§é¡¹ç›®ï¼š
+	ç›‘æ§æœåŠ¡å™¨çš„å­˜æ´»çŠ¶æ€
+	ç›‘æ§æœåŠ¡çš„è¿è¡ŒçŠ¶æ€
+	ç›‘æ§èµ„æºä½¿ç”¨çŠ¶å†µ
 
-Èí¼ş£º
+è½¯ä»¶ï¼š
 	nagios
 	cacti
 	zabbix
 
-3¡¢nagiosÊÇÊ²Ã´
-	ÊÇÒ»¿î¿ªÔ´µÄIT»ù´¡ÉèÊ©¼à¿ØÈí¼ş¡£½»»»»ú¡¢Â·ÓÉÆ÷¡¢·şÎñÆ÷¡¢¸÷ÖÖÍøÂç·şÎñÈí¼ş¡£
-	¼à¿ØÆ½Ì¨£¨Ö§³ÖwebÒ³ÃæµÄ£©
-4¡¢ÌØµã
-	¿ªÔ´Ãâ·Ñ
-	¿ÉÊÇÊµÏÖ¼à¿Ø¸÷ÖÖÍøÂç·şÎñÈí¼ş£¨http/mysql/ftp/nfs...£©
-	¼à¿Ø±¾»ú¼°Ô¶³ÌÖ÷»úµÄ×´Ì¬
-	Ö§³ÖÓÊ¼ş±¨¾¯
-	ÔÊĞíÓÃ»§±àĞ´¼à¿Ø²å¼ş£¨¼à¿ØÒ»¸öÏîÄ¿£¬½Å±¾£©
-	webÒ³Ãæ
+3ã€nagiosæ˜¯ä»€ä¹ˆ
+	æ˜¯ä¸€æ¬¾å¼€æºçš„ITåŸºç¡€è®¾æ–½ç›‘æ§è½¯ä»¶ã€‚äº¤æ¢æœºã€è·¯ç”±å™¨ã€æœåŠ¡å™¨ã€å„ç§ç½‘ç»œæœåŠ¡è½¯ä»¶ã€‚
+	ç›‘æ§å¹³å°ï¼ˆæ”¯æŒwebé¡µé¢çš„ï¼‰
+4ã€ç‰¹ç‚¹
+	å¼€æºå…è´¹
+	å¯æ˜¯å®ç°ç›‘æ§å„ç§ç½‘ç»œæœåŠ¡è½¯ä»¶ï¼ˆhttp/mysql/ftp/nfs...ï¼‰
+	ç›‘æ§æœ¬æœºåŠè¿œç¨‹ä¸»æœºçš„çŠ¶æ€
+	æ”¯æŒé‚®ä»¶æŠ¥è­¦
+	å…è®¸ç”¨æˆ·ç¼–å†™ç›‘æ§æ’ä»¶ï¼ˆç›‘æ§ä¸€ä¸ªé¡¹ç›®ï¼Œè„šæœ¬ï¼‰
+	webé¡µé¢
 
-5¡¢°²×°
+5ã€å®‰è£…
 	
 yum install httpd php-* gcc glibc glibc-common gd -y
 useradd  nagios
@@ -40,23 +40,23 @@ make install-webconf
 service httpd restart
 service nagios restart
 
-ApacheÖĞ¹ØÓÚnagiosÒ³ÃæµÄÅäÖÃÎÄ¼ş£º/etc/httpd/conf.d/nagios.conf
+Apacheä¸­å…³äºnagiosé¡µé¢çš„é…ç½®æ–‡ä»¶ï¼š/etc/httpd/conf.d/nagios.conf
 
-6¡¢ÊµÏÖ¶Ônagios±¾»úµÄ¼à¿Ø
-6.1	nagiosÎÄ¼ş½á¹¹
+6ã€å®ç°å¯¹nagiosæœ¬æœºçš„ç›‘æ§
+6.1	nagiosæ–‡ä»¶ç»“æ„
 
-bin  Ö´ĞĞÎÄ¼ş
+bin  æ‰§è¡Œæ–‡ä»¶
 etc  
-	cgi.cfg		cgiµÄÅäÖÃÎÄ¼ş£¬ĞŞ¸ÄÁËnagiosµÄ¹ÜÀíÔ±ÓÃ»§Ãû£¨nagios£©
-	htpasswd.users	´æ·ÅÈÏÖ¤ÍøÒ³µÄÓÃ»§¡¢ÃÜÂëÎÄ¼ş     htpasswd -cm /usr/local/nagios/etc/htpasswd.users nagios
-	nagios.cfg	nagiosµÄÖ÷ÅäÖÃÎÄ¼ş£¬²»ÒªĞŞ¸Ä
-	resource.cfg	´æ·ÅnagiosµÄ±äÁ¿µÄÎÄ¼ş¡£±ÈÈç$USER1$±íÊ¾²å¼ş´æ·ÅÂ·¾¶
+	cgi.cfg		cgiçš„é…ç½®æ–‡ä»¶ï¼Œä¿®æ”¹äº†nagiosçš„ç®¡ç†å‘˜ç”¨æˆ·åï¼ˆnagiosï¼‰
+	htpasswd.users	å­˜æ”¾è®¤è¯ç½‘é¡µçš„ç”¨æˆ·ã€å¯†ç æ–‡ä»¶     htpasswd -cm /usr/local/nagios/etc/htpasswd.users nagios
+	nagios.cfg	nagiosçš„ä¸»é…ç½®æ–‡ä»¶ï¼Œä¸è¦ä¿®æ”¹
+	resource.cfg	å­˜æ”¾nagiosçš„å˜é‡çš„æ–‡ä»¶ã€‚æ¯”å¦‚$USER1$è¡¨ç¤ºæ’ä»¶å­˜æ”¾è·¯å¾„
 	objects
-	commands.cfg  	ÃüÁîµÄÅäÖÃÎÄ¼ş£¬¿ÉÒÔ¶¨ÒånagiosÊ¹ÓÃµÄÃüÁî
-	localhost.cfg     ¶¨Òå¼à¿ØÄÄĞ©ÏîÄ¿
-	timeperiods.cfg	¶¨Òå¼à¿ØÊ±¼ä¶Î
-	contacts.cfg 	¶¨ÒåÁªÏµÈË
-	templates.cfg  Ä£°å£¬¶¨ÒåÃüÁîµÄÄ£°å¡¢¼à¿ØÏîµÄÄ£°å¡¢Ê±¼ä¶Î¡¢ÁªÏµÈËÄ£°å¡£
+	commands.cfg  	å‘½ä»¤çš„é…ç½®æ–‡ä»¶ï¼Œå¯ä»¥å®šä¹‰nagiosä½¿ç”¨çš„å‘½ä»¤
+	localhost.cfg     å®šä¹‰ç›‘æ§å“ªäº›é¡¹ç›®
+	timeperiods.cfg	å®šä¹‰ç›‘æ§æ—¶é—´æ®µ
+	contacts.cfg 	å®šä¹‰è”ç³»äºº
+	templates.cfg  æ¨¡æ¿ï¼Œå®šä¹‰å‘½ä»¤çš„æ¨¡æ¿ã€ç›‘æ§é¡¹çš„æ¨¡æ¿ã€æ—¶é—´æ®µã€è”ç³»äººæ¨¡æ¿ã€‚
 
 		
 
@@ -65,25 +65,25 @@ etc
 	switch.cfg  
 
 
-include  ´æ·Å°üº¬µ½nagiosÖĞµÄÎÄ¼ş£¬ÀàËÆÓëApacheµÄ/etc/httpd/conf.d
-libexec  ´æ·ÅµÄÊÇ²å¼ş
+include  å­˜æ”¾åŒ…å«åˆ°nagiosä¸­çš„æ–‡ä»¶ï¼Œç±»ä¼¼ä¸Apacheçš„/etc/httpd/conf.d
+libexec  å­˜æ”¾çš„æ˜¯æ’ä»¶
 
-sbin  cgi³ÌĞò
+sbin  cgiç¨‹åº
 
-share  ´æ·ÅwebÒ³Ãæ
+share  å­˜æ”¾webé¡µé¢
 
-var	´æ·ÅÈÕÖ¾ÎÄ¼ş¡¢ËøÎÄ¼şµÈ
-
-
-nagiosÊµÏÖ¼à¿ØµÄ¹ı³Ì£º
-Ä¬ÈÏ´ò¿ªnagiosÖ®ºó£¬¾ÍÖ§³Ö¶Ô±¾»úµÄ¼à¿Ø£¬ÎªÊ²Ã´ÄØ£¿
-1£©localhost.cfgÖĞÒÑ¾­¶¨ÒåÁË¶Ô±¾»úµÄ¼à¿Ø
-2£©Í¨¹ıcommands.cfgÖĞµÄÃüÁîÀ´µ÷ÓÃ²å¼ş  check_host_alive(check_ping)
-3) ÔÙÍ¨¹ıtimeperiods.cfgÀ´È·¶¨¼à¿ØµÄÊ±¼ä¶Î    24x7
-4) Èç¹û´¥·¢±¨¾¯£¬ÁªÏµcontacts.cfgÖĞ¶¨ÒåµÄÁªÏµÈË
+var	å­˜æ”¾æ—¥å¿—æ–‡ä»¶ã€é”æ–‡ä»¶ç­‰
 
 
-7¡¢ÊµÏÖ¶ÔÒ»Ì¨Ô¶³ÌÖ÷»úµÄ¼à¿Ø
+nagioså®ç°ç›‘æ§çš„è¿‡ç¨‹ï¼š
+é»˜è®¤æ‰“å¼€nagiosä¹‹åï¼Œå°±æ”¯æŒå¯¹æœ¬æœºçš„ç›‘æ§ï¼Œä¸ºä»€ä¹ˆå‘¢ï¼Ÿ
+1ï¼‰localhost.cfgä¸­å·²ç»å®šä¹‰äº†å¯¹æœ¬æœºçš„ç›‘æ§
+2ï¼‰é€šè¿‡commands.cfgä¸­çš„å‘½ä»¤æ¥è°ƒç”¨æ’ä»¶  check_host_alive(check_ping)
+3) å†é€šè¿‡timeperiods.cfgæ¥ç¡®å®šç›‘æ§çš„æ—¶é—´æ®µ    24x7
+4) å¦‚æœè§¦å‘æŠ¥è­¦ï¼Œè”ç³»contacts.cfgä¸­å®šä¹‰çš„è”ç³»äºº
+
+
+7ã€å®ç°å¯¹ä¸€å°è¿œç¨‹ä¸»æœºçš„ç›‘æ§
 [root@localhost ~]# vim /usr/local/nagios/etc/objects/localhost.cfg 
 
 ################## host 192.168.19.114 ######################
@@ -106,21 +106,21 @@ define host {
 
 
 
-8¡¢¼à¿ØÔ¶³ÌÖ÷»úµÄÁ½¸ö·şÎñ--webºÍMySQL
+8ã€ç›‘æ§è¿œç¨‹ä¸»æœºçš„ä¸¤ä¸ªæœåŠ¡--webå’ŒMySQL
 
-ÊµÑé²½Öè£º
+å®éªŒæ­¥éª¤ï¼š
 
-1¡¢±»¼à¿ØÖ÷»úÉÏ192.168.19.114°²×°mysql£¬²¢Ìí¼ÓÓÃ»§¡£
+1ã€è¢«ç›‘æ§ä¸»æœºä¸Š192.168.19.114å®‰è£…mysqlï¼Œå¹¶æ·»åŠ ç”¨æˆ·ã€‚
 [root@MySQL ~]# yum install mysql-server -y
 [root@host html]# mysql
 
-mysql>  create user 'nagios'@192.168.19.156 identified by '123'£»
+mysql>  create user 'nagios'@192.168.19.156 identified by '123'ï¼›
 Query OK, 0 rows affected (0.00 sec)
 
 mysql> flush privileges;
 Query OK, 0 rows affected (0.00 sec)
 
-2¡¢ÔÚ¼à¿ØÖ÷»ú£¨192.168.19.156£©ÉÏ²âÊÔ
+2ã€åœ¨ç›‘æ§ä¸»æœºï¼ˆ192.168.19.156ï¼‰ä¸Šæµ‹è¯•
 [root@localhost libexec]# mysql -unagios -h192.168.19.114 -p123 -e "show databases" 
 +----------------------+
 | Database             |
@@ -131,7 +131,7 @@ Query OK, 0 rows affected (0.00 sec)
 [root@localhost libexec]# ./check_mysql 
 MySQL is UP!
 
-3¡¢Ğ´mysql¼à¿Ø²å¼ş
+3ã€å†™mysqlç›‘æ§æ’ä»¶
 [root@localhost ~]# cd /usr/local/nagios/libexec/
 [root@localhost ~]# vim check_mysql
 # !/bin/bash
@@ -149,9 +149,9 @@ if [ $? -eq 0 ];then
 fi
 
 [root@localhost libexec]# ./check_mysql 	
-MySQL is UP!  		Ö´ĞĞ½Å±¾ÏÔÊ¾UP ÏÔÊ¾DOWN ËµÃ÷ÓĞ´íÎó
+MySQL is UP!  		æ‰§è¡Œè„šæœ¬æ˜¾ç¤ºUP æ˜¾ç¤ºDOWN è¯´æ˜æœ‰é”™è¯¯
 
-4¡¢²å¼şÓĞÁË£¬ÏÖÔÚÈ¥¶¨ÒåÒ»¸önagiosÃüÁîÀ´µ÷ÓÃÕâ¸ö²å¼ş
+4ã€æ’ä»¶æœ‰äº†ï¼Œç°åœ¨å»å®šä¹‰ä¸€ä¸ªnagioså‘½ä»¤æ¥è°ƒç”¨è¿™ä¸ªæ’ä»¶
 [root@localhost ~]# vim /usr/local/nagios/etc/objects/commands.cfg 
 
 define command{
@@ -160,7 +160,7 @@ define command{
 
 }
 
-5¡¢nagiosÃüÁîÓĞÁË£¬ÏÖÔÚÈ¥ĞŞ¸Älocalhost.cfg
+5ã€nagioså‘½ä»¤æœ‰äº†ï¼Œç°åœ¨å»ä¿®æ”¹localhost.cfg
 [root@localhost ~]# vim /usr/local/nagios/etc/objects/localhost.cfg
 [root@localhost libexec]# /etc/init.d/nagios restart
 Running configuration check...
@@ -204,57 +204,57 @@ define service{
         contact_groups          admins
 }
 
-6¡¢ÊÖ¶¯Ë¢ĞÂnagios½çÃæ£¬¿ÉÒÔ¿´µ½mysqlÕâ¸ö·şÎñµÄ¼à¿ØĞÅÏ¢
+6ã€æ‰‹åŠ¨åˆ·æ–°nagiosç•Œé¢ï¼Œå¯ä»¥çœ‹åˆ°mysqlè¿™ä¸ªæœåŠ¡çš„ç›‘æ§ä¿¡æ¯
 
 
 
-nagiosÔõÑùÖªµÀÍ¨¹ıÊ²Ã´ÑÕÉ«À´±íÏÖµ±Ç°·şÎñµÄÔËĞĞ×´Ì¬---Í¨¹ıÃüÁî£¨²å¼ş£©Ö´ĞĞ½á¹ûµÄ·µ»ØÖµ£º
+nagiosæ€æ ·çŸ¥é“é€šè¿‡ä»€ä¹ˆé¢œè‰²æ¥è¡¨ç°å½“å‰æœåŠ¡çš„è¿è¡ŒçŠ¶æ€---é€šè¿‡å‘½ä»¤ï¼ˆæ’ä»¶ï¼‰æ‰§è¡Œç»“æœçš„è¿”å›å€¼ï¼š
 
-·µ»ØÖµ		×´Ì¬		ÑÕÉ«
-0		ÔËĞĞ		ÂÌÉ«
-1		¾¯¸æ		»ÆÉ«
-2		ÑÏÖØ¾¯¸æ		ºìÉ«
-3		Î´Öª		éÙÉ«
+è¿”å›å€¼		çŠ¶æ€		é¢œè‰²
+0		è¿è¡Œ		ç»¿è‰²
+1		è­¦å‘Š		é»„è‰²
+2		ä¸¥é‡è­¦å‘Š		çº¢è‰²
+3		æœªçŸ¥		æ©˜è‰²
 	
 
-9¡¢ÊµÏÖ¶Ô±¾µØ×ÊÔ´µÄ¼à¿Ø--ÄÚ´æ
+9ã€å®ç°å¯¹æœ¬åœ°èµ„æºçš„ç›‘æ§--å†…å­˜
 
 
-	9.1)Ğ´²å¼ş--Ê¹ÓÃÏÖ³ÉµÄ£¬¿½±´µ½/usr/local/nagios/libexec  
-	9.2)¶¨ÒåÃüÁî    vim etc/object/commands.cfg  
-	9.3)¼à¿Ø         		localhost.cfg
-	9.4£©ÖØÆô£î£á£ç£é£ï£ó¡¡²¢²âÊÔ
+	9.1)å†™æ’ä»¶--ä½¿ç”¨ç°æˆçš„ï¼Œæ‹·è´åˆ°/usr/local/nagios/libexec  
+	9.2)å®šä¹‰å‘½ä»¤    vim etc/object/commands.cfg  
+	9.3)ç›‘æ§         		localhost.cfg
+	9.4ï¼‰é‡å¯ï½ï½ï½‡ï½‰ï½ï½“ã€€å¹¶æµ‹è¯•
 
-10¡¢¼à¿ØÔ¶³ÌÖ÷»úÉÏµÄ×ÊÔ´--ÄÚ´æ
-	1£©ĞèÒªÔÚ±»¼à¿ØÖ÷»úÉÏ°²×°nrpe£¬²¢ÇÒÔËĞĞ¸Ã·şÎñ£¨xinetd£©
-	2£©ÔÚ±»¼à¿ØÖ÷»úÉÏ¶¨Òåcheck_memoryÃüÁî
-	3£©¼à¿ØÖ÷»úÉÏ°²×°nrpe²å¼ş£¬²¢¶¨Òåcheck_nrpeÃüÁî
-	4£©ÔÚ¼à¿ØÖ÷»úÉÏÉèÖÃlocalhost.cfg ÎÄ¼ş£¬¶¨Òå¼à¿ØÏî
+10ã€ç›‘æ§è¿œç¨‹ä¸»æœºä¸Šçš„èµ„æº--å†…å­˜
+	1ï¼‰éœ€è¦åœ¨è¢«ç›‘æ§ä¸»æœºä¸Šå®‰è£…nrpeï¼Œå¹¶ä¸”è¿è¡Œè¯¥æœåŠ¡ï¼ˆxinetdï¼‰
+	2ï¼‰åœ¨è¢«ç›‘æ§ä¸»æœºä¸Šå®šä¹‰check_memoryå‘½ä»¤
+	3ï¼‰ç›‘æ§ä¸»æœºä¸Šå®‰è£…nrpeæ’ä»¶ï¼Œå¹¶å®šä¹‰check_nrpeå‘½ä»¤
+	4ï¼‰åœ¨ç›‘æ§ä¸»æœºä¸Šè®¾ç½®localhost.cfg æ–‡ä»¶ï¼Œå®šä¹‰ç›‘æ§é¡¹
 	
-ÊµÏÖ¼à¿ØµÄ¹ı³Ì£º
-	nagios·¢³ö¼à¿ØĞèÇó£¨¼à¿Ø±»¼à¿ØÖ÷»úÉÏµÄÄÚ´æÊ¹ÓÃÇé¿ö£©-->check_nrpeÃüÁî´«´ï¸ø±»¼à¿ØÖ÷»úÉÏµÄnrpe daemon£¬-->µ÷ÓÃcheck_nrpeÃüÁîÖ´ĞĞcheck_memory²å¼ş-->²úÉúÖ´ĞĞ½á¹û-->nrpe daemon·´À¡¸ø¼à¿ØÖ÷»úÉÏµÄcheck_nrpe²å¼ş-->½«Êı¾İ½»¸ønagios-->ÏÔÊ¾³öÀ´
+å®ç°ç›‘æ§çš„è¿‡ç¨‹ï¼š
+	nagioså‘å‡ºç›‘æ§éœ€æ±‚ï¼ˆç›‘æ§è¢«ç›‘æ§ä¸»æœºä¸Šçš„å†…å­˜ä½¿ç”¨æƒ…å†µï¼‰-->check_nrpeå‘½ä»¤ä¼ è¾¾ç»™è¢«ç›‘æ§ä¸»æœºä¸Šçš„nrpe daemonï¼Œ-->è°ƒç”¨check_nrpeå‘½ä»¤æ‰§è¡Œcheck_memoryæ’ä»¶-->äº§ç”Ÿæ‰§è¡Œç»“æœ-->nrpe daemonåé¦ˆç»™ç›‘æ§ä¸»æœºä¸Šçš„check_nrpeæ’ä»¶-->å°†æ•°æ®äº¤ç»™nagios-->æ˜¾ç¤ºå‡ºæ¥
 
 
 	
 
-11¡¢ÉèÖÃ¸æ¾¯ÓÊ¼ş
-	ÉèÖÃ¼à¿ØĞÅÏ¢£¨localhost.cfg£©--¡·´¥·¢±¨¾¯-->muttĞ´ÓÊ¼ş-->msmtpµÚÈı·½¹¤¾ß£¨ĞèÒªÈÏÖ¤--Ö¸¶¨ÓÊ¼ş·şÎñÆ÷£©-->ÓÊ¼ş·şÎñÆ÷-->Í¶µİÓÊ¼şµ½ÊÕ¼şÈËµÄÓÊÏäÕËºÅ
+11ã€è®¾ç½®å‘Šè­¦é‚®ä»¶
+	è®¾ç½®ç›‘æ§ä¿¡æ¯ï¼ˆlocalhost.cfgï¼‰--ã€‹è§¦å‘æŠ¥è­¦-->muttå†™é‚®ä»¶-->msmtpç¬¬ä¸‰æ–¹å·¥å…·ï¼ˆéœ€è¦è®¤è¯--æŒ‡å®šé‚®ä»¶æœåŠ¡å™¨ï¼‰-->é‚®ä»¶æœåŠ¡å™¨-->æŠ•é€’é‚®ä»¶åˆ°æ”¶ä»¶äººçš„é‚®ç®±è´¦å·
 
-1£©°²×°ÉèÖÃmutt
+1ï¼‰å®‰è£…è®¾ç½®mutt
 [root@Naigos nagios]# yum install mutt -y
 vim /etc/Muttrc
 set sendmail="/usr/local/bin/msmtp"
 set from="xjl_vfast@163.com"
 set realname="xiaojingling"
 
-2£©°²×°ÉèÖÃmutt
-°²×°£º
+2ï¼‰å®‰è£…è®¾ç½®mutt
+å®‰è£…ï¼š
 1010  tar -jxf msmtp-1.4.30.tar.bz2 
  1011  cd msmtp-1.4.30
  1012  ./configure 
  1013  make && make install
 
-ÉèÖÃ£º
+è®¾ç½®ï¼š
 vim /usr/local/msmtprc	
 account default
 host    smtp.163.com
@@ -266,7 +266,7 @@ user    xjl_vfast@163.com
 password 20170314WT
 logfile /tmp/msmtp.log
 
-3£©ÉèÖÃÁªÏµÈË
+3ï¼‰è®¾ç½®è”ç³»äºº
 define contact{
         contact_name                    nagiosadmin             ; Short name of user
         use                             generic-contact         ; Inherit default values from generic-contact template (defined above)
@@ -274,7 +274,7 @@ define contact{
 
         email                           xjl_vfast@163.com  
 
-4£©ÉèÖÃ·¢ËÍÓÊ¼şµÄÃüÁî
+4ï¼‰è®¾ç½®å‘é€é‚®ä»¶çš„å‘½ä»¤
 define command{
         command_name    notify-host-by-email
         command_line    /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\nHost: $HOSTNAME$\nState: $HOSTSTATE$\nAddress: $HOSTADDRESS$\nInfo: $HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | /usr/bin/mutt -s "** $NOTIFICATIONTYPE$ Host Alert: $HOSTNAME$ is $HOSTSTATE$ **" $CONTACTEMAIL$
@@ -286,13 +286,13 @@ define command{
         command_line    /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\n\nService: $SERVICEDESC$\nHost: $HOSTALIAS$\nAddress: $HOSTADDRESS$\nState: $SERVICESTATE$\n\nDate/Time: $LONGDATETIME$\n\nAdditional Info:\n\n$SERVICEOUTPUT$\n" | /usr/bin/mutt -s "** $NOTIFICATIONTYPE$ Service Alert: $HOSTALIAS$/$SERVICEDESC$ is $SERVICESTATE$ **" $CONTACTEMAIL$
         }
 
-5£©ÉèÖÃlocalhost.cfgÎÄ¼ş
-°ÑÖ®Ç°ËùÓĞµÄ¼à¿ØÏîÖĞµÄIP¸Ä³ÉÏÖÔÚµÄ±»¼à¿ØÖ÷»úµÄIP
+5ï¼‰è®¾ç½®localhost.cfgæ–‡ä»¶
+æŠŠä¹‹å‰æ‰€æœ‰çš„ç›‘æ§é¡¹ä¸­çš„IPæ”¹æˆç°åœ¨çš„è¢«ç›‘æ§ä¸»æœºçš„IP
 
-6£©ÖØÆônagios
+6ï¼‰é‡å¯nagios
 
 
-12¡¢Ä£°åÎÄ¼ş   templates.cfg
+12ã€æ¨¡æ¿æ–‡ä»¶   templates.cfg
 	
 	
 
