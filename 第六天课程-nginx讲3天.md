@@ -2,7 +2,7 @@
 Nginx课程安排
 第一天大纲：
   【Nginx安装】
-  【基本配置】	
+  【基本配置】
   【反向代理】
   【虚拟主机】
   【URL重写】
@@ -52,10 +52,12 @@ nginx的基础概念--master和worker
 	可移植性好
 	C语言开发
 	代理功能强大，负载均衡（七层）
-	
+
 4、nginx的基础概念
-	master进程
-	worker进程
+
+  master进程
+
+  worker进程
 
 	回顾：Apache有哪些工作模式（MPM）
 		prefork	预派生模型
@@ -85,7 +87,7 @@ kill -9 pid
 /usr/local/nginx-1.7.8/sbin/nginx –s reload
 验证配置文件
 /usr/local/nginx-1.7.8/sbin/nginx –t
-			
+
 5、安装nginx  把文件用rz 拷贝到 /usr/src/目录下
  # yum install lrzsz -y
  # cd /usr/src/
@@ -118,7 +120,7 @@ nginx   9029 nobody    6u  IPv4  36278      0t0  TCP *:http (LISTEN)
 [root@Nginx nginx-1.11.3]#./configure --prefix=/usr/local/nginx
 [root@Nginx nginx-1.11.3]# make && make install
 运行nginx ：
-[root@Nginx sbin]# /usr/local/nginx/sbin/nginx 
+[root@Nginx sbin]# /usr/local/nginx/sbin/nginx
 [root@Nginx sbin]# lsof -i:80
 
 
@@ -174,15 +176,15 @@ http {
     include       mime.types;
     default_type  application/octet-stream;
 
-    sendfile        on; 
+    sendfile        on;
 
-    keepalive_timeout  65; 
+    keepalive_timeout  65;
 
     server {
-        listen       80; 
+        listen       80;
         server_name  localhost;
-  
-        location / { 
+
+        location / {
             root   html;
             index  index.html index.htm;
         }   
@@ -190,8 +192,8 @@ http {
          server {
           listen       8080;
           server_name  localhost;
-  
-          location / { 
+
+          location / {
               root   www;
               index  index.html index.htm;
           }
@@ -204,7 +206,7 @@ http {
 3、重启nginx服务
 	[root@Nginx nginx]# killall -s HUP nginx
 4、客户端测试
-	elinks http://localhost --dump 
+	elinks http://localhost --dump
 	elinks http://localhost:8080 --dump
 
 虚拟主机(多网站)
@@ -253,15 +255,15 @@ http {
     include       mime.types;
     default_type  application/octet-stream;
 
-    sendfile        on; 
+    sendfile        on;
 
-    keepalive_timeout  65; 
+    keepalive_timeout  65;
 
     server {
-        listen       80; 
+        listen       80;
         server_name  www.bb.com;
-  
-        location / { 
+
+        location / {
             root   html;
             index  index.html index.htm;
         }   
@@ -269,8 +271,8 @@ http {
          server {
           listen       80;
           server_name  www.cc.com;
-  
-          location / { 
+
+          location / {
               root   www;
               index  index.html index.htm;
           }
@@ -310,15 +312,15 @@ http {
     include       mime.types;
     default_type  application/octet-stream;
 
-    sendfile        on; 
+    sendfile        on;
 
-    keepalive_timeout  65; 
+    keepalive_timeout  65;
 
     server {
-        listen    192.168.19.156:80; 
+        listen    192.168.19.156:80;
         server_name  localhost;
-  
-        location / { 
+
+        location / {
             root   html;
             index  index.html index.htm;
         }   
@@ -326,8 +328,8 @@ http {
          server {
           listen       192.168.19.150:80;
           server_name  localhost;
-  
-          location / { 
+
+          location / {
               root   www;
               index  index.html index.htm;
           }
@@ -348,9 +350,9 @@ tcp        0      0 192.168.19.253:80            0.0.0.0:*              LISTEN  
 tcp        0      0 192.168.19.254:80            0.0.0.0:*              LISTEN      25060/nginx
 
 5、客户端测试
-[root@Nginx nginx]# elinks http:// 192.168.19.253--dump 
+[root@Nginx nginx]# elinks http:// 192.168.19.253--dump
    www.bb.com
-[root@Nginx nginx]# elinks http:// 192.168.19.254--dump 
+[root@Nginx nginx]# elinks http:// 192.168.19.254--dump
    www.cc.com
 
 =============================================================
@@ -366,12 +368,12 @@ tcp        0      0 192.168.19.254:80            0.0.0.0:*              LISTEN  
 			apache  19.248
 			clent   19.248
 	客户端请求www.a.com(245),将请求通过url重写交给248（www.b.com）.
-	
+
 	URL重写是web服务器的功能。
-	
-	
+
+
 环境：
-13.1.1.1   主机名 www.a.com  扮演nginx提供web和客户端角色 
+13.1.1.1   主机名 www.a.com  扮演nginx提供web和客户端角色
 13.1.1.200 主机名www.b.com
 
 为了交代清楚，故让学生先看一下默认首页
@@ -409,7 +411,7 @@ echo “127.0.0.1  www.a.com” >>/etc/hosts
 此时使用浏览器，输入www.a.com即可得到nginx提供的web页面
 
 
-3）nginx重写，将访问www.bb.com的请求交给www.cc.com 
+3）nginx重写，将访问www.bb.com的请求交给www.cc.com
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 worker_processes  3;
@@ -431,7 +433,7 @@ http {
     server {
         listen       80;
         server_name  www.bb.com;
-        
+
         location / {
          #   root   html;
          #   index  index.html index.htm;
@@ -450,7 +452,7 @@ http {
 	13.1.1.200  www.b.com
 
 5）设置13.1.1.200的web服务
-	/etc/init.d/httpd restart 
+	/etc/init.d/httpd restart
 	echo “rewrite” > /var/www/html/index.html
 
 6）客户端测试
@@ -459,7 +461,7 @@ http {
 
 
 10、防盗链
-	
+
 1、先做盗链服务器
 	<html>
         <body>
@@ -505,9 +507,9 @@ blocked 代表有referer但是被防火墙或者是代理给去除了
 11、反向代理
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
-	反向代理代理的是服务器。www.a.com 
+	反向代理代理的是服务器。www.a.com
 	正向代理代理的是客户端，客户端需要设置使用哪个代理服务器。
-	
+
 	245   反向代理服务器		248 客户端       真实服务器（源服务器） 247
 
 
@@ -516,7 +518,7 @@ blocked 代表有referer但是被防火墙或者是代理给去除了
 
 	最基本的反向代理：  proxy_pass  http://192.168.19.248;
 	端口映射：proxy_pass  http://192.168.19.248:8080;
-		
+
 	实现真实服务器日志记录真正客户端的ip：
 	1、修改反向代理服务器的配置文件
 		 proxy_set_header    X_Real_IP $remote_addr;
@@ -562,11 +564,11 @@ http {
 
         location ~* .(gif|jpg|png|swf|flv)$ {
         valid_referers none blocked *.baidu.com;
-        
+
         if ($invalid_referer) {
         return 403;
  }
- } 
+ }
        error_page   500 502 503 504  /50x.html;
         location = /50x.html {
             root   html;
@@ -577,7 +579,7 @@ http {
 
 
 12、nginx限速
-		
+
 实验环境：
 客户端：13.1.1.200
 nginx服务器：13.1.1.1
@@ -627,13 +629,13 @@ events {
          #   root   html;
          #   index  index.html index.htm;
          limit_rate 100k;
-         
+
 #       rewrite ^/$ http://www.cc.com;
         }
-        
+
         location ~* .(gif|jpg|png|swf|flv)$ {
         valid_referers none blocked *.baidu.com;
-        
+
         if ($invalid_referer) {
         return 403;
  }      
@@ -677,13 +679,13 @@ events {
          #   index  index.html index.htm;
          limit_rate_after 90m;
          limit_rate 100k;
-         
+
 #       rewrite ^/$ http://www.cc.com;
         }
-        
+
         location ~* .(gif|jpg|png|swf|flv)$ {
         valid_referers none blocked *.baidu.com;
-        
+
         if ($invalid_referer) {
         return 403;
  }      
@@ -696,7 +698,7 @@ events {
         }
 
 客户端测试：
-[root@Lvs1 opt]# rm -fr bigfile 
+[root@Lvs1 opt]# rm -fr bigfile
 [root@Lvs1 opt]# wget http://13.1.1.1/bigfile
 --2016-11-09 22:37:57--  http://13.1.1.1/bigfile
 正在连接 13.1.1.1:80... 已连接。
@@ -704,12 +706,12 @@ events {
 长度：104857600 (100M) [application/octet-stream]
 正在保存至: “bigfile”
 
-[==================================>    ] 94,576,640  27.9M/s 
-[==================================>    ] 94,883,840  21.1M/s 
-[==================================>    ] 94,883,840  17.3M/s 
-[==================================>    ] 94,883,840  14.6M/s 
-[==================================>    ] 95,191,040  12.4M/s 
-[==================================>    ] 95,191,040  11.0M/s 
+[==================================>    ] 94,576,640  27.9M/s
+[==================================>    ] 94,883,840  21.1M/s
+[==================================>    ] 94,883,840  17.3M/s
+[==================================>    ] 94,883,840  14.6M/s
+[==================================>    ] 95,191,040  12.4M/s
+[==================================>    ] 95,191,040  11.0M/s
 [==================================>    ] 95,191,040  9.86M/s eta
 
 
@@ -756,7 +758,7 @@ http {
         limit_conn tom 3;
 #       rewrite ^/$ http://www.cc.com;
         }
-        
+
         location ~* .(gif|jpg|png|swf|flv)$ {
         valid_referers none blocked *.baidu.com;
         if ($invalid_referer) {
@@ -787,7 +789,7 @@ root     18517  0.0  0.0   6052   768 pts/0    S+   23:12   0:00 grep wget
 
 	Apache+php    cgi   fcgi  php-fpm :php以服务的形式运行，9000端口  5.4之后php-fpm  
 									 5.4  
-	
+
 基于端口的虚拟主机配置格式：
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
@@ -802,15 +804,15 @@ http {
     default_type  application/octet-stream;
 
 
-    sendfile        on; 
+    sendfile        on;
 
-    keepalive_timeout  65; 
+    keepalive_timeout  65;
 
     server {
-        listen       80; 
+        listen       80;
         server_name  localhost;
-  
-        location / { 
+
+        location / {
             root   html;
             index  index.html index.htm;
         }   
@@ -818,8 +820,8 @@ http {
          server {
           listen       8080;
           server_name  localhost;
-  
-          location / { 
+
+          location / {
               root   www;
               index  index.html index.htm;
           }
@@ -854,7 +856,7 @@ http {
 	Apache擅长动态页面处理  
 
 发布动态页面：
-	一、安装php-* mysql-server msyql -y 
+	一、安装php-* mysql-server msyql -y
 	[root@localhost html]# yum install php-* mysql-server mysql -y
     	1、安装spawn-fcgi工具
 	[root@localhost src]# rpm -ivh spawn-fcgi-1.6.3-1.el5.i386.rpm
@@ -875,7 +877,7 @@ http {
         }
 
 	[root@localhost html]# mv index.html index.php
-	[root@localhost html]# vim index.php 
+	[root@localhost html]# vim index.php
 
        <?php
         echo date('y-m-d h:i:s',time())
@@ -892,7 +894,7 @@ http {
 		通过修改操作系统中nofile的限制，实现让nginx可以处理更多的并发连接。
 		ulimit -SHn 65535         临时修改的方式
 		vim /etc/rc.local	  永久修改（该文件是系统启动时最后加载的一个脚本文件）
-		
+
 	绑定nginx进程：
 		进程争夺CPU资源
 		实现worker进程固定到一个cpu核心上，充分利用CPU资源来运行nginx
@@ -918,17 +920,17 @@ http {
 	客户端：192.168.19.248
 	RS1:192.168.19.241
 	RS2：192.168.19.242
-	
+
 	nginx作为负载均衡器的特点：
 		基于OSI七层--应用层的分发（nginx可看到应用层上的包头信息）
 		看到：
 			请求的URL（url_hash）
-							
+
 			rr
 			wrr
 			ip_hash(lvs--sh)
-					
-		
+
+
 	动静分离（根据客户端请求的页面，静态页面交给后端nginxweb服务器，动态页面交给后端Apache服务器）
 	客户端使用的浏览器类型
 	IP地址分发（判断客户端所处的地域）
@@ -946,7 +948,7 @@ http {
 1、nginx反向代理服务器配置文件
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
-		
+
 实现rr分发：
 	[root@localhost ~]# cd /usr/local/nginx/conf/
         [root@localhost conf]# vim /etc/nginx.conf
@@ -974,7 +976,7 @@ http {
 2、设置RS服务器页面
 RS1上的页面配置
 [root@host opt]# cd /var/www/html
-[root@host html]# vim index.html 
+[root@host html]# vim index.html
 
 3、客户端测试
 [root@localhost ~]# elinks http://192.168.19.156 --dump
@@ -1042,7 +1044,7 @@ http {
    #### RS1 ####
 [root@localhost ~]# elinks http://192.168.19.156 --dump
    #### RS2 ####
-	
+
 处理会话一致性的问题：memcache/redis						
 
 1、nginx反向代理服务器配置文件
@@ -1075,7 +1077,7 @@ http {
                 server 192.168.19.242;
         }
 }
- 
+
 
 2、客户端测试
 [root@localhost ~]# elinks http://192.168.19.156 --dump
@@ -1109,7 +1111,7 @@ http {
 实验环境：
 os:rhel6.7  x86_64
 nginx-1.5  
- 
+
 IP规划：
 rs1     241
 rs2	242
@@ -1117,11 +1119,11 @@ nginx	245
 client	248
 
 在rs2上配置动态页面的支持：
-	yum install php-* mysql-server mysql -y 
+	yum install php-* mysql-server mysql -y
 	service httpd restart		//重新加载配置文件（php模块）
 	cd /var/www/html
 	vim index.php
-	
+
 	<?php
        	 	echo date('y-m-d h:i:s',time());
 	?>
@@ -1134,11 +1136,11 @@ http {
     server {
         listen       80;
         server_name  localhost;
-        
+
 	location ~ \.html$ {			//nginx收到一个以.html结尾的请求后，交给www
             proxy_pass  http://www;
         }
-        
+
 	location ~ \.php$ {			//nginx收到一个以.php结尾的请求后，交给php
             proxy_pass  http://php;
         }
@@ -1146,7 +1148,7 @@ http {
     }
 
         upstream www {				
-                server 192.168.19.241;	
+                server 192.168.19.241;
         }
         upstream php {
                 server 192.168.19.242;
@@ -1174,12 +1176,12 @@ URL_hash:
 			www.a.com/2.html
 
 	url_hash：根据客户端请求的url的hash值来决定将请求交给后端的哪台rs（缓存服务器）
-	
+
 	作用：提高web缓存命中率
 
 	打补丁：
  1025  cd /usr/src/
- 1027  tar -zxf Nginx_upstream_hash-0.3.1.tar.gz 
+ 1027  tar -zxf Nginx_upstream_hash-0.3.1.tar.gz
  1029  cd nginx_upstream_hash-0.3.1/
  1031  cat README 				//查看readme文件，根据指导来操作
  1032  cd /usr/src/nginx_install/		//进入到nginx的安装包存放目录
@@ -1215,7 +1217,7 @@ http {
 
 用到的脚本：
 创建rs1上的页面：
-[root@host html]# rm -rf index.html 
+[root@host html]# rm -rf index.html
 [root@host html]# ls
 [root@host html]# vim html.sh
 
@@ -1225,12 +1227,12 @@ for i in `seq 1 10`
                 echo "RS1_$i.html" > $i.html
         done
 
-[root@host html]# chmod u+x html.sh 
+[root@host html]# chmod u+x html.sh
 [root@host html]# ./html.sh
 
 
 创建rs2上的页面：
-[root@host html]# rm -rf index.html 
+[root@host html]# rm -rf index.html
 [root@host html]# ls
 [root@host html]# vim html.sh
 
@@ -1240,7 +1242,7 @@ for i in `seq 1 10`
                 echo "RS2_$i.html" > $i.html
         done
 
-[root@host html]# chmod u+x html.sh 
+[root@host html]# chmod u+x html.sh
 [root@host html]# ./html.sh
 
 客户端测试脚本：
@@ -1255,7 +1257,7 @@ for i in `seq 1 10`
    RS2_8.html
    RS2_9.html
    RS2_10.html
- 
+
 [root@localhost ~]# for i in `seq 1 10`; do elinks http://192.168.19.156/$i.html --dump; done
    RS1_1.html
    RS1_2.html
@@ -1421,7 +1423,7 @@ http {
   上海客户端：192.168.19.114
   北京客户端：192.168.19.156
   反向代理服务器：192.168.19.156
-  源服务器1：192.168.19.157	  提供页面 ”BJ web server” 
+  源服务器1：192.168.19.157	  提供页面 ”BJ web server”
   源服务器2：192.168.19.155	  提供页面 ”SH web server”
   源服务器3：192.168.19.114	  提供页面 “PHP动态时间页面”（注：提供IP地址库没有的其它IP）
 
@@ -1463,15 +1465,15 @@ http {
 2、设置web服务器的页面
 
 源服务器1：192.168.19.157 提供的页面 BJ web server
-[root@host ~]# vim /var/www/html/index.html 
+[root@host ~]# vim /var/www/html/index.html
 #### BJ web server ####
 
 源服务器2：192.168.19.155 提供的页面 SH web server
-[root@host ~]# vim /var/www/html/index.html 
+[root@host ~]# vim /var/www/html/index.html
 #### SH web server ####
 
 源服务器3：192.168.19.114 提供的页面 PHP动态页面（注：提供IP地址库没有的其它IP）
-[root@host ~]# vim /var/www/html/index.php 
+[root@host ~]# vim /var/www/html/index.php
  	<?php
         echo date('y-m-d h:i:s',time())
 	?>
@@ -1512,7 +1514,7 @@ JSP页面是用java页面写成的，它是一种动态页面。tomcat来发布J
 		解压   -C  /usr/local/tomcat1
 		运行tomcat：
 			进入到安装目录下bin目录下，    ./startup.sh           关闭：./shutdown.sh
-	mysql	
+	mysql
 		yum install mysql-server mysql -y   
 		运行MySQL
 	jdk	（java运行环境）
@@ -1549,7 +1551,7 @@ apache-tomcat-8.0.0-RC10  apache-tomcat-8.0.0-RC10.tar.gz  bookmanage.tar.gz  de
 [root@host src]# ls
 apache-tomcat-8.0.0-RC10         bookmanage         debug
 apache-tomcat-8.0.0-RC10.tar.gz    bookmanage.tar.gz    kernels
-[root@host src]# 
+[root@host src]#
 
 3、进到解压目录bookmanager 查看redme文件
 [root@host src]# cd bookmanage
@@ -1575,7 +1577,7 @@ Bye
 在浏览器输入192.168.19.157:8080/book
 
 
- 
+
 二、实现客户端输入域名www.a.com 可以访问到图书管理系统。通过nginx的url重写来实现，也可以通过nginx反向代理来实现。
 
 1、nginx服务器的修改配置文件
@@ -1619,24 +1621,24 @@ vim /etc/hosts 添加192.168.19.156   www.a.com
 6）tomcat多实例
 单进程多线程
 
-8005	
+8005
 8009
-8080 
+8080
 tomcat 是单进程多线程的服务。所以对生产环境中多个U的服务器来说是非常浪费资源的，一个进程只使用一个U，所以其他U就会空闲，
 解决办法是安装多个tomcat 软件（需要改启动，关闭脚本端口，配置文件默认端口），这样多个tomcat就可以跑在不同的U，服务器资源利用率就高了。
-   
+
 1、拷贝一个tomcat，名称设为tomcat2
 [root@host ~]# cd /usr/local/tomcat/
 [root@host tomcat]# ls
 tomcat
 [root@host tomcat]# cp -r tomcat tomcat2
 [root@host tomcat]# ls
-tomcat  tomcat2 
+tomcat  tomcat2
 
 2、更改tomcat2的端口号
 三个端口号分别“+10”，查看tomcat监听的端口号：
 
-[root@host tomcat2]# vim conf/server.xml 
+[root@host tomcat2]# vim conf/server.xml
 <Server port="8015" shutdown="SHUTDOWN">
   <Connector port="8090" protocol="HTTP/1.1"
    <Connector port="8019" protocol="AJP/1.3" redirectPort="8443" />
@@ -1730,18 +1732,18 @@ http {
 [root@host ~]# cd /usr/src/
 [root@host src]# rz
 [root@host src]# chmod 755 ./*
-[root@host src]# ./nginx_install.sh 
+[root@host src]# ./nginx_install.sh
 
 2、执行安装脚本并运行nginx 2服务
-[root@host src]# ./nginx_install.sh 
-[root@host nginx]# sbin/nginx 
+[root@host src]# ./nginx_install.sh
+[root@host nginx]# sbin/nginx
 [root@host nginx]# lsof -i:80
 
 3、配置两台nginx的负载均衡--使用rr算法，rs1的页面是RS1，
 	rs2的页面RS2；注意两台nginx的配置文件相同！！！
 
 [root@host nginx]# vim conf/nginx.conf
-[root@host nginx]# /etc/init.d/nginx restart	
+[root@host nginx]# /etc/init.d/nginx restart
 
 worker_processes  3;
 events {
@@ -1792,11 +1794,11 @@ nginx stop				 [ OK ]
 [root@localhost src]# rz     //在nginx1 156本机上测试脚本
 [root@localhost src]# ls
  nginx_pid.sh
-[root@localhost src]# chmod 755 nginx_pid.sh 
-[root@localhost src]# ./nginx_pid.sh 
+[root@localhost src]# chmod 755 nginx_pid.sh
+[root@localhost src]# ./nginx_pid.sh
 nginx stop				 [ Fail ]
 nginx start				 [ OK ]
-从上面结果可以看到，脚本是好使的，可以拉起nginx 1 
+从上面结果可以看到，脚本是好使的，可以拉起nginx 1
 
 
 6、部署keepalieved，拷贝整理好的配置文件，将nginx_pid.sh拷贝到指定位置
@@ -1809,7 +1811,7 @@ nginx 1服务器上的部署
 [root@localhost src]# ls
 keepalived.conf    keep_install.sh    debug     nginx_pid.sh
 nginx-1.5.1        nginx_upstream_hash-0.3.1
-[root@localhost src]# ./keep_install.sh 
+[root@localhost src]# ./keep_install.sh
 [root@localhost src]# vim /etc/keepalived/keepalived.conf
 [root@localhost src]# /etc/init.d/keepalived restart
 [root@host src]# cp nginx_pid.sh /etc/keepalived/
@@ -1853,7 +1855,7 @@ nginx 2服务器上的部署
 [root@localhost src]# ls
 keepalived.conf    keep_install.sh    debug     nginx_pid.sh
 nginx-1.5.1        nginx_upstream_hash-0.3.1
-[root@localhost src]# ./keep_install.sh 
+[root@localhost src]# ./keep_install.sh
 
 [root@localhost src]# vim /etc/keepalived/keepalived.conf
 [root@localhost src]# /etc/init.d/keepalived restart
@@ -1889,7 +1891,7 @@ track_script {
 }
 
 7、测试---nginx 1死后，keepalived如果救不活，那么keepalived自杀，然后让出VIP。整个过程对用户来说是透明的。
-模拟nginx 1宕机 
+模拟nginx 1宕机
 [root@localhost src]# watch -n1 "killall nginx"
 [root@localhost src]# /etc/init.d/keepalived status
 keepalived 已停
@@ -1909,8 +1911,3 @@ nginx 1 宕机后，nginx 2接管VIP 继续服务
 
  脚本思路：
     如果nginx死了，尝试重启nginx，如果能够重启nginx成功--这台机器继续担当master角色；否则，keepalived自杀，从而让出VIP。
-	
-		
-	
-
-
