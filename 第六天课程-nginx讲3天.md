@@ -2,13 +2,21 @@
 Nginx课程安排
 第一天大纲：
   【Nginx安装】
+
   【基本配置】
+
   【反向代理】
+
   【虚拟主机】
+
   【URL重写】
+
   【防 盗链】
+
   【限 速】
+
   【lnmp 】
+
   【优 化】
 
 
@@ -32,8 +40,11 @@ Rewrite功能比Apache强大
 更好的支持PHP，处理动态请求有优势
 
 nginx是什么
+
 nginx的应用
+
 nginx特点
+
 nginx的基础概念--master和worker
 
 1、nginx是什么
