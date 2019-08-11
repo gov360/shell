@@ -1,101 +1,110 @@
 
-Nginx¿Î³Ì°²ÅÅ
-µÚÒ»Ìì´ó¸Ù£º
-  ¡¾Nginx°²×°¡¿
-  ¡¾»ù±¾ÅäÖÃ¡¿	
-  ¡¾·´Ïò´úÀí¡¿
-  ¡¾ÐéÄâÖ÷»ú¡¿
-  ¡¾URLÖØÐ´¡¿
-  ¡¾·À µÁÁ´¡¿
-  ¡¾ÏÞ ËÙ¡¿
-  ¡¾lnmp ¡¿
-  ¡¾ÓÅ »¯¡¿
+Nginxè¯¾ç¨‹å®‰æŽ’
+ç¬¬ä¸€å¤©å¤§çº²ï¼š
+  ã€Nginxå®‰è£…ã€‘
+  ã€åŸºæœ¬é…ç½®ã€‘	
+  ã€åå‘ä»£ç†ã€‘
+  ã€è™šæ‹Ÿä¸»æœºã€‘
+  ã€URLé‡å†™ã€‘
+  ã€é˜² ç›—é“¾ã€‘
+  ã€é™ é€Ÿã€‘
+  ã€lnmp ã€‘
+  ã€ä¼˜ åŒ–ã€‘
 
 
-NginxÓëApacheµÄ±È½Ï£¨×÷Îªweb·þÎñÆ÷£©
-NginxÓÅÓÚApacheÇáÁ¿¼¶¡£²ÉÓÃC±àÐ´£¬²»ÂÛÊÇÏµÍ³×ÊÔ´¿ªÏú»¹ÊÇCPUÊ¹ÓÃÂÊÉÏ±íÏÖºÃºÜ¶à¡£
-10000²¢·¢Ö»Õ¼2.5MÄÚ´æ×ÊÔ´¡£¿¹²¢·¢¡£Nginx´¦ÀíÇëÇóÊÇÒì²½·Ç×èÈûµÄ£¬¶à¸öÁ¬½Ó£¨Íò¼¶±ð£©¶ÔÓ¦Ò»¸ö½ø³Ì£»
-ApacheÊÇ×èÈûµ÷ÓÃ£¬¶à½ø³ÌÄ£ÐÍ£¬Ò»¸öÁ¬½Ó¶ÔÓ¦Ò»¸ö½ø³Ì¡£¾²Ì¬ÇëÇó´¦ÀíÄÜÁ¦3±¶ÓÚApache¡£
-ÅäÖÃ¼òµ¥£¬ÉñÒ»ÑùµÄÅäÖÃ.
+Nginxä¸ŽApacheçš„æ¯”è¾ƒï¼ˆä½œä¸ºwebæœåŠ¡å™¨ï¼‰
 
-ApacheÓÅÓÚNginxÊ×µ±Æä³åµÄÊÇÎÈ¶¨
-Rewrite¹¦ÄÜ±ÈApacheÇ¿´óÄ£¿é¶à£¬·á¸»µÄÌØÐÔ¡£
-¸üºÃµÄÖ§³ÖPHP£¬´¦Àí¶¯Ì¬ÇëÇóÓÐÓÅÊÆ
+Nginxä¼˜äºŽApache
+è½»é‡çº§ã€‚é‡‡ç”¨Cç¼–å†™ï¼Œä¸è®ºæ˜¯ç³»ç»Ÿèµ„æºå¼€é”€è¿˜æ˜¯CPUä½¿ç”¨çŽ‡ä¸Šè¡¨çŽ°å¥½å¾ˆå¤šã€‚
+10000å¹¶å‘åªå 2.5Må†…å­˜èµ„æºã€‚
+æŠ—å¹¶å‘ã€‚Nginxå¤„ç†è¯·æ±‚æ˜¯å¼‚æ­¥éžé˜»å¡žçš„ï¼Œå¤šä¸ªè¿žæŽ¥ï¼ˆä¸‡çº§åˆ«ï¼‰å¯¹åº”ä¸€ä¸ªè¿›ç¨‹ï¼›
+Apacheæ˜¯é˜»å¡žè°ƒç”¨ï¼Œå¤šè¿›ç¨‹æ¨¡åž‹ï¼Œä¸€ä¸ªè¿žæŽ¥å¯¹åº”ä¸€ä¸ªè¿›ç¨‹ã€‚é™æ€è¯·æ±‚å¤„ç†èƒ½åŠ›3å€äºŽApacheã€‚
 
-nginxÊÇÊ²Ã´
-nginxµÄÓ¦ÓÃ
-nginxÌØµã
-nginxµÄ»ù´¡¸ÅÄî--masterºÍworker
+é…ç½®ç®€å•ï¼Œç¥žä¸€æ ·çš„é…ç½®.
 
-1¡¢nginxÊÇÊ²Ã´
-	¸ßÐÔÄÜµÄweb·þÎñÆ÷Èí¼þ£¨Apache¡¢iis£©£¬10000²¢·¢ÇëÇóÖ»Õ¼ÓÃ2.5MÄÚ´æ£»Ö§³Ö50000²¢·¢
-	·´Ïò´úÀí·þÎñÆ÷Èí¼þ£º´úÀíµÄÊÇ·þÎñÆ÷
-	¸ºÔØ¾ùºâÆ÷
-	ÓÊ¼þ·þÎñÆ÷£¨postfix£©
 
-2¡¢nginxÓ¦ÓÃ£¨www.netcraft.com£©
-	¶íÂÞË¹×î´óµÄÃÅ»§ÍøÕ¾
-	ÌÔ±¦¡¢ÍøÒ×¡¢°Ù¶È¡¢ÐÂÀË...
+Apacheä¼˜äºŽNginx
+é¦–å½“å…¶å†²çš„æ˜¯ç¨³å®š
 
-3¡¢nginxµÄÌØµã
-	ÐÔÄÜ¸ß£¬¹Ù·½Êý¾Ý£º50000²¢·¢   30000
-	¿ªÏúµÍ£¬10000²¢·¢ÇëÇóÖ»Õ¼ÓÃ2.5MÄÚ´æ
-	¿ÉÒÆÖ²ÐÔºÃ
-	CÓïÑÔ¿ª·¢
-	´úÀí¹¦ÄÜÇ¿´ó£¬¸ºÔØ¾ùºâ£¨Æß²ã£©
+RewriteåŠŸèƒ½æ¯”Apacheå¼ºå¤§
+æ¨¡å—å¤šï¼Œä¸°å¯Œçš„ç‰¹æ€§ã€‚
+
+æ›´å¥½çš„æ”¯æŒPHPï¼Œå¤„ç†åŠ¨æ€è¯·æ±‚æœ‰ä¼˜åŠ¿
+
+nginxæ˜¯ä»€ä¹ˆ
+nginxçš„åº”ç”¨
+nginxç‰¹ç‚¹
+nginxçš„åŸºç¡€æ¦‚å¿µ--masterå’Œworker
+
+1ã€nginxæ˜¯ä»€ä¹ˆ
+	é«˜æ€§èƒ½çš„webæœåŠ¡å™¨è½¯ä»¶ï¼ˆApacheã€iisï¼‰ï¼Œ10000å¹¶å‘è¯·æ±‚åªå ç”¨2.5Må†…å­˜ï¼›æ”¯æŒ50000å¹¶å‘
+	åå‘ä»£ç†æœåŠ¡å™¨è½¯ä»¶ï¼šä»£ç†çš„æ˜¯æœåŠ¡å™¨
+	è´Ÿè½½å‡è¡¡å™¨
+	é‚®ä»¶æœåŠ¡å™¨ï¼ˆpostfixï¼‰
+
+2ã€nginxåº”ç”¨ï¼ˆwww.netcraft.comï¼‰
+	ä¿„ç½—æ–¯æœ€å¤§çš„é—¨æˆ·ç½‘ç«™
+	æ·˜å®ã€ç½‘æ˜“ã€ç™¾åº¦ã€æ–°æµª...
+
+3ã€nginxçš„ç‰¹ç‚¹
+	æ€§èƒ½é«˜ï¼Œå®˜æ–¹æ•°æ®ï¼š50000å¹¶å‘   30000
+	å¼€é”€ä½Žï¼Œ10000å¹¶å‘è¯·æ±‚åªå ç”¨2.5Må†…å­˜
+	å¯ç§»æ¤æ€§å¥½
+	Cè¯­è¨€å¼€å‘
+	ä»£ç†åŠŸèƒ½å¼ºå¤§ï¼Œè´Ÿè½½å‡è¡¡ï¼ˆä¸ƒå±‚ï¼‰
 	
-4¡¢nginxµÄ»ù´¡¸ÅÄî
-	master½ø³Ì
-	worker½ø³Ì
+4ã€nginxçš„åŸºç¡€æ¦‚å¿µ
+	masterè¿›ç¨‹
+	workerè¿›ç¨‹
 
-	»Ø¹Ë£ºApacheÓÐÄÄÐ©¹¤×÷Ä£Ê½£¨MPM£©
-		prefork	Ô¤ÅÉÉúÄ£ÐÍ
-		worker	Ïß³ÌÄ£ÐÍ
-		event	½øÏß³Ì»ìºÏÄ£ÐÍ£¨²»±£Ö¤ºÃÊ¹£¬ÕýÔÚ²âÊÔ£©
-			ÌØµã£º
-				1¡¢Ô¤ÏÈÉú³É½ø³Ì£¨Ïß³Ì£©
-				2¡¢Ïß³ÌÕ¼ÓÃ×ÊÔ´ÉÙ£¬¶à¸öÏß³Ì¹«ÓÃÒ»¸ö½ø³ÌµÄÄÚ´æ×ÊÔ´¡£
-				3¡¢¿ªÆô³¤Á¬½Ó£¨keepalived£©
-	nginx£º
-		event  ½øÏß³Ì»ìºÏÄ£ÐÍ£¬¼´Ê¹¿ªÆô³¤Á¬½Ó£¬ÄÇÃ´»áÓÐ×¨ÃÅµÄÏß³ÌÀ´´¦Àí³¤Á¬½ÓÇëÇó£¬²»»áµÈ´ý³¤Á¬½Ó³¬Ê±Ê±¼ä¡£
+	å›žé¡¾ï¼šApacheæœ‰å“ªäº›å·¥ä½œæ¨¡å¼ï¼ˆMPMï¼‰
+		prefork	é¢„æ´¾ç”Ÿæ¨¡åž‹
+		worker	çº¿ç¨‹æ¨¡åž‹
+		event	è¿›çº¿ç¨‹æ··åˆæ¨¡åž‹ï¼ˆä¸ä¿è¯å¥½ä½¿ï¼Œæ­£åœ¨æµ‹è¯•ï¼‰
+			ç‰¹ç‚¹ï¼š
+				1ã€é¢„å…ˆç”Ÿæˆè¿›ç¨‹ï¼ˆçº¿ç¨‹ï¼‰
+				2ã€çº¿ç¨‹å ç”¨èµ„æºå°‘ï¼Œå¤šä¸ªçº¿ç¨‹å…¬ç”¨ä¸€ä¸ªè¿›ç¨‹çš„å†…å­˜èµ„æºã€‚
+				3ã€å¼€å¯é•¿è¿žæŽ¥ï¼ˆkeepalivedï¼‰
+	nginxï¼š
+		event  è¿›çº¿ç¨‹æ··åˆæ¨¡åž‹ï¼Œå³ä½¿å¼€å¯é•¿è¿žæŽ¥ï¼Œé‚£ä¹ˆä¼šæœ‰ä¸“é—¨çš„çº¿ç¨‹æ¥å¤„ç†é•¿è¿žæŽ¥è¯·æ±‚ï¼Œä¸ä¼šç­‰å¾…é•¿è¿žæŽ¥è¶…æ—¶æ—¶é—´ã€‚
 
-	worker½ø³Ì£º¹¤×÷½ø³Ì¡£ÓÃÓÚ´¦ÀíÍøÂçÊÂ¼þ¡£Ã¿¸öworker½ø³Ì¶¼ÊÇ¶ÀÁ¢µÄ¡£Ò»¸öÁ¬½ÓÖ»ÄÜÔÚÒ»¸öworker½ø³ÌÖÐ±»´¦Àí¡£
-	master£º¹ÜÀíworker½ø³Ì;¼àÌý80¶Ë¿Ú£¬½ÓÊÜÇëÇó²¢ÇÒ·ÖÅäÇëÇó£»Æ½»¬Éý¼¶nginx¡£
+	workerè¿›ç¨‹ï¼šå·¥ä½œè¿›ç¨‹ã€‚ç”¨äºŽå¤„ç†ç½‘ç»œäº‹ä»¶ã€‚æ¯ä¸ªworkerè¿›ç¨‹éƒ½æ˜¯ç‹¬ç«‹çš„ã€‚ä¸€ä¸ªè¿žæŽ¥åªèƒ½åœ¨ä¸€ä¸ªworkerè¿›ç¨‹ä¸­è¢«å¤„ç†ã€‚
+	masterï¼šç®¡ç†workerè¿›ç¨‹;ç›‘å¬80ç«¯å£ï¼ŒæŽ¥å—è¯·æ±‚å¹¶ä¸”åˆ†é…è¯·æ±‚ï¼›å¹³æ»‘å‡çº§nginxã€‚
 
 cd /usr/local/nginx-1.7.8
-conf	ÅäÖÃÎÄ¼þ
-html	Ò³ÃæÎÄ¼þ
-logs	ÈÕÖ¾
-sbin	¿ÉÖ´ÐÐÎÄ¼þ
+conf	é…ç½®æ–‡ä»¶
+html	é¡µé¢æ–‡ä»¶
+logs	æ—¥å¿—
+sbin	å¯æ‰§è¡Œæ–‡ä»¶
 
-Æô¶¯·þÎñ
+å¯åŠ¨æœåŠ¡
 /usr/local/nginx-1.7.8/sbin/nginx
-Í£Ö¹·þÎñ
+åœæ­¢æœåŠ¡
 kill -9 pid
-ÖØÐÂ¼ÓÔØ
-/usr/local/nginx-1.7.8/sbin/nginx ¨Cs reload
-ÑéÖ¤ÅäÖÃÎÄ¼þ
-/usr/local/nginx-1.7.8/sbin/nginx ¨Ct
+é‡æ–°åŠ è½½
+/usr/local/nginx-1.7.8/sbin/nginx â€“s reload
+éªŒè¯é…ç½®æ–‡ä»¶
+/usr/local/nginx-1.7.8/sbin/nginx â€“t
 			
-5¡¢°²×°nginx  °ÑÎÄ¼þÓÃrz ¿½±´µ½ /usr/src/Ä¿Â¼ÏÂ
+5ã€å®‰è£…nginx  æŠŠæ–‡ä»¶ç”¨rz æ‹·è´åˆ° /usr/src/ç›®å½•ä¸‹
  # yum install lrzsz -y
  # cd /usr/src/
  # rz
- # chmod 755 /usr/src/*   ¸øËùÓÐÎÄ¼þÖ´ÐÐÈ¨ÏÞ
+ # chmod 755 /usr/src/*   ç»™æ‰€æœ‰æ–‡ä»¶æ‰§è¡Œæƒé™
  # ls
 
-¡¾Ô´Âë°ü°²×°µÄ nginx ÖØÆô¡¿
+ã€æºç åŒ…å®‰è£…çš„ nginx é‡å¯ã€‘
 #/usr/local/nginx/sbin/nginx -s reload
-»òÕß
+æˆ–è€…
 #  killall nginx
 #  /usr/local/nginx/sbin/nginx
 
-·½·¨Ò»°²×°£º
+æ–¹æ³•ä¸€å®‰è£…ï¼š
 [root@localhost src]# ls
 debug    nginx-1.5.1         nginxd            php_cgi
 kernels  nginx-1.5.1.tar.gz  nginx_install.sh  spawn-fcgi-1.6.3-1.el5.i386.rpm
 [root@localhost src]# ./nginx_install.sh
-¿ªÆônginx·þÎñ
+å¼€å¯nginxæœåŠ¡
 # /etc/init.d/nginxd start
 nginx start				 [ OK ]
 [root@localhost nginx]# lsof -i:80
@@ -104,29 +113,29 @@ nginx   9028   root    6u  IPv4  36278      0t0  TCP *:http (LISTEN)
 nginx   9029 nobody    6u  IPv4  36278      0t0  TCP *:http (LISTEN)
 
 
-·½·¨¶þ°²×°£º
+æ–¹æ³•äºŒå®‰è£…ï¼š
 [root@Nginx nginx-1.11.3]# yum install gcc pcre-devel zlib-devel -y
 [root@Nginx nginx-1.11.3]#./configure --prefix=/usr/local/nginx
 [root@Nginx nginx-1.11.3]# make && make install
-ÔËÐÐnginx £º
+è¿è¡Œnginx ï¼š
 [root@Nginx sbin]# /usr/local/nginx/sbin/nginx 
 [root@Nginx sbin]# lsof -i:80
 
 
-6¡¢·¢²¼ÍøÒ³
-Ïà¹ØÉèÖÃ×Ö¶Î£º
+6ã€å‘å¸ƒç½‘é¡µ
+ç›¸å…³è®¾ç½®å­—æ®µï¼š
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 server {
         listen       80;
         server_name  localhost;
-        location / {			Ïàµ±ÓÚApacheµÄDocumentRoot£¬ÎÄµµ¸ùÄ¿Â¼
+        location / {			ç›¸å½“äºŽApacheçš„DocumentRootï¼Œæ–‡æ¡£æ ¹ç›®å½•
             root   html;		
             index  index.html index.htm;
         }
-1£©×¼±¸ÍøÒ³
-yum°²×°Ò»°ãÔÚ /usr/share/nginx/html/
-Ô´Âë°²×°Ò»°ãÔÚ/usr/local/nginx/html
+1ï¼‰å‡†å¤‡ç½‘é¡µ
+yumå®‰è£…ä¸€èˆ¬åœ¨ /usr/share/nginx/html/
+æºç å®‰è£…ä¸€èˆ¬åœ¨/usr/local/nginx/html
 [root@Nginx html]# mv index.html index.html.bak
 [root@Nginx html]# vim index.html
 [root@Nginx html]# cat index.html
@@ -134,24 +143,24 @@ Hello,nimei!
 [root@Nginx html]# ls
 50x.html  index.html  index.html.bak
 
-2£©²âÊÔ£º
+2ï¼‰æµ‹è¯•ï¼š
 elinks http://localhost --dump
 Hello,nimei!
 
-7¡¢Ö÷ÅäÖÃÎÄ¼þ
+7ã€ä¸»é…ç½®æ–‡ä»¶
 
 
-8¡¢ÐéÄâÖ÷»ú
-ÊµÑé»·¾³£º
-OS£ºrhel6.7
-Nginx£º1.5.1
-¿Í»§¶Ë£º192.168.19.249
-Nginx£º192.168.19.{253£¬254}
+8ã€è™šæ‹Ÿä¸»æœº
+å®žéªŒçŽ¯å¢ƒï¼š
+OSï¼šrhel6.7
+Nginxï¼š1.5.1
+å®¢æˆ·ç«¯ï¼š192.168.19.249
+Nginxï¼š192.168.19.{253ï¼Œ254}
 
 
-»ùÓÚ¶Ë¿ÚÐéÄâÖ÷»ú£º
+åŸºäºŽç«¯å£è™šæ‹Ÿä¸»æœºï¼š
 
-1¡¢ÐÞ¸ÄÅäÖÃÎÄ¼þ
+1ã€ä¿®æ”¹é…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 
@@ -189,18 +198,18 @@ http {
         }
         }
 
-2¡¢Ôö¼Ó8080¶Ë¿Ú¶ÔÓ¦µÄ¸ùÄ¿Â¼www¼°Ê×Ò³ÎÄ¼þ
+2ã€å¢žåŠ 8080ç«¯å£å¯¹åº”çš„æ ¹ç›®å½•wwwåŠé¦–é¡µæ–‡ä»¶
 	mkdir /usr/local/nginx/www
 	echo 8080 > /usr/local/nginx/www/index.html
-3¡¢ÖØÆônginx·þÎñ
+3ã€é‡å¯nginxæœåŠ¡
 	[root@Nginx nginx]# killall -s HUP nginx
-4¡¢¿Í»§¶Ë²âÊÔ
+4ã€å®¢æˆ·ç«¯æµ‹è¯•
 	elinks http://localhost --dump 
 	elinks http://localhost:8080 --dump
 
-ÐéÄâÖ÷»ú(¶àÍøÕ¾)
-ÔÚhttpÄ£¿éÖÐ£¬×îºó´óÀ¨ºÅÉÏÌí¼Óinclude vhost/*.conf;À©Õ¹¼ÓÔØÅäÖÃ
-ÒòÎªvhostÄ¿Â¼Ö¸¶¨µÄÊÇµ±Ç°Ä¿Â¼£¬ËùÒÔÎÒÐèÒªÔÚ/usr/local/nginx-1.7.8/conf/ÏÂ´´½¨vhostÄ¿Â¼
+è™šæ‹Ÿä¸»æœº(å¤šç½‘ç«™)
+åœ¨httpæ¨¡å—ä¸­ï¼Œæœ€åŽå¤§æ‹¬å·ä¸Šæ·»åŠ include vhost/*.conf;æ‰©å±•åŠ è½½é…ç½®
+å› ä¸ºvhostç›®å½•æŒ‡å®šçš„æ˜¯å½“å‰ç›®å½•ï¼Œæ‰€ä»¥æˆ‘éœ€è¦åœ¨/usr/local/nginx-1.7.8/conf/ä¸‹åˆ›å»ºvhostç›®å½•
 
 mkdir vhost
 vim vhost/www.vfast.com.conf
@@ -224,14 +233,14 @@ server {
      }
  }
 
-./nginx ¨Ct ÑéÖ¤ÅäÖÃÎÄ¼þ
-./nginx ¨Cs reload ÖØÐÂ¼ÓÔØÅäÖÃÎÄ¼þ
+./nginx â€“t éªŒè¯é…ç½®æ–‡ä»¶
+./nginx â€“s reload é‡æ–°åŠ è½½é…ç½®æ–‡ä»¶
 
 
 
-»ùÓÚÓòÃûÐéÄâÖ÷»ú
+åŸºäºŽåŸŸåè™šæ‹Ÿä¸»æœº
 
-1¡¢ÅäÖÃÎÄ¼þ
+1ã€é…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
   worker_processes  3;
@@ -268,27 +277,27 @@ http {
         }
         }
 
-2¡¢ÓòÃû½âÎö
+2ã€åŸŸåè§£æž
 [root@host ~]# vim /etc/hosts
 192.168.19.253        www.a.com
 192.168.19.253        www.b.com
 
-3¡¢ÍøÒ³ÖÆ×÷
+3ã€ç½‘é¡µåˆ¶ä½œ
 [root@Nginx nginx]# echo "www.a.com" > /usr/local/nginx/html/index.html
 [root@Nginx nginx]# echo "www.b.com" > /usr/local/nginx/www/index.html
 
-4¡¢ÖØÆô·þÎñ
+4ã€é‡å¯æœåŠ¡
 [root@localhost etc]# /etc/init.d/nginx restart
 
-5¡¢¿Í»§¶Ë²âÊÔ
+5ã€å®¢æˆ·ç«¯æµ‹è¯•
 [root@host ~]# elinks http://www.a.com --dump
 [root@host ~]# elinks http://www.b.com --dump
 
 
 
-»ùÓÚIPÐéÄâÖ÷»ú
+åŸºäºŽIPè™šæ‹Ÿä¸»æœº
 
-1¡¢ÅäÖÃÎÄ¼þ
+1ã€é…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 	worker_processes  3;
@@ -325,20 +334,20 @@ http {
         }
         }
 
-2¡¢²é¿´·þÎñ¼àÌý¶Ë¿Ú¡ª´ËÊ±¼àÌýµÄÊÇ´Ó±¾»úÉÏËùÓÐÍø¿¨¹ýÀ´µÄhttpÇëÇó
+2ã€æŸ¥çœ‹æœåŠ¡ç›‘å¬ç«¯å£â€”æ­¤æ—¶ç›‘å¬çš„æ˜¯ä»Žæœ¬æœºä¸Šæ‰€æœ‰ç½‘å¡è¿‡æ¥çš„httpè¯·æ±‚
 [root@Nginx nginx]# netstat -tlnp | grep 80
 tcp        0      0 0.0.0.0:80        0.0.0.0:*         LISTEN      25183/nginx
 
-3¡¢Ìí¼ÓÒ»¿éÍø¿¨£¨±ðÃû£©£¬²¢ÖØÆônginx
+3ã€æ·»åŠ ä¸€å—ç½‘å¡ï¼ˆåˆ«åï¼‰ï¼Œå¹¶é‡å¯nginx
 [root@Nginx nginx]# ifconfig eth0:1 192.168.19.254
 [root@Nginx nginx]# killall -s HUP nginx
 
-4¡¢ÖØÆô·þÎñ£¬²é¿´¼àÌý¶Ë¿Ú¡ª´ËÊ±¼àÌý12.1.1.2ºÍ12.1.1.3Íø¿¨½øÀ´µÄÇëÇó
+4ã€é‡å¯æœåŠ¡ï¼ŒæŸ¥çœ‹ç›‘å¬ç«¯å£â€”æ­¤æ—¶ç›‘å¬12.1.1.2å’Œ12.1.1.3ç½‘å¡è¿›æ¥çš„è¯·æ±‚
 [root@Nginx nginx]# netstat -tlunp | grep 80
 tcp        0      0 192.168.19.253:80            0.0.0.0:*              LISTEN      25060/nginx         
 tcp        0      0 192.168.19.254:80            0.0.0.0:*              LISTEN      25060/nginx
 
-5¡¢¿Í»§¶Ë²âÊÔ
+5ã€å®¢æˆ·ç«¯æµ‹è¯•
 [root@Nginx nginx]# elinks http:// 192.168.19.253--dump 
    www.bb.com
 [root@Nginx nginx]# elinks http:// 192.168.19.254--dump 
@@ -349,25 +358,25 @@ tcp        0      0 192.168.19.254:80            0.0.0.0:*              LISTEN  
 
 
 
-ÏÂÎç¿Î³Ì£º
+ä¸‹åˆè¯¾ç¨‹ï¼š
 
-9¡¢URLÖØÐ´
+9ã€URLé‡å†™
 	www.a.com   -->apache  -->  ^/$    http://www.b.com -->
-	ÊµÑé»·¾³£º	nginx   19.245
+	å®žéªŒçŽ¯å¢ƒï¼š	nginx   19.245
 			apache  19.248
 			clent   19.248
-	¿Í»§¶ËÇëÇówww.a.com(245),½«ÇëÇóÍ¨¹ýurlÖØÐ´½»¸ø248£¨www.b.com£©.
+	å®¢æˆ·ç«¯è¯·æ±‚www.a.com(245),å°†è¯·æ±‚é€šè¿‡urlé‡å†™äº¤ç»™248ï¼ˆwww.b.comï¼‰.
 	
-	URLÖØÐ´ÊÇweb·þÎñÆ÷µÄ¹¦ÄÜ¡£
+	URLé‡å†™æ˜¯webæœåŠ¡å™¨çš„åŠŸèƒ½ã€‚
 	
 	
-»·¾³£º
-13.1.1.1   Ö÷»úÃû www.a.com  °çÑÝnginxÌá¹©webºÍ¿Í»§¶Ë½ÇÉ« 
-13.1.1.200 Ö÷»úÃûwww.b.com
+çŽ¯å¢ƒï¼š
+13.1.1.1   ä¸»æœºå www.a.com  æ‰®æ¼”nginxæä¾›webå’Œå®¢æˆ·ç«¯è§’è‰² 
+13.1.1.200 ä¸»æœºåwww.b.com
 
-ÎªÁË½»´úÇå³þ£¬¹ÊÈÃÑ§ÉúÏÈ¿´Ò»ÏÂÄ¬ÈÏÊ×Ò³
+ä¸ºäº†äº¤ä»£æ¸…æ¥šï¼Œæ•…è®©å­¦ç”Ÿå…ˆçœ‹ä¸€ä¸‹é»˜è®¤é¦–é¡µ
 
-1£©nginxÅäÖÃÎÄ¼þ
+1ï¼‰nginxé…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 worker_processes  1;
@@ -393,14 +402,14 @@ http {
     }
 }
 
-2£©½áºÏ½âÎö
+2ï¼‰ç»“åˆè§£æž
 vim /etc/hosts
-echo ¡°127.0.0.1  www.a.com¡± >>/etc/hosts
+echo â€œ127.0.0.1  www.a.comâ€ >>/etc/hosts
 
-´ËÊ±Ê¹ÓÃä¯ÀÀÆ÷£¬ÊäÈëwww.a.com¼´¿ÉµÃµ½nginxÌá¹©µÄwebÒ³Ãæ
+æ­¤æ—¶ä½¿ç”¨æµè§ˆå™¨ï¼Œè¾“å…¥www.a.comå³å¯å¾—åˆ°nginxæä¾›çš„webé¡µé¢
 
 
-3£©nginxÖØÐ´£¬½«·ÃÎÊwww.bb.comµÄÇëÇó½»¸øwww.cc.com 
+3ï¼‰nginxé‡å†™ï¼Œå°†è®¿é—®www.bb.comçš„è¯·æ±‚äº¤ç»™www.cc.com 
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 worker_processes  3;
@@ -435,35 +444,35 @@ http {
         }
         }
 
-4£©¿Í»§¶ËÐÞ¸ÄÓòÃû½âÎö
+4ï¼‰å®¢æˆ·ç«¯ä¿®æ”¹åŸŸåè§£æž
 	vim /etc/hosts
 	127.0.0.1   www.a.com
 	13.1.1.200  www.b.com
 
-5£©ÉèÖÃ13.1.1.200µÄweb·þÎñ
+5ï¼‰è®¾ç½®13.1.1.200çš„webæœåŠ¡
 	/etc/init.d/httpd restart 
-	echo ¡°rewrite¡± > /var/www/html/index.html
+	echo â€œrewriteâ€ > /var/www/html/index.html
 
-6£©¿Í»§¶Ë²âÊÔ
-	ÔÚnginxä¯ÀÀÆ÷ÉÏÊäÈëwww.a.comµÃµ½rewrite
+6ï¼‰å®¢æˆ·ç«¯æµ‹è¯•
+	åœ¨nginxæµè§ˆå™¨ä¸Šè¾“å…¥www.a.comå¾—åˆ°rewrite
 
 
 
-10¡¢·ÀµÁÁ´
+10ã€é˜²ç›—é“¾
 	
-1¡¢ÏÈ×öµÁÁ´·þÎñÆ÷
+1ã€å…ˆåšç›—é“¾æœåŠ¡å™¨
 	<html>
         <body>
-                <a href="http://192.168.18.254/a.png">µÁÁ´²âÊÔ</a>
+                <a href="http://192.168.18.254/a.png">ç›—é“¾æµ‹è¯•</a>
         </body>
 	</html>
-×¢ÊÍ£º
-	<html></html>ËµÃ÷ÕâÊÇÒ»¸öÍøÒ³¡£¸æËßä¯ÀÀÆ÷Õâ¸öÍøÒ³µÄ¿ªÊ¼ºÍ½áÊø¡£°üÀ¨ÒÔÏÂÁ½¸öÔªËØ£º
-	<head></head>Ö®¼äµÄÄÚÈÝÊÇÍøÕ¾µÄ±êÌâ
-	<body></body>Ö®¼ä¶¨ÒåµÄ¼´Ê¹ÍøÒ³µÄÐÅÏ¢£¬Ò²¾ÍÊÇä¯ÀÀÆ÷ÖÐ³ÊÏÖ³öÀ´µÄÓÃ»§¿´µ½µÄÍøÒ³µÄÐ§¹û¡£Ò²¾ÍÊÇËµÕâÊÇÍøÒ³µÄÖ÷Ìå£¬
-¼´bodyÔÚHTMLÓïÑÔÖÐ<a>---µ¥´Êanchor£¨Å×Ãª²´´¬£¬ÃªµÄÒâË¼£©ÓÃÓÚ¶¨ÒåÒ»¸öÁ´½Óhref£¬µ¥´ÊHyperText reference£¨³¬ÎÄ±¾ÒýÓÃ£©
+æ³¨é‡Šï¼š
+	<html></html>è¯´æ˜Žè¿™æ˜¯ä¸€ä¸ªç½‘é¡µã€‚å‘Šè¯‰æµè§ˆå™¨è¿™ä¸ªç½‘é¡µçš„å¼€å§‹å’Œç»“æŸã€‚åŒ…æ‹¬ä»¥ä¸‹ä¸¤ä¸ªå…ƒç´ ï¼š
+	<head></head>ä¹‹é—´çš„å†…å®¹æ˜¯ç½‘ç«™çš„æ ‡é¢˜
+	<body></body>ä¹‹é—´å®šä¹‰çš„å³ä½¿ç½‘é¡µçš„ä¿¡æ¯ï¼Œä¹Ÿå°±æ˜¯æµè§ˆå™¨ä¸­å‘ˆçŽ°å‡ºæ¥çš„ç”¨æˆ·çœ‹åˆ°çš„ç½‘é¡µçš„æ•ˆæžœã€‚ä¹Ÿå°±æ˜¯è¯´è¿™æ˜¯ç½‘é¡µçš„ä¸»ä½“ï¼Œ
+å³bodyåœ¨HTMLè¯­è¨€ä¸­<a>---å•è¯anchorï¼ˆæŠ›é”šæ³Šèˆ¹ï¼Œé”šçš„æ„æ€ï¼‰ç”¨äºŽå®šä¹‰ä¸€ä¸ªé“¾æŽ¥hrefï¼Œå•è¯HyperText referenceï¼ˆè¶…æ–‡æœ¬å¼•ç”¨ï¼‰
 
-2¡¢nginx·þÎñÆ÷ÉÏ·ÀµÁÁ´£º
+2ã€nginxæœåŠ¡å™¨ä¸Šé˜²ç›—é“¾ï¼š
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 http {
@@ -479,40 +488,40 @@ http {
             root   html;
             index  index.html index.htm;
         }
-        location ~*.(gif|jpg|png|swf|flv)$ {		#Æ¥ÅäÍ¼Æ¬¸ñÊ½
-                valid_referers none blocked *.baidu.com;	#valid_referers¶¨ÒåÔÊÐíµ¹Á´µÄ
-                        if ($invalid_referer) {		#ÅÐ¶ÏÈç¹ûÊÇ²»ÔÊÐíµ¹Á´µÄ£¬ÎÒÃÇ·µ»Ø403
-                                return 403;  #403´íÎó±íÊ¾·þÎñÆ÷ÊÕµ½ÇëÇó£¬µ«¾Ü¾øÌá¹©Ò³Ãæ
+        location ~*.(gif|jpg|png|swf|flv)$ {		#åŒ¹é…å›¾ç‰‡æ ¼å¼
+                valid_referers none blocked *.baidu.com;	#valid_refererså®šä¹‰å…è®¸å€’é“¾çš„
+                        if ($invalid_referer) {		#åˆ¤æ–­å¦‚æžœæ˜¯ä¸å…è®¸å€’é“¾çš„ï¼Œæˆ‘ä»¬è¿”å›ž403
+                                return 403;  #403é”™è¯¯è¡¨ç¤ºæœåŠ¡å™¨æ”¶åˆ°è¯·æ±‚ï¼Œä½†æ‹’ç»æä¾›é¡µé¢
                         }
                 }
         }
 }
 
-ÊÍÒå£º
-none ´ú±íÃ»ÓÐreferer
-blocked ´ú±íÓÐrefererµ«ÊÇ±»·À»ðÇ½»òÕßÊÇ´úÀí¸øÈ¥³ýÁË		
+é‡Šä¹‰ï¼š
+none ä»£è¡¨æ²¡æœ‰referer
+blocked ä»£è¡¨æœ‰refererä½†æ˜¯è¢«é˜²ç«å¢™æˆ–è€…æ˜¯ä»£ç†ç»™åŽ»é™¤äº†		
 
 
-11¡¢·´Ïò´úÀí
+11ã€åå‘ä»£ç†
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
-	·´Ïò´úÀí´úÀíµÄÊÇ·þÎñÆ÷¡£www.a.com 
-	ÕýÏò´úÀí´úÀíµÄÊÇ¿Í»§¶Ë£¬¿Í»§¶ËÐèÒªÉèÖÃÊ¹ÓÃÄÄ¸ö´úÀí·þÎñÆ÷¡£
+	åå‘ä»£ç†ä»£ç†çš„æ˜¯æœåŠ¡å™¨ã€‚www.a.com 
+	æ­£å‘ä»£ç†ä»£ç†çš„æ˜¯å®¢æˆ·ç«¯ï¼Œå®¢æˆ·ç«¯éœ€è¦è®¾ç½®ä½¿ç”¨å“ªä¸ªä»£ç†æœåŠ¡å™¨ã€‚
 	
-	245   ·´Ïò´úÀí·þÎñÆ÷		248 ¿Í»§¶Ë       ÕæÊµ·þÎñÆ÷£¨Ô´·þÎñÆ÷£© 247
+	245   åå‘ä»£ç†æœåŠ¡å™¨		248 å®¢æˆ·ç«¯       çœŸå®žæœåŠ¡å™¨ï¼ˆæºæœåŠ¡å™¨ï¼‰ 247
 
 
-	¿Í»§¶Ë-->·´Ïò´úÀí·þÎñÆ÷-->ÕæÊµ·þÎñÆ÷
-	ÕæÊµ·þÎñÆ÷-->·´Ïò´úÀí·þÎñÆ÷-->¿Í»§¶Ë
+	å®¢æˆ·ç«¯-->åå‘ä»£ç†æœåŠ¡å™¨-->çœŸå®žæœåŠ¡å™¨
+	çœŸå®žæœåŠ¡å™¨-->åå‘ä»£ç†æœåŠ¡å™¨-->å®¢æˆ·ç«¯
 
-	×î»ù±¾µÄ·´Ïò´úÀí£º  proxy_pass  http://192.168.19.248;
-	¶Ë¿ÚÓ³Éä£ºproxy_pass  http://192.168.19.248:8080;
+	æœ€åŸºæœ¬çš„åå‘ä»£ç†ï¼š  proxy_pass  http://192.168.19.248;
+	ç«¯å£æ˜ å°„ï¼šproxy_pass  http://192.168.19.248:8080;
 		
-	ÊµÏÖÕæÊµ·þÎñÆ÷ÈÕÖ¾¼ÇÂ¼ÕæÕý¿Í»§¶ËµÄip£º
-	1¡¢ÐÞ¸Ä·´Ïò´úÀí·þÎñÆ÷µÄÅäÖÃÎÄ¼þ
+	å®žçŽ°çœŸå®žæœåŠ¡å™¨æ—¥å¿—è®°å½•çœŸæ­£å®¢æˆ·ç«¯çš„ipï¼š
+	1ã€ä¿®æ”¹åå‘ä»£ç†æœåŠ¡å™¨çš„é…ç½®æ–‡ä»¶
 		 proxy_set_header    X_Real_IP $remote_addr;
             	 proxy_set_header    X-Forward-For  $proxy_add_x_forwarded_for;
-	2¡¢ÐÞ¸ÄÕæÊµ·þÎñÆ÷µÄÅäÖÃÎÄ¼þµÄÈÕÖ¾¸ñÊ½
+	2ã€ä¿®æ”¹çœŸå®žæœåŠ¡å™¨çš„é…ç½®æ–‡ä»¶çš„æ—¥å¿—æ ¼å¼
 	LogFormat "%{X-Forward-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
 
 
@@ -567,34 +576,34 @@ http {
 
 
 
-12¡¢nginxÏÞËÙ
+12ã€nginxé™é€Ÿ
 		
-ÊµÑé»·¾³£º
-¿Í»§¶Ë£º13.1.1.200
-nginx·þÎñÆ÷£º13.1.1.1
+å®žéªŒçŽ¯å¢ƒï¼š
+å®¢æˆ·ç«¯ï¼š13.1.1.200
+nginxæœåŠ¡å™¨ï¼š13.1.1.1
 
-ÊµÑéËµÃ÷£º
-±¾ÊµÑéÉæ¼°Èý¸ö²¿·Ö£¬
- 1¡¢´ÓÏÂÔØ¿ªÊ¼¼´ÏÞËÙ£»
- 2¡¢ÏÂÔØÒ»¶¨´óÐ¡ºó¿ªÊ¼ÏÞËÙ£»
- 3¡¢±ÜÃâÏÂÔØÈí¼þ¶ñÒâ£¨¶à½ø³Ì£©ÏÂÔØÔì³É·þÎñÆ÷Ñ¹Á¦¶à´ó
+å®žéªŒè¯´æ˜Žï¼š
+æœ¬å®žéªŒæ¶‰åŠä¸‰ä¸ªéƒ¨åˆ†ï¼Œ
+ 1ã€ä»Žä¸‹è½½å¼€å§‹å³é™é€Ÿï¼›
+ 2ã€ä¸‹è½½ä¸€å®šå¤§å°åŽå¼€å§‹é™é€Ÿï¼›
+ 3ã€é¿å…ä¸‹è½½è½¯ä»¶æ¶æ„ï¼ˆå¤šè¿›ç¨‹ï¼‰ä¸‹è½½é€ æˆæœåŠ¡å™¨åŽ‹åŠ›å¤šå¤§
 
-ÊµÑéÒ»£ºÏÂÔØ¿ªÊ¼¼´ÏÞËÙ
+å®žéªŒä¸€ï¼šä¸‹è½½å¼€å§‹å³é™é€Ÿ
 
- 1¡¢ÏÈÀ´¿´Ò»ÏÂ²»ÏÞËÙµÄÏÖÔÚËÙÂÊ
+ 1ã€å…ˆæ¥çœ‹ä¸€ä¸‹ä¸é™é€Ÿçš„çŽ°åœ¨é€ŸçŽ‡
 
-ÔÚnginxÎÄµµ¸ùÄ¿Â¼ÏÂ´´½¨´óÎÄ¼þ£º
+åœ¨nginxæ–‡æ¡£æ ¹ç›®å½•ä¸‹åˆ›å»ºå¤§æ–‡ä»¶ï¼š
 [root@Nginx conf]# dd if=/dev/zero of=/usr/local/nginx/html/bigfile bs=1M count=100
-ÔÚ¿Í»§¶ËÉÏ²âÊÔÏÂÔØËÙÂÊ
+åœ¨å®¢æˆ·ç«¯ä¸Šæµ‹è¯•ä¸‹è½½é€ŸçŽ‡
 [root@Lvs1 opt]# wget http://192.168.19.253/bigfile
 --2016-11-09 22:29:14--  http://13.1.1.1/bigfile
-ÕýÔÚÁ¬½Ó 13.1.1.1:80... ÒÑÁ¬½Ó¡£
-ÒÑ·¢³ö HTTP ÇëÇó£¬ÕýÔÚµÈ´ý»ØÓ¦... 200 OK
-³¤¶È£º104857600 (100M) [application/octet-stream]
-ÕýÔÚ±£´æÖÁ: ¡°bigfile¡±
+æ­£åœ¨è¿žæŽ¥ 13.1.1.1:80... å·²è¿žæŽ¥ã€‚
+å·²å‘å‡º HTTP è¯·æ±‚ï¼Œæ­£åœ¨ç­‰å¾…å›žåº”... 200 OK
+é•¿åº¦ï¼š104857600 (100M) [application/octet-stream]
+æ­£åœ¨ä¿å­˜è‡³: â€œbigfileâ€
 100%[======================================>] 104,857,600 44.0M/s   in 2.3s    
 
-  2¡¢ÅäÖÃnginxÅäÖÃÎÄ¼þÏÞËÙ²¢ÖØÆônginx
+  2ã€é…ç½®nginxé…ç½®æ–‡ä»¶é™é€Ÿå¹¶é‡å¯nginx
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 worker_processes  3;
@@ -636,21 +645,21 @@ events {
         }   
         }
 
-  3¡¢²âÊÔÏÞËÙ¹¦ÄÜ
+  3ã€æµ‹è¯•é™é€ŸåŠŸèƒ½
 [root@Lvs1 opt]# wget http://192.168.19.253/bigfile
 --2016-11-09 22:35:54--  http://13.1.1.1/bigfile
-ÕýÔÚÁ¬½Ó 13.1.1.1:80... ÒÑÁ¬½Ó¡£
-ÒÑ·¢³ö HTTP ÇëÇó£¬ÕýÔÚµÈ´ý»ØÓ¦... 200 OK
-³¤¶È£º104857600 (100M) [application/octet-stream]
-ÕýÔÚ±£´æÖÁ: ¡°bigfile¡±
+æ­£åœ¨è¿žæŽ¥ 13.1.1.1:80... å·²è¿žæŽ¥ã€‚
+å·²å‘å‡º HTTP è¯·æ±‚ï¼Œæ­£åœ¨ç­‰å¾…å›žåº”... 200 OK
+é•¿åº¦ï¼š104857600 (100M) [application/octet-stream]
+æ­£åœ¨ä¿å­˜è‡³: â€œbigfileâ€
  0% [                                ] 406,120     99.6K/s
 
 
-ÊµÑé¶þ£ºÎÄ¼þÏÂÔØµ½Ò»¶¨´óÐ¡ºóÏÞËÙµÄÉèÖÃ¼°²âÊÔ
-nginxÅäÖÃ
+å®žéªŒäºŒï¼šæ–‡ä»¶ä¸‹è½½åˆ°ä¸€å®šå¤§å°åŽé™é€Ÿçš„è®¾ç½®åŠæµ‹è¯•
+nginxé…ç½®
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
-	ÉèÖÃÏÂÔØµ½90MÖ®ºó£¬°´ÕÕÃ¿Ãë100kµÄËÙÂÊÏÂÔØ¡£
+	è®¾ç½®ä¸‹è½½åˆ°90Mä¹‹åŽï¼ŒæŒ‰ç…§æ¯ç§’100kçš„é€ŸçŽ‡ä¸‹è½½ã€‚
 
 worker_processes  3;
 events {
@@ -686,14 +695,14 @@ events {
         }   
         }
 
-¿Í»§¶Ë²âÊÔ£º
+å®¢æˆ·ç«¯æµ‹è¯•ï¼š
 [root@Lvs1 opt]# rm -fr bigfile 
 [root@Lvs1 opt]# wget http://13.1.1.1/bigfile
 --2016-11-09 22:37:57--  http://13.1.1.1/bigfile
-ÕýÔÚÁ¬½Ó 13.1.1.1:80... ÒÑÁ¬½Ó¡£
-ÒÑ·¢³ö HTTP ÇëÇó£¬ÕýÔÚµÈ´ý»ØÓ¦... 200 OK
-³¤¶È£º104857600 (100M) [application/octet-stream]
-ÕýÔÚ±£´æÖÁ: ¡°bigfile¡±
+æ­£åœ¨è¿žæŽ¥ 13.1.1.1:80... å·²è¿žæŽ¥ã€‚
+å·²å‘å‡º HTTP è¯·æ±‚ï¼Œæ­£åœ¨ç­‰å¾…å›žåº”... 200 OK
+é•¿åº¦ï¼š104857600 (100M) [application/octet-stream]
+æ­£åœ¨ä¿å­˜è‡³: â€œbigfileâ€
 
 [==================================>    ] 94,576,640  27.9M/s 
 [==================================>    ] 94,883,840  21.1M/s 
@@ -705,9 +714,9 @@ events {
 
 
 
-ÊµÑéÈý£º·ÀÖ¹¶ñÒâÏÂÔØÔì³É·þÎñÆ÷Ñ¹Á¦¶à´ó
- 1¡¢Ä£Äâ¶ñÒâÈí¼þ¶ñÒâÏÂÔØ
-¿Í»§¶Ë½Å±¾£º
+å®žéªŒä¸‰ï¼šé˜²æ­¢æ¶æ„ä¸‹è½½é€ æˆæœåŠ¡å™¨åŽ‹åŠ›å¤šå¤§
+ 1ã€æ¨¡æ‹Ÿæ¶æ„è½¯ä»¶æ¶æ„ä¸‹è½½
+å®¢æˆ·ç«¯è„šæœ¬ï¼š
 #!/bin/bash
 
 for i in `seq 1 10`
@@ -715,14 +724,14 @@ for i in `seq 1 10`
         wget http://192.168.19.253/bigfile >/dev/null &
  done
 
-½âÊÍ£ºÄ£Äâ¿Í»§¶Ë¿ªÆô10¸ö½ø³ÌÏÂÔØ·þÎñÆ÷×ÊÔ´
+è§£é‡Šï¼šæ¨¡æ‹Ÿå®¢æˆ·ç«¯å¼€å¯10ä¸ªè¿›ç¨‹ä¸‹è½½æœåŠ¡å™¨èµ„æº
 
-Ö´ÐÐ½Å±¾£¬ps aux | grep wget ¿ÉÒÔ¿´µ½10¸öwget½ø³Ì
+æ‰§è¡Œè„šæœ¬ï¼Œps aux | grep wget å¯ä»¥çœ‹åˆ°10ä¸ªwgetè¿›ç¨‹
 
- 2¡¢ÏÞÖÆÃ¿¸öÔ´IP×î¶à¿ªÈý¸öÏÂÔØ
+ 2ã€é™åˆ¶æ¯ä¸ªæºIPæœ€å¤šå¼€ä¸‰ä¸ªä¸‹è½½
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
-ÅäÖÃÎÄ¼þ£º
+é…ç½®æ–‡ä»¶ï¼š
 worker_processes  3;
 events {
     worker_connections  1024;
@@ -761,7 +770,7 @@ http {
    }
    }
 
-ÔÙ´ÎÖ´ÐÐ¶ñÒâÏÂÔØ½Å±¾£¬ps aux | grep wget£¬¿´µ½Ö»ÓÐ3¸öwget½ø³Ì
+å†æ¬¡æ‰§è¡Œæ¶æ„ä¸‹è½½è„šæœ¬ï¼Œps aux | grep wgetï¼Œçœ‹åˆ°åªæœ‰3ä¸ªwgetè¿›ç¨‹
 root     18505  0.1  0.1  10244  1488 pts/0    S    23:12   0:00 wget http://13.1.1.1/bigfile
 root     18507  0.1  0.1  10244  1492 pts/0    S    23:12   0:00 wget http://13.1.1.1/bigfile
 root     18514  0.1  0.1  10244  1488 pts/0    S    23:12   0:00 wget http://13.1.1.1/bigfile
@@ -769,17 +778,17 @@ root     18517  0.0  0.0   6052   768 pts/0    S+   23:12   0:00 grep wget
 
 
 
-13¡¢lnmp¼Ü¹¹ºÍ¶¯Ì¬Ò³Ãæ
-	lamp   ÍøÕ¾·¢²¼¼Ü¹¹   Linux + Apache +MySQL +php
+13ã€lnmpæž¶æž„å’ŒåŠ¨æ€é¡µé¢
+	lamp   ç½‘ç«™å‘å¸ƒæž¶æž„   Linux + Apache +MySQL +php
 			      Linux + nginx+MySQL+php
 
-	¾²Ì¬Ò³Ãæ£ºÒ³ÃæÊÇÐ´ºÃµÄ£¬¿Í»§¶ËÇëÇóÒ³Ãæ£¬·þÎñÆ÷Ö±½Ó·µ»Ø
-	¶¯Ì¬Ò³Ãæ£º¿Í»§¶ËÇëÇó¶¯Ì¬Ò³Ãæ£¬·þÎñÆ÷ÏÈÖ´ÐÐ½Å±¾£¬½«½Å±¾Ö´ÐÐµÄ½á¹û·´À¡¸ø¿Í»§¶Ë	   php  Ê±¼ä
+	é™æ€é¡µé¢ï¼šé¡µé¢æ˜¯å†™å¥½çš„ï¼Œå®¢æˆ·ç«¯è¯·æ±‚é¡µé¢ï¼ŒæœåŠ¡å™¨ç›´æŽ¥è¿”å›ž
+	åŠ¨æ€é¡µé¢ï¼šå®¢æˆ·ç«¯è¯·æ±‚åŠ¨æ€é¡µé¢ï¼ŒæœåŠ¡å™¨å…ˆæ‰§è¡Œè„šæœ¬ï¼Œå°†è„šæœ¬æ‰§è¡Œçš„ç»“æžœåé¦ˆç»™å®¢æˆ·ç«¯	   php  æ—¶é—´
 
-	Apache+php    cgi   fcgi  php-fpm :phpÒÔ·þÎñµÄÐÎÊ½ÔËÐÐ£¬9000¶Ë¿Ú  5.4Ö®ºóphp-fpm  
+	Apache+php    cgi   fcgi  php-fpm :phpä»¥æœåŠ¡çš„å½¢å¼è¿è¡Œï¼Œ9000ç«¯å£  5.4ä¹‹åŽphp-fpm  
 									 5.4  
 	
-»ùÓÚ¶Ë¿ÚµÄÐéÄâÖ÷»úÅäÖÃ¸ñÊ½£º
+åŸºäºŽç«¯å£çš„è™šæ‹Ÿä¸»æœºé…ç½®æ ¼å¼ï¼š
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 worker_processes  3;
@@ -823,37 +832,37 @@ http {
 
 
 
-µÚ¶þÌìÉÏÎç¿Î³Ì£º
+ç¬¬äºŒå¤©ä¸Šåˆè¯¾ç¨‹ï¼š
 
-13¡¢lnmp¼Ü¹¹ºÍ¶¯Ì¬Ò³Ãæ
-	lamp   ÍøÕ¾·¢²¼¼Ü¹¹   Linux + Apache +MySQL +php
+13ã€lnmpæž¶æž„å’ŒåŠ¨æ€é¡µé¢
+	lamp   ç½‘ç«™å‘å¸ƒæž¶æž„   Linux + Apache +MySQL +php
 				Linux + nginx+MySQL+php
 
-	¾²Ì¬Ò³Ãæ£ºÒ³ÃæÊÇÐ´ºÃµÄ£¬¿Í»§¶ËÇëÇóÒ³Ãæ£¬·þÎñÆ÷Ö±½Ó·µ»Ø
-	¶¯Ì¬Ò³Ãæ£º¿Í»§¶ËÇëÇó¶¯Ì¬Ò³Ãæ£¬·þÎñÆ÷ÏÈÖ´ÐÐ½Å±¾£¬½«½Å±¾Ö´ÐÐµÄ½á¹û·´À¡¸ø¿Í»§¶Ë   php  Ê±¼ä
+	é™æ€é¡µé¢ï¼šé¡µé¢æ˜¯å†™å¥½çš„ï¼Œå®¢æˆ·ç«¯è¯·æ±‚é¡µé¢ï¼ŒæœåŠ¡å™¨ç›´æŽ¥è¿”å›ž
+	åŠ¨æ€é¡µé¢ï¼šå®¢æˆ·ç«¯è¯·æ±‚åŠ¨æ€é¡µé¢ï¼ŒæœåŠ¡å™¨å…ˆæ‰§è¡Œè„šæœ¬ï¼Œå°†è„šæœ¬æ‰§è¡Œçš„ç»“æžœåé¦ˆç»™å®¢æˆ·ç«¯   php  æ—¶é—´
 
-	Apache+php    cgi   fcgi  php-fpm :phpÒÔ·þÎñµÄÐÎÊ½ÔËÐÐ£¬9000¶Ë¿Ú  5.4Ö®ºóphp-fpm  
-									 5.4Ö®Ç°  spawn-fcgi  ---°ÑphpÖÆ×÷³É·þÎñ
+	Apache+php    cgi   fcgi  php-fpm :phpä»¥æœåŠ¡çš„å½¢å¼è¿è¡Œï¼Œ9000ç«¯å£  5.4ä¹‹åŽphp-fpm  
+									 5.4ä¹‹å‰  spawn-fcgi  ---æŠŠphpåˆ¶ä½œæˆæœåŠ¡
 
-	nginxÒ²ºÃApacheÒ²ºÃ£¬ËüÔõÑùÅÐ¶ÏÊÕµ½µÄÇëÇóÊÇ¶¯Ì¬Ò³ÃæÇëÇó»¹ÊÇÒ»¸ö¾²Ì¬Ò³ÃæÇëÇó£º
-		¿´µÄÊÇÇëÇóURLµÄºó×º¡£
-		¾²Ì¬Ò³Ãæ£º.html
-		¶¯Ì¬Ò³Ãæ£º.php
+	nginxä¹Ÿå¥½Apacheä¹Ÿå¥½ï¼Œå®ƒæ€Žæ ·åˆ¤æ–­æ”¶åˆ°çš„è¯·æ±‚æ˜¯åŠ¨æ€é¡µé¢è¯·æ±‚è¿˜æ˜¯ä¸€ä¸ªé™æ€é¡µé¢è¯·æ±‚ï¼š
+		çœ‹çš„æ˜¯è¯·æ±‚URLçš„åŽç¼€ã€‚
+		é™æ€é¡µé¢ï¼š.html
+		åŠ¨æ€é¡µé¢ï¼š.php
 		www.a.com      
 
-	nginxÉÃ³¤¾²Ì¬Ò³Ãæ´¦ÀíÊÇApache3±¶
-	ApacheÉÃ³¤¶¯Ì¬Ò³Ãæ´¦Àí  
+	nginxæ“…é•¿é™æ€é¡µé¢å¤„ç†æ˜¯Apache3å€
+	Apacheæ“…é•¿åŠ¨æ€é¡µé¢å¤„ç†  
 
-·¢²¼¶¯Ì¬Ò³Ãæ£º
-	Ò»¡¢°²×°php-* mysql-server msyql -y 
+å‘å¸ƒåŠ¨æ€é¡µé¢ï¼š
+	ä¸€ã€å®‰è£…php-* mysql-server msyql -y 
 	[root@localhost html]# yum install php-* mysql-server mysql -y
-    	1¡¢°²×°spawn-fcgi¹¤¾ß
+    	1ã€å®‰è£…spawn-fcgiå·¥å…·
 	[root@localhost src]# rpm -ivh spawn-fcgi-1.6.3-1.el5.i386.rpm
- 	2¡¢Ê¹ÓÃphp_cgi½Å±¾À´Æô¶¯¹ÜÀíphp·þÎñ
+ 	2ã€ä½¿ç”¨php_cgiè„šæœ¬æ¥å¯åŠ¨ç®¡ç†phpæœåŠ¡
 	[root@localhost src]# ./php_cgi start
 	[root@localhost src]# ./php_cgi restart
 	[root@localhost src]# ./php_cgi stop
-	3¡¢ÐÞ¸ÄnginxµÄÅäÖÃÎÄ¼þ¿ªÆô¶¯Ì¬Ò³ÃæµÄÖ§³Ö
+	3ã€ä¿®æ”¹nginxçš„é…ç½®æ–‡ä»¶å¼€å¯åŠ¨æ€é¡µé¢çš„æ”¯æŒ
 	[root@localhost ~]# cd /usr/local/nginx/conf/
         [root@localhost conf]# vim /etc/nginx.conf
 
@@ -871,74 +880,74 @@ http {
        <?php
         echo date('y-m-d h:i:s',time())
 	?>
-	4¡¢¿Í»§¶Ë²âÊÔ
+	4ã€å®¢æˆ·ç«¯æµ‹è¯•
 	[root@host opt]# elinks http://192.168.19.156 --dump
    	17-06-01 08:52:02
 
 
 
- 14¡¢ÓÅ»¯£º
-	Á¬½Ó£º
-		nofile     Ò»¸ö³ÌÐò×î¶àÍ¬Ê±´ò¿ª1024¸öÎÄ¼þ
-		Í¨¹ýÐÞ¸Ä²Ù×÷ÏµÍ³ÖÐnofileµÄÏÞÖÆ£¬ÊµÏÖÈÃnginx¿ÉÒÔ´¦Àí¸ü¶àµÄ²¢·¢Á¬½Ó¡£
-		ulimit -SHn 65535         ÁÙÊ±ÐÞ¸ÄµÄ·½Ê½
-		vim /etc/rc.local	  ÓÀ¾ÃÐÞ¸Ä£¨¸ÃÎÄ¼þÊÇÏµÍ³Æô¶¯Ê±×îºó¼ÓÔØµÄÒ»¸ö½Å±¾ÎÄ¼þ£©
+ 14ã€ä¼˜åŒ–ï¼š
+	è¿žæŽ¥ï¼š
+		nofile     ä¸€ä¸ªç¨‹åºæœ€å¤šåŒæ—¶æ‰“å¼€1024ä¸ªæ–‡ä»¶
+		é€šè¿‡ä¿®æ”¹æ“ä½œç³»ç»Ÿä¸­nofileçš„é™åˆ¶ï¼Œå®žçŽ°è®©nginxå¯ä»¥å¤„ç†æ›´å¤šçš„å¹¶å‘è¿žæŽ¥ã€‚
+		ulimit -SHn 65535         ä¸´æ—¶ä¿®æ”¹çš„æ–¹å¼
+		vim /etc/rc.local	  æ°¸ä¹…ä¿®æ”¹ï¼ˆè¯¥æ–‡ä»¶æ˜¯ç³»ç»Ÿå¯åŠ¨æ—¶æœ€åŽåŠ è½½çš„ä¸€ä¸ªè„šæœ¬æ–‡ä»¶ï¼‰
 		
-	°ó¶¨nginx½ø³Ì£º
-		½ø³ÌÕù¶áCPU×ÊÔ´
-		ÊµÏÖworker½ø³Ì¹Ì¶¨µ½Ò»¸öcpuºËÐÄÉÏ£¬³ä·ÖÀûÓÃCPU×ÊÔ´À´ÔËÐÐnginx
-	Ñ¹Ëõ£º
+	ç»‘å®šnginxè¿›ç¨‹ï¼š
+		è¿›ç¨‹äº‰å¤ºCPUèµ„æº
+		å®žçŽ°workerè¿›ç¨‹å›ºå®šåˆ°ä¸€ä¸ªcpuæ ¸å¿ƒä¸Šï¼Œå……åˆ†åˆ©ç”¨CPUèµ„æºæ¥è¿è¡Œnginx
+	åŽ‹ç¼©ï¼š
 
-	»º´æ£º
-		¸æÖª¿Í»§¶Ëä¯ÀÀÆ÷»º´æ¶à³¤Ê±¼ä
-		²ÎÊý£ºexpires  10m£»
-			Ìì£ºd
-			Äê£ºy
-			Ê±£ºh
-			Ãë: s
+	ç¼“å­˜ï¼š
+		å‘ŠçŸ¥å®¢æˆ·ç«¯æµè§ˆå™¨ç¼“å­˜å¤šé•¿æ—¶é—´
+		å‚æ•°ï¼šexpires  10mï¼›
+			å¤©ï¼šd
+			å¹´ï¼šy
+			æ—¶ï¼šh
+			ç§’: s
 
 ================================================================
 ================================================================
 
-ÏÂÎç¿Î³Ì£º
+ä¸‹åˆè¯¾ç¨‹ï¼š
 
-15¡¢nginx¸ºÔØ¾ùºâ   rr   wrr   ip_hash   
+15ã€nginxè´Ÿè½½å‡è¡¡   rr   wrr   ip_hash   
 
-ÊµÑé»·¾³£º
-	¸ºÔØ¾ùºâÆ÷£º192.168.19.245
-	¿Í»§¶Ë£º192.168.19.248
+å®žéªŒçŽ¯å¢ƒï¼š
+	è´Ÿè½½å‡è¡¡å™¨ï¼š192.168.19.245
+	å®¢æˆ·ç«¯ï¼š192.168.19.248
 	RS1:192.168.19.241
-	RS2£º192.168.19.242
+	RS2ï¼š192.168.19.242
 	
-	nginx×÷Îª¸ºÔØ¾ùºâÆ÷µÄÌØµã£º
-		»ùÓÚOSIÆß²ã--Ó¦ÓÃ²ãµÄ·Ö·¢£¨nginx¿É¿´µ½Ó¦ÓÃ²ãÉÏµÄ°üÍ·ÐÅÏ¢£©
-		¿´µ½£º
-			ÇëÇóµÄURL£¨url_hash£©
+	nginxä½œä¸ºè´Ÿè½½å‡è¡¡å™¨çš„ç‰¹ç‚¹ï¼š
+		åŸºäºŽOSIä¸ƒå±‚--åº”ç”¨å±‚çš„åˆ†å‘ï¼ˆnginxå¯çœ‹åˆ°åº”ç”¨å±‚ä¸Šçš„åŒ…å¤´ä¿¡æ¯ï¼‰
+		çœ‹åˆ°ï¼š
+			è¯·æ±‚çš„URLï¼ˆurl_hashï¼‰
 							
 			rr
 			wrr
 			ip_hash(lvs--sh)
 					
 		
-	¶¯¾²·ÖÀë£¨¸ù¾Ý¿Í»§¶ËÇëÇóµÄÒ³Ãæ£¬¾²Ì¬Ò³Ãæ½»¸øºó¶Ënginxweb·þÎñÆ÷£¬¶¯Ì¬Ò³Ãæ½»¸øºó¶ËApache·þÎñÆ÷£©
-	¿Í»§¶ËÊ¹ÓÃµÄä¯ÀÀÆ÷ÀàÐÍ
-	IPµØÖ··Ö·¢£¨ÅÐ¶Ï¿Í»§¶ËËù´¦µÄµØÓò£©
-	¸ù¾ÝÖ÷»úÍ··Ö·¢£¨¸ù¾ÝÓòÃû·Ö·¢£©
-	·¢²¼jspÒ³Ãæ
-	nginx¸ºÔØ¾ùºâµÄ¸ß¿ÉÓÃ
+	åŠ¨é™åˆ†ç¦»ï¼ˆæ ¹æ®å®¢æˆ·ç«¯è¯·æ±‚çš„é¡µé¢ï¼Œé™æ€é¡µé¢äº¤ç»™åŽç«¯nginxwebæœåŠ¡å™¨ï¼ŒåŠ¨æ€é¡µé¢äº¤ç»™åŽç«¯ApacheæœåŠ¡å™¨ï¼‰
+	å®¢æˆ·ç«¯ä½¿ç”¨çš„æµè§ˆå™¨ç±»åž‹
+	IPåœ°å€åˆ†å‘ï¼ˆåˆ¤æ–­å®¢æˆ·ç«¯æ‰€å¤„çš„åœ°åŸŸï¼‰
+	æ ¹æ®ä¸»æœºå¤´åˆ†å‘ï¼ˆæ ¹æ®åŸŸååˆ†å‘ï¼‰
+	å‘å¸ƒjspé¡µé¢
+	nginxè´Ÿè½½å‡è¡¡çš„é«˜å¯ç”¨
 
-	ÊµÏÖ·Ö·¢£º
-		·´Ïò´úÀí+upstreamÄ£¿é
+	å®žçŽ°åˆ†å‘ï¼š
+		åå‘ä»£ç†+upstreamæ¨¡å—
 
-	·´Ïò´úÀí£º
-	¿Í»§¶Ë½«ÇëÇó·¢ËÍ¸ø·´Ïò´úÀí·þÎñÆ÷£¬´úÀí·þÎñÆ÷½«ÇëÇó×ª·¢¸øºó¶ËµÄÕæÊµ£¨Ô´£©·þÎñÆ÷£¬Ô´·þÎñÆ÷½âÎöÇëÇó£¬´¦ÀíÇëÇó£¬
-½«Êý¾Ý·¢ËÍ¸ø´úÀí·þÎñÆ÷£¬´úÀíÔÙ×ª·¢¸ø¿Í»§¶Ë¡£upstreamÄ£¿éÊµÏÖ·Ö·¢µÄ¹¦ÄÜ¡£
+	åå‘ä»£ç†ï¼š
+	å®¢æˆ·ç«¯å°†è¯·æ±‚å‘é€ç»™åå‘ä»£ç†æœåŠ¡å™¨ï¼Œä»£ç†æœåŠ¡å™¨å°†è¯·æ±‚è½¬å‘ç»™åŽç«¯çš„çœŸå®žï¼ˆæºï¼‰æœåŠ¡å™¨ï¼ŒæºæœåŠ¡å™¨è§£æžè¯·æ±‚ï¼Œå¤„ç†è¯·æ±‚ï¼Œ
+å°†æ•°æ®å‘é€ç»™ä»£ç†æœåŠ¡å™¨ï¼Œä»£ç†å†è½¬å‘ç»™å®¢æˆ·ç«¯ã€‚upstreamæ¨¡å—å®žçŽ°åˆ†å‘çš„åŠŸèƒ½ã€‚
 
-1¡¢nginx·´Ïò´úÀí·þÎñÆ÷ÅäÖÃÎÄ¼þ
+1ã€nginxåå‘ä»£ç†æœåŠ¡å™¨é…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 		
-ÊµÏÖrr·Ö·¢£º
+å®žçŽ°rråˆ†å‘ï¼š
 	[root@localhost ~]# cd /usr/local/nginx/conf/
         [root@localhost conf]# vim /etc/nginx.conf
 http {
@@ -952,22 +961,22 @@ http {
         location / {
             root   html;
             index  index.html index.htm;
-            proxy_pass  http://www;		//ËùÓÐµÄÇëÇó½»¸øwww
+            proxy_pass  http://www;		//æ‰€æœ‰çš„è¯·æ±‚äº¤ç»™www
         }
 
 }
-        upstream www {				//¶¨ÒåÇëÇówwwµÄ·Ö·¢¹æÔò£ºÄ¬ÈÏËã·¨Îªrr
+        upstream www {				//å®šä¹‰è¯·æ±‚wwwçš„åˆ†å‘è§„åˆ™ï¼šé»˜è®¤ç®—æ³•ä¸ºrr
                 server 192.168.19.241;
                 server 192.168.19.242;
         }
 }
 
-2¡¢ÉèÖÃRS·þÎñÆ÷Ò³Ãæ
-RS1ÉÏµÄÒ³ÃæÅäÖÃ
+2ã€è®¾ç½®RSæœåŠ¡å™¨é¡µé¢
+RS1ä¸Šçš„é¡µé¢é…ç½®
 [root@host opt]# cd /var/www/html
 [root@host html]# vim index.html 
 
-3¡¢¿Í»§¶Ë²âÊÔ
+3ã€å®¢æˆ·ç«¯æµ‹è¯•
 [root@localhost ~]# elinks http://192.168.19.156 --dump
    #### RS1 ####
 [root@localhost ~]# elinks http://192.168.19.156 --dump
@@ -987,11 +996,11 @@ RS1ÉÏµÄÒ³ÃæÅäÖÃ
 
 
 
-1¡¢nginx·´Ïò´úÀí·þÎñÆ÷ÅäÖÃÎÄ¼þ
+1ã€nginxåå‘ä»£ç†æœåŠ¡å™¨é…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 
-ÊµÏÖwrr·Ö·¢£º
+å®žçŽ°wrråˆ†å‘ï¼š
 	[root@localhost ~]# cd /usr/local/nginx/conf/
         [root@localhost conf]# vim /etc/nginx.conf
 http {
@@ -1010,13 +1019,13 @@ http {
 
 }
         upstream www {
-                server 192.168.19.241 weight=3;		//weightÈ¨ÖØ
+                server 192.168.19.241 weight=3;		//weightæƒé‡
                 server 192.168.19.242;
         }
 }
 
 
-2¡¢¿Í»§¶Ë²âÊÔ
+2ã€å®¢æˆ·ç«¯æµ‹è¯•
 [root@localhost ~]# elinks http://192.168.19.156 --dump
    #### RS1 ####
 [root@localhost ~]# elinks http://192.168.19.156 --dump
@@ -1034,15 +1043,15 @@ http {
 [root@localhost ~]# elinks http://192.168.19.156 --dump
    #### RS2 ####
 	
-´¦Àí»á»°Ò»ÖÂÐÔµÄÎÊÌâ£ºmemcache/redis						
+å¤„ç†ä¼šè¯ä¸€è‡´æ€§çš„é—®é¢˜ï¼šmemcache/redis						
 
-1¡¢nginx·´Ïò´úÀí·þÎñÆ÷ÅäÖÃÎÄ¼þ
+1ã€nginxåå‘ä»£ç†æœåŠ¡å™¨é…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 
-ÊµÏÖip_hash·Ö·¢£º
-	¸ù¾Ý¿Í»§¶ËÔ´ipµÄhashÖµÀ´·Ö·¢ÇëÇó---Í¬Ò»¸ö¿Í»§¶ËµÄÇëÇó¹Ì¶¨·Ö·¢µ½Ò»Ì¨rsÉÏ¡£
-	È±µã£º¿ÉÄÜ»áÔì³ÉÄ³Ì¨·þÎñÆ÷¸ºÔØ¹ý´ó£¬ÆäËû·þÎñÆ÷¿ÕÏÐµÄÇé¿ö
+å®žçŽ°ip_hashåˆ†å‘ï¼š
+	æ ¹æ®å®¢æˆ·ç«¯æºipçš„hashå€¼æ¥åˆ†å‘è¯·æ±‚---åŒä¸€ä¸ªå®¢æˆ·ç«¯çš„è¯·æ±‚å›ºå®šåˆ†å‘åˆ°ä¸€å°rsä¸Šã€‚
+	ç¼ºç‚¹ï¼šå¯èƒ½ä¼šé€ æˆæŸå°æœåŠ¡å™¨è´Ÿè½½è¿‡å¤§ï¼Œå…¶ä»–æœåŠ¡å™¨ç©ºé—²çš„æƒ…å†µ
         [root@localhost ~]# cd /usr/local/nginx/conf/
         [root@localhost conf]# vim nginx.conf
 http {
@@ -1061,14 +1070,14 @@ http {
 
 }
         upstream www {
-                ip_hash;			//»ùÓÚip_hashËã·¨·Ö·¢
+                ip_hash;			//åŸºäºŽip_hashç®—æ³•åˆ†å‘
                 server 192.168.19.241;
                 server 192.168.19.242;
         }
 }
  
 
-2¡¢¿Í»§¶Ë²âÊÔ
+2ã€å®¢æˆ·ç«¯æµ‹è¯•
 [root@localhost ~]# elinks http://192.168.19.156 --dump
    #### RS1 ####
 [root@localhost ~]# elinks http://192.168.19.156 --dump
@@ -1088,28 +1097,28 @@ http {
 [root@localhost ~]# elinks http://192.168.19.156 --dump
    #### RS1 ####
 
-¶¯¾²·ÖÀë
-	¿Í»§¶Ë·¢³öhttpdÇëÇó°ü£¨°üÍ·ÐÅÏ¢    URL£©£¬
-		¿Í»§µ¥ÇëÇóµÄURL£ºwww.a.com£¬¶ÔÓÚApacheÀ´Ëµ£¬¿Í»§¶ËÇëÇóµÄºó×ºÃû.php½áÎ²
-					¶ÔÓÚnginxÀ´Ëµ£¬¿Í»§µ¥ÇëÇóµÄºó×ºÃûÊÇ.html½áÎ²
-	¾Í¿ÉÒÔ¸ù¾Ýºó×ºÃûÀ´ÅÐ¶Ï¿Í»§¶ËÇëÇóµÄÊÇ¶¯Ì¬Ò³Ãæ»¹ÊÇ¾²Ì¬Ò³Ãæ¡£
+åŠ¨é™åˆ†ç¦»
+	å®¢æˆ·ç«¯å‘å‡ºhttpdè¯·æ±‚åŒ…ï¼ˆåŒ…å¤´ä¿¡æ¯    URLï¼‰ï¼Œ
+		å®¢æˆ·å•è¯·æ±‚çš„URLï¼šwww.a.comï¼Œå¯¹äºŽApacheæ¥è¯´ï¼Œå®¢æˆ·ç«¯è¯·æ±‚çš„åŽç¼€å.phpç»“å°¾
+					å¯¹äºŽnginxæ¥è¯´ï¼Œå®¢æˆ·å•è¯·æ±‚çš„åŽç¼€åæ˜¯.htmlç»“å°¾
+	å°±å¯ä»¥æ ¹æ®åŽç¼€åæ¥åˆ¤æ–­å®¢æˆ·ç«¯è¯·æ±‚çš„æ˜¯åŠ¨æ€é¡µé¢è¿˜æ˜¯é™æ€é¡µé¢ã€‚
 
-	nginx¶¯¾²·ÖÀë¾ÍÊÇ¸ù¾Ý¿Í»§¶ËÇëÇóµÄURLºó×ºÃûÀ´ÅÐ¶ÏÇëÇóµÄÊÇ¶¯Ì¬»¹ÊÇ¾²Ì¬Ò³Ãæ¡£
+	nginxåŠ¨é™åˆ†ç¦»å°±æ˜¯æ ¹æ®å®¢æˆ·ç«¯è¯·æ±‚çš„URLåŽç¼€åæ¥åˆ¤æ–­è¯·æ±‚çš„æ˜¯åŠ¨æ€è¿˜æ˜¯é™æ€é¡µé¢ã€‚
 
 
-ÊµÑé»·¾³£º
+å®žéªŒçŽ¯å¢ƒï¼š
 os:rhel6.7  x86_64
 nginx-1.5  
  
-IP¹æ»®£º
+IPè§„åˆ’ï¼š
 rs1     241
 rs2	242
 nginx	245
 client	248
 
-ÔÚrs2ÉÏÅäÖÃ¶¯Ì¬Ò³ÃæµÄÖ§³Ö£º
+åœ¨rs2ä¸Šé…ç½®åŠ¨æ€é¡µé¢çš„æ”¯æŒï¼š
 	yum install php-* mysql-server mysql -y 
-	service httpd restart		//ÖØÐÂ¼ÓÔØÅäÖÃÎÄ¼þ£¨phpÄ£¿é£©
+	service httpd restart		//é‡æ–°åŠ è½½é…ç½®æ–‡ä»¶ï¼ˆphpæ¨¡å—ï¼‰
 	cd /var/www/html
 	vim index.php
 	
@@ -1126,11 +1135,11 @@ http {
         listen       80;
         server_name  localhost;
         
-	location ~ \.html$ {			//nginxÊÕµ½Ò»¸öÒÔ.html½áÎ²µÄÇëÇóºó£¬½»¸øwww
+	location ~ \.html$ {			//nginxæ”¶åˆ°ä¸€ä¸ªä»¥.htmlç»“å°¾çš„è¯·æ±‚åŽï¼Œäº¤ç»™www
             proxy_pass  http://www;
         }
         
-	location ~ \.php$ {			//nginxÊÕµ½Ò»¸öÒÔ.php½áÎ²µÄÇëÇóºó£¬½»¸øphp
+	location ~ \.php$ {			//nginxæ”¶åˆ°ä¸€ä¸ªä»¥.phpç»“å°¾çš„è¯·æ±‚åŽï¼Œäº¤ç»™php
             proxy_pass  http://php;
         }
 
@@ -1144,7 +1153,7 @@ http {
         }
 }
 
-¿Í»§¶Ë²âÊÔ£º
+å®¢æˆ·ç«¯æµ‹è¯•ï¼š
 [root@localhost ~]# elinks http://192.168.19.156/index.php --dump
    17-05-30 12:28:51
 [root@localhost ~]# elinks http://192.168.19.156 --dump
@@ -1161,23 +1170,23 @@ http {
 URL_hash:
 	www.a.com   -->www.a.com/index.html
 			-->www.a.com/index.php
-			www.a.com/1.html   --¼ÆËã¿Í»§¶ËÇëÇóµÄURLµÄhashÖµ¡£Í¬Ò»¸öURLµÄhashÖµÊÇÒ»Ñù¡£
+			www.a.com/1.html   --è®¡ç®—å®¢æˆ·ç«¯è¯·æ±‚çš„URLçš„hashå€¼ã€‚åŒä¸€ä¸ªURLçš„hashå€¼æ˜¯ä¸€æ ·ã€‚
 			www.a.com/2.html
 
-	url_hash£º¸ù¾Ý¿Í»§¶ËÇëÇóµÄurlµÄhashÖµÀ´¾ö¶¨½«ÇëÇó½»¸øºó¶ËµÄÄÄÌ¨rs£¨»º´æ·þÎñÆ÷£©
+	url_hashï¼šæ ¹æ®å®¢æˆ·ç«¯è¯·æ±‚çš„urlçš„hashå€¼æ¥å†³å®šå°†è¯·æ±‚äº¤ç»™åŽç«¯çš„å“ªå°rsï¼ˆç¼“å­˜æœåŠ¡å™¨ï¼‰
 	
-	×÷ÓÃ£ºÌá¸ßweb»º´æÃüÖÐÂÊ
+	ä½œç”¨ï¼šæé«˜webç¼“å­˜å‘½ä¸­çŽ‡
 
-	´ò²¹¶¡£º
+	æ‰“è¡¥ä¸ï¼š
  1025  cd /usr/src/
  1027  tar -zxf Nginx_upstream_hash-0.3.1.tar.gz 
  1029  cd nginx_upstream_hash-0.3.1/
- 1031  cat README 				//²é¿´readmeÎÄ¼þ£¬¸ù¾ÝÖ¸µ¼À´²Ù×÷
- 1032  cd /usr/src/nginx_install/		//½øÈëµ½nginxµÄ°²×°°ü´æ·ÅÄ¿Â¼
- 1034  cd nginx-1.5.1				//½øÈëµ½nginxµÄ½âÑ¹°üÄ¿Â¼
- 1035  patch -p0 < /usr/src/nginx_upstream_hash-0.3.1/nginx.patch 	//´ò²¹¶¡
- 1036  ./configure --prefix=/usr/local/nginx/ --add-module=/usr/src/nginx_upstream_hash-0.3.1/		//¼ÓÈëÄ£¿é
- 1037  make && make install		//±àÒë¡¢°²×°
+ 1031  cat README 				//æŸ¥çœ‹readmeæ–‡ä»¶ï¼Œæ ¹æ®æŒ‡å¯¼æ¥æ“ä½œ
+ 1032  cd /usr/src/nginx_install/		//è¿›å…¥åˆ°nginxçš„å®‰è£…åŒ…å­˜æ”¾ç›®å½•
+ 1034  cd nginx-1.5.1				//è¿›å…¥åˆ°nginxçš„è§£åŽ‹åŒ…ç›®å½•
+ 1035  patch -p0 < /usr/src/nginx_upstream_hash-0.3.1/nginx.patch 	//æ‰“è¡¥ä¸
+ 1036  ./configure --prefix=/usr/local/nginx/ --add-module=/usr/src/nginx_upstream_hash-0.3.1/		//åŠ å…¥æ¨¡å—
+ 1037  make && make install		//ç¼–è¯‘ã€å®‰è£…
  1038  echo $?
  1040  /etc/init.d/nginxd restart
 
@@ -1196,7 +1205,7 @@ http {
         }
         }
     upstream www {
-        hash    $request_uri;			//Ê¹ÓÃurl_hashËã·¨·Ö·¢
+        hash    $request_uri;			//ä½¿ç”¨url_hashç®—æ³•åˆ†å‘
         server  192.168.19.241;
         server  192.168.19.242;
 }
@@ -1204,8 +1213,8 @@ http {
 }
 
 
-ÓÃµ½µÄ½Å±¾£º
-´´½¨rs1ÉÏµÄÒ³Ãæ£º
+ç”¨åˆ°çš„è„šæœ¬ï¼š
+åˆ›å»ºrs1ä¸Šçš„é¡µé¢ï¼š
 [root@host html]# rm -rf index.html 
 [root@host html]# ls
 [root@host html]# vim html.sh
@@ -1220,7 +1229,7 @@ for i in `seq 1 10`
 [root@host html]# ./html.sh
 
 
-´´½¨rs2ÉÏµÄÒ³Ãæ£º
+åˆ›å»ºrs2ä¸Šçš„é¡µé¢ï¼š
 [root@host html]# rm -rf index.html 
 [root@host html]# ls
 [root@host html]# vim html.sh
@@ -1234,7 +1243,7 @@ for i in `seq 1 10`
 [root@host html]# chmod u+x html.sh 
 [root@host html]# ./html.sh
 
-¿Í»§¶Ë²âÊÔ½Å±¾£º
+å®¢æˆ·ç«¯æµ‹è¯•è„šæœ¬ï¼š
 [root@localhost ~]# for i in `seq 1 10`; do elinks http://192.168.19.156/$i.html --dump; done
    RS1_1.html
    RS1_2.html
@@ -1263,36 +1272,36 @@ for i in `seq 1 10`
 ================================================================
 
 
-µÚÈýÌì¿Î³Ì£º
+ç¬¬ä¸‰å¤©è¯¾ç¨‹ï¼š
 
-ÉÏÎç¿Î³Ì£º
-nginx¸ºÔØ¾ùºâÍ¨¹ý·´Ïò´úÀí+upstreamÄ£¿é
+ä¸Šåˆè¯¾ç¨‹ï¼š
+nginxè´Ÿè½½å‡è¡¡é€šè¿‡åå‘ä»£ç†+upstreamæ¨¡å—
 rr
 wrr
 ip_hash
 url_hash
-¶¯¾²·ÖÀë
+åŠ¨é™åˆ†ç¦»
 
-·´Ïò´úÀí£º¿Í»§¶Ë²»ÖªµÀ·ÃÎÊµÄÊÇÄÄÒ»Ì¨·þÎñÆ÷£¬µ«ÊÇÄÜ·µ»Ø¸ø¿Í»§¶ËÕý³£µÄÇëÇó
-ÕýÏò´úÀí£º¿Í»§¶Ë·ÃÎÊµÄÊÇÕæÊµweb·þÎñÆ÷»òÆäËûÒµÎñ·þÎñÆ÷ipµØÖ·
+åå‘ä»£ç†ï¼šå®¢æˆ·ç«¯ä¸çŸ¥é“è®¿é—®çš„æ˜¯å“ªä¸€å°æœåŠ¡å™¨ï¼Œä½†æ˜¯èƒ½è¿”å›žç»™å®¢æˆ·ç«¯æ­£å¸¸çš„è¯·æ±‚
+æ­£å‘ä»£ç†ï¼šå®¢æˆ·ç«¯è®¿é—®çš„æ˜¯çœŸå®žwebæœåŠ¡å™¨æˆ–å…¶ä»–ä¸šåŠ¡æœåŠ¡å™¨ipåœ°å€
 
-ÔÚNginxÖÐµÄÄ¬ÈÏProxyÊÇÖ»ÄÜ¶ÔºóÃæReal Server×ö¶Ë¿Ú×ª·¢µÄ£¬¶ø²»ÄÜ×öÓòÃû×ª·¢¡£Èç¹ûÏëÊ¹ÓÃNginx¶Ôºó¶ËÊÇÍ¬Ò»IP¡¢Í¬Ò»¶Ë¿Ú ×ª·¢²»Í¬µÄÓòÃûÔòÐèÒªÅäÖÃNginx Proxy¡£
- Õâ¸öÊÇÒòÎªÄ¬ÈÏÇé¿öÏÂ£º
+åœ¨Nginxä¸­çš„é»˜è®¤Proxyæ˜¯åªèƒ½å¯¹åŽé¢Real Serveråšç«¯å£è½¬å‘çš„ï¼Œè€Œä¸èƒ½åšåŸŸåè½¬å‘ã€‚å¦‚æžœæƒ³ä½¿ç”¨Nginxå¯¹åŽç«¯æ˜¯åŒä¸€IPã€åŒä¸€ç«¯å£ è½¬å‘ä¸åŒçš„åŸŸååˆ™éœ€è¦é…ç½®Nginx Proxyã€‚
+ è¿™ä¸ªæ˜¯å› ä¸ºé»˜è®¤æƒ…å†µä¸‹ï¼š
  proxy_set_header Host $proxy_host;
- ÕâÑù¾ÍµÈÓÚÇ°¶ËÊäÈëÓòÃûºóµ½nginx¸ºÔØÕâÀïÖ±½Ó×ª»»³ÉIP½øÐÐ×ª·¢ÁË¡£
- ÓÚÊÇÎÒÃÇÐèÒªÐÞ¸Äproxy_set_headerµÄ²ÎÊý¡£
+ è¿™æ ·å°±ç­‰äºŽå‰ç«¯è¾“å…¥åŸŸååŽåˆ°nginxè´Ÿè½½è¿™é‡Œç›´æŽ¥è½¬æ¢æˆIPè¿›è¡Œè½¬å‘äº†ã€‚
+ äºŽæ˜¯æˆ‘ä»¬éœ€è¦ä¿®æ”¹proxy_set_headerçš„å‚æ•°ã€‚
  proxy_set_header Host $http_host;
 
-nginxÄ¬ÈÏ¸ºÔØµ÷¶ÈËã·¨Îªrr£¨ÂÖÑ¯£©
+nginxé»˜è®¤è´Ÿè½½è°ƒåº¦ç®—æ³•ä¸ºrrï¼ˆè½®è¯¢ï¼‰
 
-»ùÓÚ¿Í»§¶Ëä¯ÀÀÆ÷·Ö·¢£º
+åŸºäºŽå®¢æˆ·ç«¯æµè§ˆå™¨åˆ†å‘ï¼š
 user_agent
 
 Firefox -->firefox
 elinks  -->elinks
-Èç¹ûÎÞ·¨ÅÐ¶Ïä¯ÀÀÆ÷ÀàÐÍ£¬ÈÃËüÈ¥ÕÒ192.168.19.150
+å¦‚æžœæ— æ³•åˆ¤æ–­æµè§ˆå™¨ç±»åž‹ï¼Œè®©å®ƒåŽ»æ‰¾192.168.19.150
 
-1¡¢nginx·þÎñÆ÷µÄÐÞ¸ÄÅäÖÃÎÄ¼þ
+1ã€nginxæœåŠ¡å™¨çš„ä¿®æ”¹é…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 
@@ -1327,12 +1336,12 @@ http {
 }
 
 
-2¡¢¿Í»§¶Ë²âÊÔ
+2ã€å®¢æˆ·ç«¯æµ‹è¯•
 
-ÔÚä¯ÀÀÆ÷ÊäÈë192.168.19.156 ¿ÉÒÔ·ÃÎÊµ½¾²Ì¬Ò³Ãæ
+åœ¨æµè§ˆå™¨è¾“å…¥192.168.19.156 å¯ä»¥è®¿é—®åˆ°é™æ€é¡µé¢
 #### html test ####
 
-ÔÚÖÕ¶ËÖÐÓÃ elinks http://192.168.19.156 --dump ¿ÉÒÔ¿´µ½¶¯Ì¬Ò³Ãæ
+åœ¨ç»ˆç«¯ä¸­ç”¨ elinks http://192.168.19.156 --dump å¯ä»¥çœ‹åˆ°åŠ¨æ€é¡µé¢
 
 [root@host ~]# elinks http://192.168.19.156 --dump
    17-05-30 10:48:05
@@ -1348,11 +1357,11 @@ http {
 
 
 
-»ùÓÚÖ÷»úÍ·µÄ·Ö·¢£º
-	»ùÓÚÓòÃû(ÓòÃûµÄÐéÄâÖ÷»ú)µÄ·Ö·¢¡£
-		www.aa.com   --> htmlÒ³Ãæ
-		www.bb.com   --> php Ò³Ãæ
-1¡¢nginx·þÎñÆ÷µÄÐÞ¸ÄÅäÖÃÎÄ¼þ
+åŸºäºŽä¸»æœºå¤´çš„åˆ†å‘ï¼š
+	åŸºäºŽåŸŸå(åŸŸåçš„è™šæ‹Ÿä¸»æœº)çš„åˆ†å‘ã€‚
+		www.aa.com   --> htmlé¡µé¢
+		www.bb.com   --> php é¡µé¢
+1ã€nginxæœåŠ¡å™¨çš„ä¿®æ”¹é…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 worker_processes  3;
@@ -1385,12 +1394,12 @@ http {
         upstream php {
         server 192.168.19.114;
 }
-2¡¢¿Í»§¶ËÉèÖÃ½âÎö
+2ã€å®¢æˆ·ç«¯è®¾ç½®è§£æž
 [root@host ~]# vim /etc/hosts
 192.168.19.156   www.aa.com
 192.168.19.156   www.bb.com
 
-3¡¢¿Í»§¶Ë²âÊÔ
+3ã€å®¢æˆ·ç«¯æµ‹è¯•
 [root@host ~]# elinks http://www.aa.com --dump
    #### html test ####
 [root@host ~]# elinks http://www.bb.com --dump
@@ -1406,17 +1415,17 @@ http {
 
 
 
-»ùÓÚIPµØÖ·µÄ·Ö·¢£º
-	IPµØÖ·¿â-->È·¶¨¿Í»§¶ËÊÇÄÄ¸öÊ¡·ÝµÄ¡£
-ÊµÑé»·¾³£º
-  ÉÏº£¿Í»§¶Ë£º192.168.19.114
-  ±±¾©¿Í»§¶Ë£º192.168.19.156
-  ·´Ïò´úÀí·þÎñÆ÷£º192.168.19.156
-  Ô´·þÎñÆ÷1£º192.168.19.157	  Ìá¹©Ò³Ãæ ¡±BJ web server¡± 
-  Ô´·þÎñÆ÷2£º192.168.19.155	  Ìá¹©Ò³Ãæ ¡±SH web server¡±
-  Ô´·þÎñÆ÷3£º192.168.19.114	  Ìá¹©Ò³Ãæ ¡°PHP¶¯Ì¬Ê±¼äÒ³Ãæ¡±£¨×¢£ºÌá¹©IPµØÖ·¿âÃ»ÓÐµÄÆäËüIP£©
+åŸºäºŽIPåœ°å€çš„åˆ†å‘ï¼š
+	IPåœ°å€åº“-->ç¡®å®šå®¢æˆ·ç«¯æ˜¯å“ªä¸ªçœä»½çš„ã€‚
+å®žéªŒçŽ¯å¢ƒï¼š
+  ä¸Šæµ·å®¢æˆ·ç«¯ï¼š192.168.19.114
+  åŒ—äº¬å®¢æˆ·ç«¯ï¼š192.168.19.156
+  åå‘ä»£ç†æœåŠ¡å™¨ï¼š192.168.19.156
+  æºæœåŠ¡å™¨1ï¼š192.168.19.157	  æä¾›é¡µé¢ â€BJ web serverâ€ 
+  æºæœåŠ¡å™¨2ï¼š192.168.19.155	  æä¾›é¡µé¢ â€SH web serverâ€
+  æºæœåŠ¡å™¨3ï¼š192.168.19.114	  æä¾›é¡µé¢ â€œPHPåŠ¨æ€æ—¶é—´é¡µé¢â€ï¼ˆæ³¨ï¼šæä¾›IPåœ°å€åº“æ²¡æœ‰çš„å…¶å®ƒIPï¼‰
 
-1¡¢nginx·þÎñÆ÷µÄÐÞ¸ÄÅäÖÃÎÄ¼þ
+1ã€nginxæœåŠ¡å™¨çš„ä¿®æ”¹é…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 worker_processes  3;
@@ -1451,33 +1460,33 @@ http {
 }
 }
 
-2¡¢ÉèÖÃweb·þÎñÆ÷µÄÒ³Ãæ
+2ã€è®¾ç½®webæœåŠ¡å™¨çš„é¡µé¢
 
-Ô´·þÎñÆ÷1£º192.168.19.157 Ìá¹©µÄÒ³Ãæ BJ web server
+æºæœåŠ¡å™¨1ï¼š192.168.19.157 æä¾›çš„é¡µé¢ BJ web server
 [root@host ~]# vim /var/www/html/index.html 
 #### BJ web server ####
 
-Ô´·þÎñÆ÷2£º192.168.19.155 Ìá¹©µÄÒ³Ãæ SH web server
+æºæœåŠ¡å™¨2ï¼š192.168.19.155 æä¾›çš„é¡µé¢ SH web server
 [root@host ~]# vim /var/www/html/index.html 
 #### SH web server ####
 
-Ô´·þÎñÆ÷3£º192.168.19.114 Ìá¹©µÄÒ³Ãæ PHP¶¯Ì¬Ò³Ãæ£¨×¢£ºÌá¹©IPµØÖ·¿âÃ»ÓÐµÄÆäËüIP£©
+æºæœåŠ¡å™¨3ï¼š192.168.19.114 æä¾›çš„é¡µé¢ PHPåŠ¨æ€é¡µé¢ï¼ˆæ³¨ï¼šæä¾›IPåœ°å€åº“æ²¡æœ‰çš„å…¶å®ƒIPï¼‰
 [root@host ~]# vim /var/www/html/index.php 
  	<?php
         echo date('y-m-d h:i:s',time())
 	?>
 
 
-3¡¢¿Í»§¶Ë²âÊÔ
-·ÃÎÊÔ´IP£º192.168.19.156
+3ã€å®¢æˆ·ç«¯æµ‹è¯•
+è®¿é—®æºIPï¼š192.168.19.156
 [root@host ~]# elinks http://192.168.19.156 --dump
    #### BJ web server ####
 
-·ÃÎÊÔ´IP£º192.168.19.155
+è®¿é—®æºIPï¼š192.168.19.155
 [root@lenovo ~]# elinks  http://192.168.19.156 --dump
    ### SH web server ###
 
-·ÃÎÊÔ´IP£º192.168.19.114
+è®¿é—®æºIPï¼š192.168.19.114
 [root@host ~]# elinks http://192.168.19.156 --dump
    17-05-30 11:58:44
 
@@ -1485,53 +1494,53 @@ http {
 ================================================================
 
 
-16¡¢·¢²¼JSPÒ³Ãæ£¨ÍøÕ¾£©
+16ã€å‘å¸ƒJSPé¡µé¢ï¼ˆç½‘ç«™ï¼‰
 
 
-JSPÒ³ÃæÊÇÓÃjavaÒ³ÃæÐ´³ÉµÄ£¬ËüÊÇÒ»ÖÖ¶¯Ì¬Ò³Ãæ¡£tomcatÀ´·¢²¼JSPÒ³Ãæ¡£tomcatÊÇÒ»¿îApacheÆìÏÂµÄ¿ªÔ´Èí¼þ£¬Ò»¿îwebÈí¼þ¡£
+JSPé¡µé¢æ˜¯ç”¨javaé¡µé¢å†™æˆçš„ï¼Œå®ƒæ˜¯ä¸€ç§åŠ¨æ€é¡µé¢ã€‚tomcatæ¥å‘å¸ƒJSPé¡µé¢ã€‚tomcatæ˜¯ä¸€æ¬¾Apacheæ——ä¸‹çš„å¼€æºè½¯ä»¶ï¼Œä¸€æ¬¾webè½¯ä»¶ã€‚
 
-ÓÃJavaÐ´µÄÒ³Ãæ£º
-		Æ¯ÁÁ
-		¸ü¼Ó°²È«
+ç”¨Javaå†™çš„é¡µé¢ï¼š
+		æ¼‚äº®
+		æ›´åŠ å®‰å…¨
 
-·¢²¼Ò³ÃæµÄ¼Ü¹¹£º
-		lamp     lnmp     LTMJ--·¢²¼jspÒ³Ãæ
+å‘å¸ƒé¡µé¢çš„æž¶æž„ï¼š
+		lamp     lnmp     LTMJ--å‘å¸ƒjspé¡µé¢
 
 
-1£©   °²×°Èí¼þ°ü
+1ï¼‰   å®‰è£…è½¯ä»¶åŒ…
 	tomcat    
-		½âÑ¹   -C  /usr/local/tomcat1
-		ÔËÐÐtomcat£º
-			½øÈëµ½°²×°Ä¿Â¼ÏÂbinÄ¿Â¼ÏÂ£¬    ./startup.sh           ¹Ø±Õ£º./shutdown.sh
+		è§£åŽ‹   -C  /usr/local/tomcat1
+		è¿è¡Œtomcatï¼š
+			è¿›å…¥åˆ°å®‰è£…ç›®å½•ä¸‹binç›®å½•ä¸‹ï¼Œ    ./startup.sh           å…³é—­ï¼š./shutdown.sh
 	mysql	
 		yum install mysql-server mysql -y   
-		ÔËÐÐMySQL
-	jdk	£¨javaÔËÐÐ»·¾³£©
-		Èí¼þ°üÄ¬ÈÏÒÑ¾­°²×°
+		è¿è¡ŒMySQL
+	jdk	ï¼ˆjavaè¿è¡ŒçŽ¯å¢ƒï¼‰
+		è½¯ä»¶åŒ…é»˜è®¤å·²ç»å®‰è£…
 
 
 ================================================================
 
 
-ÏÂÎç¿Î³Ì£º
+ä¸‹åˆè¯¾ç¨‹ï¼š
 
-2£©	Í¼ÐÎ»¯¹ÜÀí¹¤¾ß
+2ï¼‰	å›¾å½¢åŒ–ç®¡ç†å·¥å…·
 vim .../conf/tomcat-user.xml
 <role rolename="manager-gui"/>
 <user username="tomcat" password="123456" roles="manager-gui"/>
-	¹Ø±Õ¡¢Æô¶¯£¨ÖØÆô£©tomcat·þÎñ
-	µØÖ·À¸ÊäÈë£º192.168.19.241:8080--->µã»÷MANAGER APP-->ÊäÈëÓÃ»§ÃûÃÜÂëµÇÂ½-->¹ÜÀí´°¿Ú-->stop/start/reload/undeploy(É÷ÓÃ)
+	å…³é—­ã€å¯åŠ¨ï¼ˆé‡å¯ï¼‰tomcatæœåŠ¡
+	åœ°å€æ è¾“å…¥ï¼š192.168.19.241:8080--->ç‚¹å‡»MANAGER APP-->è¾“å…¥ç”¨æˆ·åå¯†ç ç™»é™†-->ç®¡ç†çª—å£-->stop/start/reload/undeploy(æ…Žç”¨)
 
 
 
 
-·¢²¼JSPÍøÕ¾¡ªbookmanagerÏµÍ³ÍøÕ¾
+å‘å¸ƒJSPç½‘ç«™â€”bookmanagerç³»ç»Ÿç½‘ç«™
 
-1¡¢°²×°mysql·þÎñ¶ËºÍ¿Í»§¶Ë£¬¼ì²éjdkµÄ°æ±¾£¨Ä¬ÈÏÒÑ°²×°£©²¢Æô¶¯mysql·þÎñ
+1ã€å®‰è£…mysqlæœåŠ¡ç«¯å’Œå®¢æˆ·ç«¯ï¼Œæ£€æŸ¥jdkçš„ç‰ˆæœ¬ï¼ˆé»˜è®¤å·²å®‰è£…ï¼‰å¹¶å¯åŠ¨mysqlæœåŠ¡
 [root@host bookmanage]# yum install mysql-server mysql -y
 [root@host bookmanage]# /etc/init.d/mysqld start
 
-2¡¢°Ñbookmanager ¿½±´µ½/usr/src/Ä¿Â¼ÏÂ£¬²¢Ê¹ÓÃunzip½âÑ¹Ëõ
+2ã€æŠŠbookmanager æ‹·è´åˆ°/usr/src/ç›®å½•ä¸‹ï¼Œå¹¶ä½¿ç”¨unzipè§£åŽ‹ç¼©
 [root@host src]# rz
 
 [root@host src]# ls
@@ -1542,7 +1551,7 @@ apache-tomcat-8.0.0-RC10         bookmanage         debug
 apache-tomcat-8.0.0-RC10.tar.gz    bookmanage.tar.gz    kernels
 [root@host src]# 
 
-3¡¢½øµ½½âÑ¹Ä¿Â¼bookmanager ²é¿´redmeÎÄ¼þ
+3ã€è¿›åˆ°è§£åŽ‹ç›®å½•bookmanager æŸ¥çœ‹redmeæ–‡ä»¶
 [root@host src]# cd bookmanage
 [root@host bookmanage]# ls
 bookManage.sql  doc  readme  readme~  src  WebRoot
@@ -1552,24 +1561,24 @@ bookManage.sql  doc  readme  readme~  src  WebRoot
 >exit
 # mysql -u root -p bookmanage < bookManage.sql
 
-4¡¢½øÈëmysql£¬´´½¨Êý¾Ý¿â£¬µ¼ÈëÊý¾Ý
+4ã€è¿›å…¥mysqlï¼Œåˆ›å»ºæ•°æ®åº“ï¼Œå¯¼å…¥æ•°æ®
 [root@host bookmanage]# mysql
 mysql> create database bookmanage;
 Query OK, 1 row affected (0.00 sec)
 mysql> exit
 Bye
 
-5¡¢½«Òª·¢²¼µÄÒ³Ãæ£¨WebRoot£©¿½±´µ½tomcatµÄwebappÖÐ²¢¸ÄÃûbook£¨ËæÒâ£©
+5ã€å°†è¦å‘å¸ƒçš„é¡µé¢ï¼ˆWebRootï¼‰æ‹·è´åˆ°tomcatçš„webappä¸­å¹¶æ”¹åbookï¼ˆéšæ„ï¼‰
 [root@host bookmanage]# cp -r WebRoot/ /usr/local/tomcat/tomcat/webapps/book
 
-6¡¢²âÊÔ·ÃÎÊÒ³Ãæ
-ÔÚä¯ÀÀÆ÷ÊäÈë192.168.19.157:8080/book
+6ã€æµ‹è¯•è®¿é—®é¡µé¢
+åœ¨æµè§ˆå™¨è¾“å…¥192.168.19.157:8080/book
 
 
  
-¶þ¡¢ÊµÏÖ¿Í»§¶ËÊäÈëÓòÃûwww.a.com ¿ÉÒÔ·ÃÎÊµ½Í¼Êé¹ÜÀíÏµÍ³¡£Í¨¹ýnginxµÄurlÖØÐ´À´ÊµÏÖ£¬Ò²¿ÉÒÔÍ¨¹ýnginx·´Ïò´úÀíÀ´ÊµÏÖ¡£
+äºŒã€å®žçŽ°å®¢æˆ·ç«¯è¾“å…¥åŸŸåwww.a.com å¯ä»¥è®¿é—®åˆ°å›¾ä¹¦ç®¡ç†ç³»ç»Ÿã€‚é€šè¿‡nginxçš„urlé‡å†™æ¥å®žçŽ°ï¼Œä¹Ÿå¯ä»¥é€šè¿‡nginxåå‘ä»£ç†æ¥å®žçŽ°ã€‚
 
-1¡¢nginx·þÎñÆ÷µÄÐÞ¸ÄÅäÖÃÎÄ¼þ
+1ã€nginxæœåŠ¡å™¨çš„ä¿®æ”¹é…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 
@@ -1598,25 +1607,25 @@ http {
 [root@localhost html]# mv index.html index.html.bak
 [root@localhost html]# mv index.php index.php.bak
 
-2¡¢ÐÞ¸Änginx·þÎñÆ÷µÄhostÎÄ¼þ
-vim /etc/hosts Ìí¼Ó192.168.19.156   www.a.com
+2ã€ä¿®æ”¹nginxæœåŠ¡å™¨çš„hostæ–‡ä»¶
+vim /etc/hosts æ·»åŠ 192.168.19.156   www.a.com
 
-3¡¢²âÊÔ·ÃÎÊÒ³Ãæ
-ÔÚä¯ÀÀÆ÷ÊäÈëwww.a.com »òÕß 192.168.19.156 »Ø³µ
+3ã€æµ‹è¯•è®¿é—®é¡µé¢
+åœ¨æµè§ˆå™¨è¾“å…¥www.a.com æˆ–è€… 192.168.19.156 å›žè½¦
 
 
 ================================================================
 
-6£©tomcat¶àÊµÀý
-µ¥½ø³Ì¶àÏß³Ì
+6ï¼‰tomcatå¤šå®žä¾‹
+å•è¿›ç¨‹å¤šçº¿ç¨‹
 
 8005	
 8009
 8080 
-tomcat ÊÇµ¥½ø³Ì¶àÏß³ÌµÄ·þÎñ¡£ËùÒÔ¶ÔÉú²ú»·¾³ÖÐ¶à¸öUµÄ·þÎñÆ÷À´ËµÊÇ·Ç³£ÀË·Ñ×ÊÔ´µÄ£¬Ò»¸ö½ø³ÌÖ»Ê¹ÓÃÒ»¸öU£¬ËùÒÔÆäËûU¾Í»á¿ÕÏÐ£¬
-½â¾ö°ì·¨ÊÇ°²×°¶à¸ötomcat Èí¼þ£¨ÐèÒª¸ÄÆô¶¯£¬¹Ø±Õ½Å±¾¶Ë¿Ú£¬ÅäÖÃÎÄ¼þÄ¬ÈÏ¶Ë¿Ú£©£¬ÕâÑù¶à¸ötomcat¾Í¿ÉÒÔÅÜÔÚ²»Í¬µÄU£¬·þÎñÆ÷×ÊÔ´ÀûÓÃÂÊ¾Í¸ßÁË¡£
+tomcat æ˜¯å•è¿›ç¨‹å¤šçº¿ç¨‹çš„æœåŠ¡ã€‚æ‰€ä»¥å¯¹ç”Ÿäº§çŽ¯å¢ƒä¸­å¤šä¸ªUçš„æœåŠ¡å™¨æ¥è¯´æ˜¯éžå¸¸æµªè´¹èµ„æºçš„ï¼Œä¸€ä¸ªè¿›ç¨‹åªä½¿ç”¨ä¸€ä¸ªUï¼Œæ‰€ä»¥å…¶ä»–Uå°±ä¼šç©ºé—²ï¼Œ
+è§£å†³åŠžæ³•æ˜¯å®‰è£…å¤šä¸ªtomcat è½¯ä»¶ï¼ˆéœ€è¦æ”¹å¯åŠ¨ï¼Œå…³é—­è„šæœ¬ç«¯å£ï¼Œé…ç½®æ–‡ä»¶é»˜è®¤ç«¯å£ï¼‰ï¼Œè¿™æ ·å¤šä¸ªtomcatå°±å¯ä»¥è·‘åœ¨ä¸åŒçš„Uï¼ŒæœåŠ¡å™¨èµ„æºåˆ©ç”¨çŽ‡å°±é«˜äº†ã€‚
    
-1¡¢¿½±´Ò»¸ötomcat£¬Ãû³ÆÉèÎªtomcat2
+1ã€æ‹·è´ä¸€ä¸ªtomcatï¼Œåç§°è®¾ä¸ºtomcat2
 [root@host ~]# cd /usr/local/tomcat/
 [root@host tomcat]# ls
 tomcat
@@ -1624,18 +1633,18 @@ tomcat
 [root@host tomcat]# ls
 tomcat  tomcat2 
 
-2¡¢¸ü¸Ätomcat2µÄ¶Ë¿ÚºÅ
-Èý¸ö¶Ë¿ÚºÅ·Ö±ð¡°+10¡±£¬²é¿´tomcat¼àÌýµÄ¶Ë¿ÚºÅ£º
+2ã€æ›´æ”¹tomcat2çš„ç«¯å£å·
+ä¸‰ä¸ªç«¯å£å·åˆ†åˆ«â€œ+10â€ï¼ŒæŸ¥çœ‹tomcatç›‘å¬çš„ç«¯å£å·ï¼š
 
 [root@host tomcat2]# vim conf/server.xml 
 <Server port="8015" shutdown="SHUTDOWN">
   <Connector port="8090" protocol="HTTP/1.1"
    <Connector port="8019" protocol="AJP/1.3" redirectPort="8443" />
 
-3¡¢Æô¶¯tomcat2
+3ã€å¯åŠ¨tomcat2
 [root@host tomcat2]# bin/startup.sh
 
-4¡¢ÑéÖ¤tomcat1 ºÍtomcat2ÓÐÃ»ÓÐÔËÐÐ
+4ã€éªŒè¯tomcat1 å’Œtomcat2æœ‰æ²¡æœ‰è¿è¡Œ
 [root@host tomcat2]# netstat -tlunp | grep java
 
  tcp      0    0 ::ffff:127.0.0.1:8005       :::*           LISTEN      8172/java           
@@ -1645,17 +1654,17 @@ tomcat  tomcat2
  tcp      0    0 :::8019                          :::*           LISTEN      10390/java          
  tcp      0    0 :::8090                          :::*           LISTEN      10390/jav
 
-5¡¢Í¨¹ýnginxµÄrewriteÄ£¿éÊµÏÖ½«www.a.comºÍwww.b.com·¢²¼³öÈ¥
+5ã€é€šè¿‡nginxçš„rewriteæ¨¡å—å®žçŽ°å°†www.a.comå’Œwww.b.comå‘å¸ƒå‡ºåŽ»
 
-  ·ÃÎÊwww.a.com		ÏÔÊ¾Í¼Êé¹ÜÀíÏµÍ³
-  ·ÃÎÊwww.b.com		ÏÔÊ¾tomcatÊ×Ò³
+  è®¿é—®www.a.com		æ˜¾ç¤ºå›¾ä¹¦ç®¡ç†ç³»ç»Ÿ
+  è®¿é—®www.b.com		æ˜¾ç¤ºtomcaté¦–é¡µ
 
-ÊµÑé»·¾³£º
-	¿Í»§¶Ë£º192.168.19.114
-	Nginx£º192.168.19.156
-	Tomcat£º192.168.19.157
+å®žéªŒçŽ¯å¢ƒï¼š
+	å®¢æˆ·ç«¯ï¼š192.168.19.114
+	Nginxï¼š192.168.19.156
+	Tomcatï¼š192.168.19.157
 
-6¡¢ÐÞ¸ÄnginxÅäÖÃÎÄ¼þ
+6ã€ä¿®æ”¹nginxé…ç½®æ–‡ä»¶
 [root@localhost ~]# cd /usr/local/nginx/conf/
 [root@localhost conf]# vim nginx.conf
 
@@ -1671,65 +1680,65 @@ http {
 
     server {
         listen       80;
-        server_name  www.a.com;   //Í¨¹ý»ùÓÚÓòÃûµÄÐéÄâÖ÷»ú·¢²¼www.a.com
+        server_name  www.a.com;   //é€šè¿‡åŸºäºŽåŸŸåçš„è™šæ‹Ÿä¸»æœºå‘å¸ƒwww.a.com
         location / {
-            rewrite    ^/$   http://192.168.19.157:8080/book; //Í¨¹ýurlÖØÐ´Ä£¿éÊµÏÖ½«·ÃÎÊwww.a.comµÄÇëÇóÖØ¶¨ÏòÎªhttp://...:8080/book
+            rewrite    ^/$   http://192.168.19.157:8080/book; //é€šè¿‡urlé‡å†™æ¨¡å—å®žçŽ°å°†è®¿é—®www.a.comçš„è¯·æ±‚é‡å®šå‘ä¸ºhttp://...:8080/book
         }
         }
 
     server {
         listen       80;
-        server_name  www.b.com;   //Í¨¹ý»ùÓÚÓòÃûµÄÐéÄâÖ÷»ú·¢²¼www.b.com
+        server_name  www.b.com;   //é€šè¿‡åŸºäºŽåŸŸåçš„è™šæ‹Ÿä¸»æœºå‘å¸ƒwww.b.com
         location / {
-             rewrite    ^/$   http://192.168.19.157:8080;  //Í¨¹ýurlÖØÐ´Ä£¿éÊµÏÖ½«·ÃÎÊwww.b.comµÄÇëÇóÖØ¶¨ÏòÎªhttp://...:8080
+             rewrite    ^/$   http://192.168.19.157:8080;  //é€šè¿‡urlé‡å†™æ¨¡å—å®žçŽ°å°†è®¿é—®www.b.comçš„è¯·æ±‚é‡å®šå‘ä¸ºhttp://...:8080
         }
         }
 }
 
- 7¡¢ÖØÆônginx
+ 7ã€é‡å¯nginx
 	[root@localhost ~]# /etc/init.d/nginx restart
- 8¡¢ÐÞ¸Ä¿Í»§¶ËµÄhostÎÄ¼þ
-	vim /etc/hosts Ìí¼Ó192.168.19.156   www.a.com  192.168.19.156   www.b.com
- 9¡¢¿Í»§¶Ë²âÊÔ
-	ä¯ÀÀÆ÷ÊäÈëÁ½¸öÍøÕ¾ÓòÃû£¬·Ö±ðµÃµ½Í¼Êé¹ÜÀíÏµÍ³ºÍtomcatÊ×Ò³
+ 8ã€ä¿®æ”¹å®¢æˆ·ç«¯çš„hostæ–‡ä»¶
+	vim /etc/hosts æ·»åŠ 192.168.19.156   www.a.com  192.168.19.156   www.b.com
+ 9ã€å®¢æˆ·ç«¯æµ‹è¯•
+	æµè§ˆå™¨è¾“å…¥ä¸¤ä¸ªç½‘ç«™åŸŸåï¼Œåˆ†åˆ«å¾—åˆ°å›¾ä¹¦ç®¡ç†ç³»ç»Ÿå’Œtomcaté¦–é¡µ
 
 
 
 ================================================================
 
 
-17¡¢nginx¸ºÔØ¾ùºâµÄ¸ß¿ÉÓÃ
+17ã€nginxè´Ÿè½½å‡è¡¡çš„é«˜å¯ç”¨
 	lvs :   keepalived  
 
-	ÏîÄ¿Ãû³Æ£º
-		nginx¸ºÔØ¾ùºâµÄ¸ß¿ÉÓÃ
-	ÏîÄ¿»·¾³£º
+	é¡¹ç›®åç§°ï¼š
+		nginxè´Ÿè½½å‡è¡¡çš„é«˜å¯ç”¨
+	é¡¹ç›®çŽ¯å¢ƒï¼š
 		os:
 		keepalived:
 		nginx:
 		apache:
-	ipµØÖ·»®·Ö£º
-		nginx1£º		245
+	ipåœ°å€åˆ’åˆ†ï¼š
+		nginx1ï¼š		245
 		nginx2:		246
 		client:		248
 		rs1:		241
 		rs2:		242
 
-Êµ ÏÖ£º
-1¡¢²¿Êðnginx2½«¸Ã°²×°½Å±¾´æ·ÅµÄÄ¿Â¼¿½±´µ½/usr/src
+å®ž çŽ°ï¼š
+1ã€éƒ¨ç½²nginx2å°†è¯¥å®‰è£…è„šæœ¬å­˜æ”¾çš„ç›®å½•æ‹·è´åˆ°/usr/src
 
 [root@host ~]# cd /usr/src/
 [root@host src]# rz
 [root@host src]# chmod 755 ./*
 [root@host src]# ./nginx_install.sh 
 
-2¡¢Ö´ÐÐ°²×°½Å±¾²¢ÔËÐÐnginx 2·þÎñ
+2ã€æ‰§è¡Œå®‰è£…è„šæœ¬å¹¶è¿è¡Œnginx 2æœåŠ¡
 [root@host src]# ./nginx_install.sh 
 [root@host nginx]# sbin/nginx 
 [root@host nginx]# lsof -i:80
 
-3¡¢ÅäÖÃÁ½Ì¨nginxµÄ¸ºÔØ¾ùºâ--Ê¹ÓÃrrËã·¨£¬rs1µÄÒ³ÃæÊÇRS1£¬
-	rs2µÄÒ³ÃæRS2£»×¢ÒâÁ½Ì¨nginxµÄÅäÖÃÎÄ¼þÏàÍ¬£¡£¡£¡
+3ã€é…ç½®ä¸¤å°nginxçš„è´Ÿè½½å‡è¡¡--ä½¿ç”¨rrç®—æ³•ï¼Œrs1çš„é¡µé¢æ˜¯RS1ï¼Œ
+	rs2çš„é¡µé¢RS2ï¼›æ³¨æ„ä¸¤å°nginxçš„é…ç½®æ–‡ä»¶ç›¸åŒï¼ï¼ï¼
 
 [root@host nginx]# vim conf/nginx.conf
 [root@host nginx]# /etc/init.d/nginx restart	
@@ -1757,7 +1766,7 @@ http {
 }
 }
 
-4¡¢²âÊÔ¸ÕÁ½Ì¨µÄnginx·þÎñÆ÷µÄ·Ö·¢¹¦ÄÜ
+4ã€æµ‹è¯•åˆšä¸¤å°çš„nginxæœåŠ¡å™¨çš„åˆ†å‘åŠŸèƒ½
 [root@host ~]# elinks http://192.168.19.156 --dump
    17-05-30 12:29:08
 [root@host ~]# elinks http://192.168.19.156 --dump
@@ -1775,24 +1784,24 @@ http {
 [root@host ~]# elinks http://192.168.19.157 --dump
    ### RS2 test ###
 
-5¡¢²âÊÔ¡±nginx_pid.sh¡±½Å±¾£ºnginx 1£¨192.168.19.156£©
-å´»úÄÜ²»ÄÜ±»À­ÆðÀ´£¬nginx2ÔËÐÐÊ±£¬¿Í»§¶Ë¿ÉÒÔÕý³£·ÃÎÊ£º
+5ã€æµ‹è¯•â€nginx_pid.shâ€è„šæœ¬ï¼šnginx 1ï¼ˆ192.168.19.156ï¼‰
+å®•æœºèƒ½ä¸èƒ½è¢«æ‹‰èµ·æ¥ï¼Œnginx2è¿è¡Œæ—¶ï¼Œå®¢æˆ·ç«¯å¯ä»¥æ­£å¸¸è®¿é—®ï¼š
 [root@localhost html]# /etc/init.d/nginx stop
 nginx stop				 [ OK ]
 [root@localhost html]# lsof -i:80
-[root@localhost src]# rz     //ÔÚnginx1 156±¾»úÉÏ²âÊÔ½Å±¾
+[root@localhost src]# rz     //åœ¨nginx1 156æœ¬æœºä¸Šæµ‹è¯•è„šæœ¬
 [root@localhost src]# ls
  nginx_pid.sh
 [root@localhost src]# chmod 755 nginx_pid.sh 
 [root@localhost src]# ./nginx_pid.sh 
 nginx stop				 [ Fail ]
 nginx start				 [ OK ]
-´ÓÉÏÃæ½á¹û¿ÉÒÔ¿´µ½£¬½Å±¾ÊÇºÃÊ¹µÄ£¬¿ÉÒÔÀ­Æðnginx 1 
+ä»Žä¸Šé¢ç»“æžœå¯ä»¥çœ‹åˆ°ï¼Œè„šæœ¬æ˜¯å¥½ä½¿çš„ï¼Œå¯ä»¥æ‹‰èµ·nginx 1 
 
 
-6¡¢²¿Êðkeepalieved£¬¿½±´ÕûÀíºÃµÄÅäÖÃÎÄ¼þ£¬½«nginx_pid.sh¿½±´µ½Ö¸¶¨Î»ÖÃ
+6ã€éƒ¨ç½²keepalievedï¼Œæ‹·è´æ•´ç†å¥½çš„é…ç½®æ–‡ä»¶ï¼Œå°†nginx_pid.shæ‹·è´åˆ°æŒ‡å®šä½ç½®
 
-nginx 1·þÎñÆ÷ÉÏµÄ²¿Êð
+nginx 1æœåŠ¡å™¨ä¸Šçš„éƒ¨ç½²
 
 [root@localhost src]# rz
 
@@ -1836,7 +1845,7 @@ track_script {
 }
 
 
-nginx 2·þÎñÆ÷ÉÏµÄ²¿Êð
+nginx 2æœåŠ¡å™¨ä¸Šçš„éƒ¨ç½²
 
 [root@localhost src]# rz
 
@@ -1879,15 +1888,15 @@ track_script {
 }
 }
 
-7¡¢²âÊÔ---nginx 1ËÀºó£¬keepalivedÈç¹û¾È²»»î£¬ÄÇÃ´keepalived×ÔÉ±£¬È»ºóÈÃ³öVIP¡£Õû¸ö¹ý³Ì¶ÔÓÃ»§À´ËµÊÇÍ¸Ã÷µÄ¡£
-Ä£Äânginx 1å´»ú 
+7ã€æµ‹è¯•---nginx 1æ­»åŽï¼Œkeepalivedå¦‚æžœæ•‘ä¸æ´»ï¼Œé‚£ä¹ˆkeepalivedè‡ªæ€ï¼Œç„¶åŽè®©å‡ºVIPã€‚æ•´ä¸ªè¿‡ç¨‹å¯¹ç”¨æˆ·æ¥è¯´æ˜¯é€æ˜Žçš„ã€‚
+æ¨¡æ‹Ÿnginx 1å®•æœº 
 [root@localhost src]# watch -n1 "killall nginx"
 [root@localhost src]# /etc/init.d/keepalived status
-keepalived ÒÑÍ£
+keepalived å·²åœ
 
-nginx 1 å´»úºó£¬nginx 2½Ó¹ÜVIP ¼ÌÐø·þÎñ
+nginx 1 å®•æœºåŽï¼Œnginx 2æŽ¥ç®¡VIP ç»§ç»­æœåŠ¡
 
-8¡¢¿Í»§¶Ë²âÊÔ
+8ã€å®¢æˆ·ç«¯æµ‹è¯•
 [root@host ~]# elinks http://192.168.19.150 --dump
    17-05-30 12:29:08
 [root@host ~]# elinks http://192.168.19.150 --dump
@@ -1898,8 +1907,8 @@ nginx 1 å´»úºó£¬nginx 2½Ó¹ÜVIP ¼ÌÐø·þÎñ
    ### RS2 test ###
 
 
- ½Å±¾Ë¼Â·£º
-    Èç¹ûnginxËÀÁË£¬³¢ÊÔÖØÆônginx£¬Èç¹ûÄÜ¹»ÖØÆônginx³É¹¦--ÕâÌ¨»úÆ÷¼ÌÐøµ£µ±master½ÇÉ«£»·ñÔò£¬keepalived×ÔÉ±£¬´Ó¶øÈÃ³öVIP¡£
+ è„šæœ¬æ€è·¯ï¼š
+    å¦‚æžœnginxæ­»äº†ï¼Œå°è¯•é‡å¯nginxï¼Œå¦‚æžœèƒ½å¤Ÿé‡å¯nginxæˆåŠŸ--è¿™å°æœºå™¨ç»§ç»­æ‹…å½“masterè§’è‰²ï¼›å¦åˆ™ï¼Œkeepalivedè‡ªæ€ï¼Œä»Žè€Œè®©å‡ºVIPã€‚
 	
 		
 	
