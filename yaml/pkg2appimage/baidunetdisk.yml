@@ -4,8 +4,8 @@ ingredients:
   dist: trusty
   sources:
     - deb http://cn.archive.ubuntu.com/ubuntu/ xenial main universe
-  debs:
-    - /home/deepin/Downloads/software/baidunetdisk_linux_2.0.2.deb
+  script:
+    - wget -c "http://issuecdn.baidupcs.com/issue/netdisk/LinuxGuanjia/2.0.2/baidunetdisk_linux_2.0.2.deb"
 
 script:
   - rm -rf ./baidunetdisk.desktop
