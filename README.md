@@ -16,5 +16,6 @@ https://www.kaspersky.com.cn/small-to-medium-business-security/endpoint-linux
 https://hacpai.com/
 
 QT creator入门手册
-https://doc.qt.io/qtcreator/creator-getting-started.html  
+[url]https://doc.qt.io/qtcreator/creator-getting-started.html[/url]  
+ 
 
