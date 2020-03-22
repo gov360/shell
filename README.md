@@ -1,4 +1,4 @@
-# hello Word！！！！！！！！！！！
+# hello Word！！！！！！！！！！！!
 功能强大的在线扫描引擎
 https://maps.shodan.io/#36.4566360115962/115.48828125000001/3/satellite/webcam
 
@@ -16,4 +16,5 @@ https://www.kaspersky.com.cn/small-to-medium-business-security/endpoint-linux
 https://hacpai.com/
 
 QT creator入门手册
-[url]https://doc.qt.io/qtcreator/creator-getting-started.html[/url]
+[url]https://doc.qt.io/qtcreator/creator-getting-started.html[/url]  
+
