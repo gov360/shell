@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 # install Nginx 1.6.2 + mysql5.5.x + PHP-FPM 5.4.x + Zabbix 2.4.4 automatically.
 # Tested on CentOS 6.5
 ##############################################
