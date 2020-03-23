@@ -13,4 +13,4 @@
 
 [Visual Studio Code入门手册](https://code.visualstudio.com/docs?start=true#vscode-in-action)
 
-
+[shell规范检查](https://www.shellcheck.net/)
