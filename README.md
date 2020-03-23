@@ -8,3 +8,10 @@
 [卡巴斯基网络安全解决方案 - Linux](https://www.kaspersky.com.cn/small-to-medium-business-security/endpoint-linux)
 
 [优秀软件的发源地](https://hacpai.com/)
+
+[Visual Studio Code入门手册](https://code.visualstudio.com/docs?start=true#vscode-in-action)
+
+[Qt Creator手册 入门](https://doc.qt.io/qtcreator/creator-getting-started.html)
+
+[APPimage包装指南](https://docs.appimage.org/packaging-guide/overview.html)  
+
