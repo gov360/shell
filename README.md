@@ -17,3 +17,5 @@
 [APPimage包装指南](https://docs.appimage.org/packaging-guide/overview.html)  
 
 [python用户手册](https://docs.python.org/zh-cn/2.7/c-api/index.html)  
+
+[docker开发指南](https://docs.docker.com/get-started)
