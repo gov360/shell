@@ -1,4 +1,5 @@
-# hello Word ！！！！！！！！！！！
+# hello Word !!!!!!!!!!!!!
+
 [功能强大的在线扫描引擎](https://maps.shodan.io/#36.4566360115962/115.48828125000001/3/satellite/webcam)
 
 [Linux中国社区](https://linux.cn/article-8412-1.html)
@@ -15,3 +16,4 @@
 
 [APPimage包装指南](https://docs.appimage.org/packaging-guide/overview.html)  
 
+[python用户手册](https://docs.python.org/zh-cn/2.7/c-api/index.html)  
