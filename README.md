@@ -21,3 +21,5 @@
 [docker开发指南](https://docs.docker.com/get-started)
 
 [kubernetes开发指南](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
+
+[nginx文档](https://nginx.org/en/docs/)  
