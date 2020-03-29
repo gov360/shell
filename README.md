@@ -23,3 +23,5 @@
 [kubernetes开发指南](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
 
 [nginx文档](https://nginx.org/en/docs/)  
+
+[MariaDB服务器文档](https://mariadb.com/kb/en/documentation/)  
