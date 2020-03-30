@@ -25,3 +25,9 @@
 [nginx文档](https://nginx.org/en/docs/)  
 
 [MariaDB服务器文档](https://mariadb.com/kb/en/documentation/)  
+
+[Zabbix 产品手册](https://www.zabbix.com/documentation/4.0/zh/manual)
+
+[iptables官方手册](http://ipset.netfilter.org/iptables.man.html)  
+
+[iptables扩展](http://ipset.netfilter.org/iptables-extensions.man.html)  
