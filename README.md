@@ -41,3 +41,5 @@
 [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/epel/)
 
 [Cobbler快速入门指南](https://cobbler.github.io/quickstart/)
+
+[Ansible用户指南](https://docs.ansible.com/ansible/latest/user_guide/index.html)
