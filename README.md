@@ -40,6 +40,8 @@
 
 [清华大学 TUNA 协会](https://tuna.moe/)
 
+[阿里云官方镜像站](https://developer.aliyun.com/mirror/)
+
 [Cobbler快速入门指南](https://cobbler.github.io/quickstart/)
 
 [Ansible用户指南](https://docs.ansible.com/ansible/latest/user_guide/index.html)
