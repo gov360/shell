@@ -38,7 +38,7 @@
 
 [HAProxy企业用户指南](https://www.haproxy.com/documentation/hapee/1-8r2/introduction/)
 
-[清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/epel/)
+[清华大学 TUNA 协会](https://tuna.moe/)
 
 [Cobbler快速入门指南](https://cobbler.github.io/quickstart/)
 
