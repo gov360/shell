@@ -1,5 +1,7 @@
 # hello Word !!!!!!!!!!!!! &
 
+[在线阅读Linux从零开始](http://www.linuxfromscratch.org/lfs/read.html)
+
 [功能强大的在线扫描引擎](https://maps.shodan.io/#36.4566360115962/115.48828125000001/3/satellite/webcam)
 
 [Linux中国社区](https://linux.cn/article-8412-1.html)
