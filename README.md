@@ -47,3 +47,6 @@
 [Cobbler快速入门指南](https://cobbler.github.io/quickstart/)
 
 [Ansible用户指南](https://docs.ansible.com/ansible/latest/user_guide/index.html)
+
+[普罗米修斯](https://prometheus.io/docs/introduction/overview/)
+
