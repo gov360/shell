@@ -28,7 +28,8 @@
 
 [MariaDB服务器文档](https://mariadb.com/kb/en/documentation/)  
 
-[Zabbix 产品手册](https://www.zabbix.com/documentation/4.0/zh/manual)
+[Zabbix 产品手册](https://www.zabbix.com/documentation/4.0/zh/manual)  
+[普罗米修斯指南](https://prometheus.io/docs/introduction/overview/)  
 
 [iptables官方手册](http://ipset.netfilter.org/iptables.man.html)  
 
@@ -48,5 +49,5 @@
 
 [Ansible用户指南](https://docs.ansible.com/ansible/latest/user_guide/index.html)
 
-[普罗米修斯](https://prometheus.io/docs/introduction/overview/)
+
 
