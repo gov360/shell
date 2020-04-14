@@ -26,7 +26,7 @@
 
 [nginx文档](https://nginx.org/en/docs/)  
 
-[MariaDB服务器文档](https://mariadb.com/kb/en/documentation/)  
+[MariaDB服务器文档](https://mariadb.org/documentation/)  
 
 [Zabbix 产品手册](https://www.zabbix.com/documentation/4.0/zh/manual)  
 [普罗米修斯指南](https://prometheus.io/docs/introduction/overview/)  
