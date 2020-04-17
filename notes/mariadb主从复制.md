@@ -17,8 +17,8 @@ mysql_secure_installation
 `[登录]|[建库]|[建表]|[建用户]`
 ### 停止两台机器的mariadb
 主库IP `[192.168.1.20]`  
-从库IP `[192.168.1.17]`
-* 1 主库配置修改  
+从库IP `[192.168.1.17]`  
+* 1 主库配置修改  [引用](https://mariadb.com/kb/en/setting-up-replication/ "官方文档")
 ```
 vi /etc/my.cnf.d/mariadb.cnf  
 [mariadb]  
@@ -89,7 +89,7 @@ START SLAVE;
 SHOW SLAVE STATUS\G
 ```  
 --------------------------
-## 从服务优化  
+## 从服务优化  [引用](https://mariadb.com/kb/en/gtid/#setting-up-a-new-slave-with-an-empty-server "官方文档")
 * 从库启用GTID标示  `[全局唯一标示]`
 ```
 stop slave;  
