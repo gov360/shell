@@ -5,7 +5,8 @@ ingredients:
   sources:
     - deb http://cn.archive.ubuntu.com/ubuntu/ xenial main universe
   script:
-    - wget -c "http://issuecdn.baidupcs.com/issue/netdisk/LinuxGuanjia/2.0.2/baidunetdisk_linux_2.0.2.deb"
+    - DLD=$(wget -q "https://pan.baidu.com/disk/cmsdata?do=client&t=&channel=chunlei&clienttype=0&web=1" -O - |sed 's#\\/#\/#g'|egrep  -o  "http://wppkg.baidupcs.com/issue/netdisk/LinuxGuanjia/[0-9\.]*?/baidunetdisk_linux_[0-9\.]*?deb")
+    - wget -c $DLD
 
 script:
   - rm -rf ./baidunetdisk.desktop
