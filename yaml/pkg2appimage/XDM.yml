@@ -10,8 +10,8 @@ ingredients:
     - echo $DLD | cut -d/ -f8 > VERSION
     - URL=$(wget -q https://subhra74.github.io/xdm/#downloads -O - |grep -E "xdm-"|head -n1 |cut -d'"' -f2|cut -d/ -f9)
     - tar xvf $URL
-    - chmod +x install.sh
-    - sudo ./install.sh
+    #- chmod +x install.sh
+    #- sudo ./install.sh
         
 script: 
 #  - cp -r /opt/xdman/* ./usr/bin/
