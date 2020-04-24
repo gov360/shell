@@ -16,8 +16,8 @@ PID=`pidof fcitx`
                 #        sleep 1
                 #        PID=`pidof fcitx`
                 #done
-        else
-                echo normal
+        #else
+        #        echo normal
         fi
         sleep 4
 done
