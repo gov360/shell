@@ -47,7 +47,7 @@ mysql> quit;
   rpm -ql httpd
   echo hello >> /var/www/html/index.html
 ```  
-客户端操作
+客户端操作  
 ```
   cat <<EOF > /etc/yum.repos.d/zabbix.repo
   [zabbix]
