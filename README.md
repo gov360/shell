@@ -49,5 +49,7 @@
 
 [Ansible用户指南](https://docs.ansible.com/ansible/latest/user_guide/index.html)
 
+[Jumpserver快速入门](https://jumpserver.readthedocs.io/zh/master/quick_start.html#)  
+
 [Markdown 语法说明](https://www.appinn.com/markdown/ "非官方网站")
 
