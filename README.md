@@ -53,3 +53,4 @@
 
 [Markdown 语法说明](https://www.appinn.com/markdown/ "非官方网站")
 
+[VIM主帮助文件](http://vimcdoc.sourceforge.net/doc/help.html "中文非官方")
