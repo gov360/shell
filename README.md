@@ -56,3 +56,4 @@
 [VIM主帮助文件](http://vimcdoc.sourceforge.net/doc/help.html "中文非官方")  
 
 [RabbitMQ文档](https://www.rabbitmq.com/documentation.html)  
+[RocketMQ集群](https://rocketmq-1.gitbook.io/rocketmq-connector/quick-start/qian-qi-zhun-bei)
