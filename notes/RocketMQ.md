@@ -47,4 +47,5 @@ nohup java -jar rocketmq-console-ng-1.0.1.jar --server.port=8080 --rocketmq.conf
 jps
 
 ```
-[参考链接](https://www.jianshu.com/p/9344fe6cfc3c "非官方文档")
+[参考链接](https://www.jianshu.com/p/9344fe6cfc3c "非官方文档")  
+[RocketMQ集群](https://rocketmq-1.gitbook.io/rocketmq-connector/quick-start/qian-qi-zhun-bei/ji-qun-huan-jing "官方文档")
