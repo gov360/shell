@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: pod
+metadata: 
+  lables:
+    name: runc-pod 
+  name:runc-pod 
+  namespace: demo 
+spec: 
+  runtimeClassName:runc 
+  containers: 
+    - images: nginx
+      imagesPullPolicy: IfNotPresent
+      name: runc-pod
+      ports: 
+        - containerPort: 8080 
+          protocol: TCP
+  dnsPolicy: ClusterFirst

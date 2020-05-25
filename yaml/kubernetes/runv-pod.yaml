@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: pod
+metadata: 
+  lables:
+    name: runv-pod 
+  name:runv-pod 
+  namespace: demo 
+spec: 
+  runtimeClassName:runv 
+  containers: 
+    - images: nginx
+      imagesPullPolicy: IfNotPresent
+      name: runv-pod
+      ports: 
+        - containerPort: 8080 
+          protocol: TCP
+  dnsPolicy: ClusterFirst
