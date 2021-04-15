@@ -1,3 +1,0 @@
-#/bin/env bash
-sslocal -s jp.ss-link.cn -p 15105 -k 123456
-SwitchyOmega

@@ -1,0 +1,23 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: foos.samplecontroller.k8s.io    
+spec:
+  group: samplecontroller.k8s.io
+  version： v1alpha1
+  names: 
+    kind: foo 
+  scope: Namespaced
+  validation: 
+    openAPIV3Schema:
+      properties:
+        spec: 
+          preperties:
+            replicas:
+              type: integer
+              minimum: 1
+              maximum: 10
+  subresources:
+    status: {} 
+  
+

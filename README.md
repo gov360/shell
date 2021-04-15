@@ -49,5 +49,11 @@
 
 [Ansible用户指南](https://docs.ansible.com/ansible/latest/user_guide/index.html)
 
+[Jumpserver快速入门](https://jumpserver.readthedocs.io/zh/master/quick_start.html#)  
 
+[Markdown 语法说明](https://www.appinn.com/markdown/ "非官方网站")
 
+[VIM主帮助文件](http://vimcdoc.sourceforge.net/doc/help.html "中文非官方")  
+
+[RabbitMQ文档](https://www.rabbitmq.com/documentation.html)  
+[RocketMQ集群](https://rocketmq-1.gitbook.io/rocketmq-connector/quick-start/qian-qi-zhun-bei)
