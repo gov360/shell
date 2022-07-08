@@ -1,0 +1,25 @@
+app: ClashrAuto
+#  (name of the application)
+# (optional flags)
+
+ingredients:
+#  (instructions that describe from where to get
+#  the binary ingredients used for the AppImage)
+  dist: xenial
+  sources:
+    - deb http://archive.ubuntu.com/ubuntu/ xenial main universe
+
+  script:
+    - DLD=$(wget -q "https://api.github.com/repos/ClashrAuto/Clashr-Auto-Desktop/releases/latest" -O - | grep -E "https.*amd64.deb" | cut -d '"' -f4|head -n1)
+    - wget -c $DLD
+    
+script:
+#  (instructions on how to convert these ingredients to an AppImage)
+  - mv opt/Clashr\ Auto/* usr/bin/
+  - cp usr/share/applications/clashr-auto.desktop ./
+  - cp usr/share/icons/hicolor/256x256/apps/clashr-auto.png ./
+  - sed -i -e 's|\"||g' clashr-auto.desktop
+  - sed -i -e '2,3s|Clashr\ Auto|ClashrAuto|' clashr-auto.desktop
+  - sed -i -e '$a Name[zh_CN]=clashr-auto的桌面客户端' clashr-auto.desktop
+  - sed -i -e '$a Comment[zh_CN]=clashr-auto的桌面客户端,无需学习，简单设置即可稳定使用！' clashr-auto.desktop
+  - rm -rf opt
