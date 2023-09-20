@@ -59,5 +59,6 @@
 [RocketMQ集群](https://rocketmq-1.gitbook.io/rocketmq-connector/quick-start/qian-qi-zhun-bei)
 
 [有趣的git基础教程](https://learngitbranching.js.org/?locale=zh_CN)
-
 [白话说git](https://ohshitgit.com/zh)
+
+[网页版linux命令学习](https://bellard.org/jslinux/)
