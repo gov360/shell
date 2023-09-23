@@ -62,3 +62,5 @@
 [白话说git](https://ohshitgit.com/zh)
 
 [网页版linux命令学习](https://bellard.org/jslinux/)
+
+[可汗学院](https://zh.khanacademy.org/ "我们是一家非盈利机构，努力为全世界所有人提供免费的一流教育。")
